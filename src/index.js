@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import LandingPage from "./components/LandingPage";
-const AWS = require("aws-sdk");
 
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage />
+    {/* <LandingPage /> */}
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
