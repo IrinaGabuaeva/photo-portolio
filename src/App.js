@@ -1,5 +1,8 @@
 import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import MainPage from "./components/MainPage";
 import LandingPage from "./components/LandingPage";
+
 // function App() {
 //   return (
 //     <div className="App">
@@ -22,7 +25,12 @@ import LandingPage from "./components/LandingPage";
 // }
 
 function App() {
-  return <LandingPage />;
+  return (
+    <Switch>
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/*" component={MainPage} />
+    </Switch>
+  );
 }
 
 export default App;

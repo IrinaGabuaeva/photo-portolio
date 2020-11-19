@@ -4,11 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import LandingPage from "./components/LandingPage";
+import MainPaige from "./components/MainPage";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <LandingPage /> */}
-    <App />
+    <BrowserRouter>
+      {/* <LandingPage /> */}
+      <App />
+      {/* <MainPaige /> */}
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
