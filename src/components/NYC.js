@@ -1,10 +1,24 @@
 import React from "react";
-import "../Styles.js";
+import { Row, Column, Photo, PhotoVertical } from "../Styles.js";
 
 export default function Nyc() {
   return (
-    // <StyledLink>
-    <h1>NYC</h1>
-    // </StyledLink>
+    <Row>
+      <Column>
+        <Photo />
+        <Photo />
+        <PhotoVertical />
+      </Column>
+      <Column>
+        <PhotoVertical />
+        <Photo />
+        <Photo />
+      </Column>
+      <Column>
+        <Photo />
+        <Photo />
+        <PhotoVertical />
+      </Column>
+    </Row>
   );
 }

@@ -1,8 +1,8 @@
 // import "../App.css";
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Main, Heading, Heading2, Heading3 } from "../Styles";
-import Navigation from "./Navigation";
+import { Main, Heading, Heading2, Heading3, Svg } from "../Styles";
+import Navbar from "./Navigation";
 import People from "./People";
 import Nyc from "./NYC";
 import Nature from "./Nature";
@@ -16,7 +16,8 @@ function MainPaige(props) {
         <Heading2>Irina Gabuaeva</Heading2>
         <Heading3>Photography</Heading3>
       </Heading>
-      <Navigation />
+      <Navbar />
+
       <Switch>
         <Route path="/people" component={People} />
         <Route path="/nyc" component={Nyc} />
