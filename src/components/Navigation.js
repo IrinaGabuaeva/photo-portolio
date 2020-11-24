@@ -7,8 +7,6 @@ import Nature from "./Nature";
 import About from "./About";
 
 function Navigation(props) {
-  console.log("NAV PROPS", props);
-
   return (
     <Navbar>
       <StyledLink to="/people">People</StyledLink>
