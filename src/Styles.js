@@ -2,36 +2,36 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
-import GridLayout from "react-grid-layout";
 
-// const rotate = keyframes`
-//   from {
-//     transform: rotate(0deg);
-//   }
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
 
-//   to {
-//     transform: rotate(360deg);
-//   }
-// `;
-// const shake = keyframes`
-//   10%, 90% {
-//     transform: translate3d(-1px, 0, 0);
-//   }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+const shake = keyframes`
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-//   20%, 80% {
-//     transform: translate3d(2px, 0, 0);
-//   }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-//   30%, 50%, 70% {
-//     transform: translate3d(-4px, 0, 0);
-//   }
-
-//   40%, 60% {
-//     transform: translate3d(4px, 0, 0);
-//   }
-// `;
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+`;
 export const Main = styled.div`
   display: flex;
+
   overflow: auto;
   float: left;
   flex-direction: column;
@@ -104,17 +104,21 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     text-decoration: underline;
+    color: #303030;
+    transform: translate(0, -3px);
   }
   &:focus {
     text-decoration: underline;
   }
 `;
 
+export const Content = styled.div`
+  padding: 0 10px;
+`;
 export const Row = styled.div`
   // border: 2px solid orange;
   border: 1px ridge;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   padding: 0 4px;
   justify-content: space-between;
