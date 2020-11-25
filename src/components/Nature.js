@@ -1,5 +1,5 @@
 import { Component } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
 export default class Nature extends Component {
@@ -67,7 +67,7 @@ class ImageCard extends React.Component {
   }
 
   componentDidMount() {
-    this.imageRef.current.addEventListener("load", this.setSpans);
+    this.setSpans();
     window.addEventListener("resize", this.setSpans);
   }
 

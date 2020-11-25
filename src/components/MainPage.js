@@ -7,6 +7,7 @@ import People from "./People";
 import Nyc from "./NYC";
 import Nature from "./Nature";
 import About from "./About";
+import Nature2 from "./Nature2";
 
 function MainPaige(props) {
   console.log("PROPS", props);
@@ -21,7 +22,7 @@ function MainPaige(props) {
         <Switch>
           <Route path="/people" component={People} />
           <Route path="/nyc" component={Nyc} />
-          <Route path="/nature" component={Nature} />
+          <Route path="/nature" component={Nature2} />
           <Route path="/about" component={About} />
         </Switch>
       </Content>
