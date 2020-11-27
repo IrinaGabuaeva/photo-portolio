@@ -1,19 +1,10 @@
-import "../App.css";
 import Video from "./video/IMG_3764 copy.mp4";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import MainPage from "./MainPage";
+
 import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
 
 function LandingPage() {
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   console.log("The link was clicked.");
-  // }
-
-  // console.log("In landing Page");
-
   const history = useHistory();
 
   function handleClick() {
@@ -37,12 +28,4 @@ function LandingPage() {
   );
 }
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-`;
 export default LandingPage;
