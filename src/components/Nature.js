@@ -42,17 +42,19 @@ export default function Nature(props) {
   ]);
 
   return (
-    <Container>
+    <Container className="container">
       <ImageList images={images} />
     </Container>
   );
 }
 const ImageList = (props) => {
   const images = props.images.map((image) => {
-    return <ImageCard key={image.id} image={image} />;
+    return <ImageCard classname="ImageCard" key={image.id} image={image} />;
   });
 
-  return <StyledImageList>{images}</StyledImageList>;
+  return (
+    <StyledImageList className="StyledImageList">{images}</StyledImageList>
+  );
 };
 
 function ImageCard(props) {
@@ -78,7 +80,7 @@ function ImageCard(props) {
 
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
-      <Picture ref={box} src={urls} alt={description} />
+      <Picture className="picture" ref={box} src={urls} alt={description} />
     </div>
   );
 }

@@ -10,13 +10,13 @@ import About from "./About";
 function MainPaige(props) {
   console.log("PROPS", props);
   return (
-    <Main>
-      <Heading>
-        <Heading2>Irina Gabuaeva</Heading2>
-        <Heading3>Photography</Heading3>
+    <Main className="main">
+      <Heading className="heading">
+        <Heading2 className="heading2">Irina Gabuaeva</Heading2>
+        <Heading3 className="heading3">Photography</Heading3>
       </Heading>
-      <Navigation />
-      <Content>
+      <Navigation className="navigation" />
+      <Content className="content">
         <Switch>
           <Route path="/people" component={People} />
           <Route path="/nyc" component={Nyc} />

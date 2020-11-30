@@ -1,8 +1,13 @@
 import Video from "./video/IMG_3764 copy.mp4";
-
-import styled from "styled-components";
-
 import { useHistory } from "react-router-dom";
+import {
+  Body,
+  LandingPageBox,
+  LandingPageHeader,
+  BlackBg,
+  BgVideo,
+  BgVideoContent,
+} from "../Styles";
 
 function LandingPage() {
   const history = useHistory();
@@ -12,19 +17,20 @@ function LandingPage() {
   }
 
   return (
-    <div className="LandingPage" onClick={handleClick}>
-      <div>TEXT</div>
-      <div className="bg-video">
-        <video className="bg-video__content" autoPlay muted loop>
+    // <Body>
+    <LandingPageBox onClick={handleClick}>
+      <BgVideo>
+        <BgVideoContent autoPlay muted loop>
           <source src={Video} type="video/mp4" />
           <source src="img/video.webm" type="video.webm" />
           Your browser is not supported!
-        </video>
-      </div>
+        </BgVideoContent>
+      </BgVideo>
       <div></div>
-      <div className="black_bg"></div>
-      <header className="LandingPage-header">Irina Gabuaeva</header>
-    </div>
+      <BlackBg />
+      <LandingPageHeader>Irina Gabuaeva</LandingPageHeader>
+    </LandingPageBox>
+    // </Body>
   );
 }
 

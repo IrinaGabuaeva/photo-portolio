@@ -1,7 +1,106 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+
+////// ANIMATION
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+// export const Body = styled.body`
+//   box-sizing: border-box;
+//   font-size: 62.5%;
+//   font-family: "Tangerine", cursive;
+//   font-weight: 100;
+//   line-height: 1.7;
+//   padding: 10rem;
+//   margin: 0;
+//   border: 1px solid greenyellow;
+// `;
+
+//////// LANDING PAGE
+export const LandingPageBox = styled.div`
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Tangerine", cursive;
+  font-weight: 100;
+  line-height: 1.7;
+  padding: 10rem;
+  margin: 0;
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  left: 7px;
+  position: absolute;
+  // border: 1px solid red;
+`;
+
+export const LandingPageHeader = styled.header`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(58, 58, 58);
+  font-size: 1rem;
+  opacity: 0.8;
+  letter-spacing: 0.8rem;
+  animation-name: ${FadeIn};
+  animation-duration: 3s;
+  // border: 1px solid green;
+
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+    letter-spacing: 0.5rem;
+  }
+`;
+
+export const BlackBg = styled.div`
+  background-color: hsla(0, 0%, 2%, 1);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 7s ease-in;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  // border: 1px solid blue;
+`;
+
+export const BgVideo = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // border: 1px solid black;
+`;
+
+export const BgVideoContent = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  // overflow: hidden;
+  // border: 1px solid pink;
+`;
+
+/////// MAIN PAGE
 
 export const Main = styled.div`
   display: flex;
@@ -33,6 +132,9 @@ export const Navbar = styled.div`
   font-size: 1.2rem;
   font-weight: lighter;
   margin-bottom: 1em;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Heading = styled.div`
@@ -58,16 +160,25 @@ export const Heading2 = styled.div`
   font-size: 1.7rem;
   display: block;
   letter-spacing: 0.7rem;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+  }
 `;
 
 export const Heading3 = styled.div`
   margin-top: 0.6em;
   // background-color: plum;
-  font-size: 0.8rem;
+  // font-size: 0.8rem;
   display: block;
   font-family: "Raleway", serif;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+    letter-spacing: 0.3rem;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -83,6 +194,10 @@ export const StyledLink = styled(Link)`
   }
   &:focus {
     text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
   }
 `;
 
@@ -126,18 +241,7 @@ export const PhotoVertical = styled.img.attrs({
   width: 100%;
   transition: transform 0.2s;
 `;
-// export const Svg = styled.svg.attrs({
-//   xlink: "../components/img/SVG/envelope.svg",
-// });
-// export const Photo = styled.div`
-//   border: 2px solid red;
-//   margin-top: 8px;
-//   vertical-align: middle;
-//   width: 100%;
-//   transition: transform 0.2s;
-//   width: 100px;
-//   height: 100px;
-// `;
+
 export const StyledImageList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -152,4 +256,10 @@ export const Container = styled.div`
   width: 98%;
   border: 1px ridge;
   padding: 10px 10px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    border: none;
+    padding: 0 10;
+  }
 `;
