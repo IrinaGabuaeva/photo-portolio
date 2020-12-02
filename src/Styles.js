@@ -112,29 +112,12 @@ export const Main = styled.div`
   // flex-flow: wrap;
   align-items: center;
   // display: block;
-  padding: 1px;
+
   width: 100%;
 
   // border: 2px solid teal;
   // position: relative;
   flex-flow: column wrap;
-`;
-
-export const Navbar = styled.div`
-  // display: block;
-  // position: absolute;
-
-  align-self: stretch;
-  display: flex;
-  justify-content: space-around;
-  opacity: 0.8;
-  font-family: "Raleway";
-  font-size: 1.2rem;
-  font-weight: lighter;
-  margin-bottom: 1em;
-  @media (max-width: 600px) {
-    font-size: 1rem;
-  }
 `;
 
 export const Heading = styled.div`
@@ -148,8 +131,11 @@ export const Heading = styled.div`
   color: rgb(58, 58, 58);
   // text-align: center;
   opacity: 1;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
+  margin: 2.5em 0 2em 0;
+
+  @media (min-width: 1800px) {
+    margin: 4.5em 0 4em 0;
+  }
 `;
 export const Heading2 = styled.div`
   align-self: center;
@@ -160,9 +146,14 @@ export const Heading2 = styled.div`
   font-size: 1.7rem;
   display: block;
   letter-spacing: 0.7rem;
+
   @media (max-width: 600px) {
     font-size: 1.2rem;
     letter-spacing: 0.5rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 3.5rem;
+    letter-spacing: 1.2rem;
   }
 `;
 
@@ -178,6 +169,30 @@ export const Heading3 = styled.div`
   @media (max-width: 600px) {
     font-size: 0.8rem;
     letter-spacing: 0.3rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 1.7rem;
+    letter-spacing: 1.2rem;
+    margin-top: 25px;
+  }
+`;
+
+export const Navbar = styled.div`
+  align-self: stretch;
+  display: flex;
+  justify-content: space-around;
+  opacity: 0.8;
+  font-family: "Raleway";
+  font-size: 1.2rem;
+  font-weight: lighter;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1800px) {
+    font-size: 2.5rem;
   }
 `;
 
@@ -195,71 +210,47 @@ export const StyledLink = styled(Link)`
   &:focus {
     text-decoration: underline;
   }
-  @media (max-width: 600px) {
-    margin-left: 1.2rem;
-    margin-right: 1.2rem;
+  @media (max-width: 700px) {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
   }
 `;
 
+//////// GRID
+
 export const Content = styled.div`
-  padding: 0 10px;
+  padding: 10px 10px;
+  @media (max-width: 510px) {
+    padding: 15px 0 10px 0;
+  }
 `;
-export const Row = styled.div`
-  // border: 2px solid orange;
+
+export const PaddingBox = styled.div`
+  padding: 10px 10px;
+`;
+export const Container = styled.div`
   border: 1px ridge;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-  justify-content: space-between;
-  padding-top: 6px;
-`;
-
-export const Column = styled.div/* flex: 33.33%;
-  max-width: 33.33%; */ `
-  // border: 2px solid blue;
-  flex: 1;
-  max-width: calc(100% / 3);
-  padding: 0 4px;
-`;
-
-export const Photo = styled.img.attrs({
-  src:
-    "https://lh3.googleusercontent.com/1UxU2saHg1lRFxowJDgJF8sp-3eAiWSIMpqlksdLawoKKmeGeiAJEq4GoV4qL4S-8gNXRQL-Y7ujtFI6THC-RDRJQ9DpWfJktQHnZq3P_lGwbr1HUAEBjKKynZOQKCMF8NBfxxBh0Ew=w2400?source=screenshot.guru",
-})`
-  margin-bottom: 8px;
-  vertical-align: middle;
-  width: 100%;
-  transition: transform 0.2s;
-`;
-
-export const PhotoVertical = styled.img.attrs({
-  src:
-    "https://lh3.googleusercontent.com/xEo-GiGH8VSjaPl9sddZR6y7E4hAkeizc8C2EVVrDrFL_R4y_lLlytu_2Amx3Mlfa-NK-kYLBn_L3aIrZ-Iv-vQwKuZjnpdVMXRVG-9kaqeFKw4OXSNCKN8PjvYgZcSe175RaIdivW8=w2400?source=screenshot.guru",
-})`
-  margin-bottom: 8px;
-  vertical-align: middle;
-  width: 100%;
-  transition: transform 0.2s;
+  padding: 10px 10px;
+  border: 1px solid blue;
+  @media (max-width: 510px) {
+    border: none;
+    padding: 0;
+  }
 `;
 
 export const StyledImageList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 0px 10px;
-  grid-auto-rows: 1px;
+
+  @media (max-width: 510px) {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  @media (min-width: 1800px) {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  }
 `;
 
 export const Picture = styled.img`
   width: 100%;
-`;
-export const Container = styled.div`
-  width: 98%;
-  border: 1px ridge;
-  padding: 10px 10px;
-
-  @media (max-width: 600px) {
-    width: 100%;
-    border: none;
-    padding: 0 10;
-  }
 `;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { StyledImageList, Picture, Container } from "../Styles.js";
+const rowHeight = 5;
 
 export default function Nature(props) {
   const [images, setImages] = useState([
@@ -39,6 +40,11 @@ export default function Nature(props) {
       urls:
         "https://lh3.googleusercontent.com/SbI2i2YFpBkWfSzF9GL2TsSDJBOX2SCHkZdyVCE63Ea3r5ApNRPlHPFYTPGmWqSVF6lS5rbLsz8LGmKrRC1TAoBcYZFqj_IFYtCmhIZMZFf4zNZGZyMpHYnghNnapO1TdODgytIaY8c=w2400",
     },
+    {
+      id: 8,
+      urls:
+        "https://lh3.googleusercontent.com/fB4tFGsymGVXWxoJ7aA1AxpT3fxwElzR2ryNuO5hekhSBx9klupvJ08XfadgEiefHrZE_ASI3ZzZExDDOVfymJMQivASDdDneWXP5K8sbCwa4IFKikack3uiYuUZUP2aCON7-xy2e-E=w2400",
+    },
   ]);
 
   return (
@@ -51,22 +57,30 @@ const ImageList = (props) => {
   const images = props.images.map((image) => {
     return <ImageCard classname="ImageCard" key={image.id} image={image} />;
   });
-
+  console.log("IMAGES", images);
   return (
-    <StyledImageList className="StyledImageList">{images}</StyledImageList>
+    <StyledImageList
+      className="StyledImageList"
+      style={{ gridAutoRows: `${rowHeight}px` }}
+    >
+      {images}
+    </StyledImageList>
   );
 };
 
 function ImageCard(props) {
   const [spans, setSpan] = useState(0);
+  console.log("IMAGECARD PROPS", props);
   console.log("spans", spans);
   const { description, urls } = props.image;
   const box = useRef();
 
   useEffect(() => {
+    console.log("BOX>CURRENT", box.current);
     box.current.addEventListener("load", setSpans);
     setSpans();
     window.addEventListener("resize", setSpans);
+
     return function cleanup() {
       window.removeEventListener("resize", setSpans);
     };
@@ -74,7 +88,7 @@ function ImageCard(props) {
 
   const setSpans = () => {
     const height = box.current.clientHeight;
-    const span = height + 10;
+    const span = Math.ceil((height + 10) / rowHeight);
     setSpan(span);
   };
 

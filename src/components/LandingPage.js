@@ -7,6 +7,7 @@ import {
   BlackBg,
   BgVideo,
   BgVideoContent,
+  PaddingBox,
 } from "../Styles";
 
 function LandingPage() {
@@ -20,11 +21,13 @@ function LandingPage() {
     // <Body>
     <LandingPageBox onClick={handleClick}>
       <BgVideo>
-        <BgVideoContent autoPlay muted loop>
-          <source src={Video} type="video/mp4" />
-          <source src="img/video.webm" type="video.webm" />
-          Your browser is not supported!
-        </BgVideoContent>
+        <PaddingBox>
+          <BgVideoContent autoPlay muted loop>
+            <source src={Video} type="video/mp4" />
+            <source src="img/video.webm" type="video.webm" />
+            Your browser is not supported!
+          </BgVideoContent>
+        </PaddingBox>
       </BgVideo>
       <div></div>
       <BlackBg />
