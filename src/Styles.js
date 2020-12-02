@@ -31,7 +31,7 @@ export const LandingPageBox = styled.div`
   font-family: "Tangerine", cursive;
   font-weight: 100;
   line-height: 1.7;
-  padding: 10rem;
+
   margin: 0;
   top: 7px;
   right: 7px;
@@ -70,14 +70,13 @@ export const BlackBg = styled.div`
   z-index: 100;
   top: 0;
   left: 0;
-  // border: 1px solid blue;
+  // border: 3px solid red;
 `;
 
 export const BgVideo = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -85,7 +84,7 @@ export const BgVideo = styled.div`
   justify-content: center;
   align-items: center;
 
-  // border: 1px solid black;
+  //   border: 1px solid green;
 `;
 
 export const BgVideoContent = styled.video`
@@ -96,7 +95,7 @@ export const BgVideoContent = styled.video`
   width: 100%;
   object-fit: cover;
   pointer-events: none;
-  // overflow: hidden;
+  overflow: hidden;
   // border: 1px solid pink;
 `;
 
@@ -231,7 +230,7 @@ export const PaddingBox = styled.div`
 export const Container = styled.div`
   border: 1px ridge;
   padding: 10px 10px;
-  border: 1px solid blue;
+
   @media (max-width: 510px) {
     border: none;
     padding: 0;

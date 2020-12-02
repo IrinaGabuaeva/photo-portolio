@@ -19,15 +19,13 @@ function LandingPage() {
 
   return (
     // <Body>
-    <LandingPageBox onClick={handleClick}>
-      <BgVideo>
-        <PaddingBox>
-          <BgVideoContent autoPlay muted loop>
-            <source src={Video} type="video/mp4" />
-            <source src="img/video.webm" type="video.webm" />
-            Your browser is not supported!
-          </BgVideoContent>
-        </PaddingBox>
+    <LandingPageBox className="LandingPageBox" onClick={handleClick}>
+      <BgVideo className="BgVideo">
+        <BgVideoContent className="BgVideoContent" autoPlay muted loop>
+          <source src={Video} type="video/mp4" />
+          <source src="img/video.webm" type="video.webm" />
+          Your browser is not supported!
+        </BgVideoContent>
       </BgVideo>
       <div></div>
       <BlackBg />
