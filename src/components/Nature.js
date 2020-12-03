@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import { StyledImageList, Picture, Container } from "../Styles.js";
+
 const rowHeight = 5;
 
-export default function Nature(props) {
+export default function Nature() {
   const [images, setImages] = useState([
     {
       id: 1,
-      urls:
-        "https://lh3.googleusercontent.com/1UxU2saHg1lRFxowJDgJF8sp-3eAiWSIMpqlksdLawoKKmeGeiAJEq4GoV4qL4S-8gNXRQL-Y7ujtFI6THC-RDRJQ9DpWfJktQHnZq3P_lGwbr1HUAEBjKKynZOQKCMF8NBfxxBh0Ew=w2400?source=screenshot.guru",
+      urls: "/images/IMG_0236.JPG",
     },
     {
       id: 2,

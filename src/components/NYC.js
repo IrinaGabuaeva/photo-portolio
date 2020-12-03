@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { StyledImageList, Picture, Container } from "../Styles.js";
+
+const rowHeight = 5;
 
 export default function Nyc() {
-  return <div>NYC</div>;
+  return <img src={`${process.env.PUBLIC_URL}/images/IMG_0236.JPG`} />;
 }

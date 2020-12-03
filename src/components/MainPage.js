@@ -1,11 +1,21 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Content, Main, Heading, Heading2, Heading3 } from "../Styles";
+import {
+  Content,
+  Main,
+  Heading,
+  Heading2,
+  Heading3,
+  LogoBox,
+  Logo,
+} from "../Styles";
 import Navigation from "./Navigation";
 import People from "./People";
 import Nyc from "./NYC";
 import Nature from "./Nature";
 import About from "./About";
+import igLogo from "./Logos/logo-instagram.svg";
+import mailLogo from "./Logos/mail-outline.svg";
 
 function MainPaige(props) {
   console.log("PROPS", props);
@@ -15,6 +25,10 @@ function MainPaige(props) {
         <Heading2 className="heading2">Irina Gabuaeva</Heading2>
         <Heading3 className="heading3">Photography</Heading3>
       </Heading>
+      <LogoBox>
+        <Logo src={igLogo} />
+        <Logo src={mailLogo} />
+      </LogoBox>
       <Navigation className="navigation" />
       <Content className="content">
         <Switch>

@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
-import "react-grid-layout/css/styles.css";
-import "react-resizable/css/styles.css";
+// import igLogo from "../src/components/Logos/logo-instagram.svg";
+// import mailLogo from "./Logos/mail-outline.svg";
 
 ////// ANIMATION
 const FadeIn = keyframes`
@@ -130,7 +130,7 @@ export const Heading = styled.div`
   color: rgb(58, 58, 58);
   // text-align: center;
   opacity: 1;
-  margin: 2.5em 0 2em 0;
+  margin: 2.5em 0 1em 0;
 
   @media (min-width: 1800px) {
     margin: 4.5em 0 4em 0;
@@ -185,6 +185,7 @@ export const Navbar = styled.div`
   font-size: 1.2rem;
   font-weight: lighter;
   width: 100%;
+  padding-bottom: 30px;
 
   @media (max-width: 600px) {
     font-size: 1rem;
@@ -214,6 +215,15 @@ export const StyledLink = styled(Link)`
     margin-right: 0.3rem;
   }
 `;
+export const LogoBox = styled.div`
+  align-self: center;
+  display: flex;
+`;
+
+export const Logo = styled.img`
+  width: 20px;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+`;
 
 //////// GRID
 
@@ -228,7 +238,6 @@ export const PaddingBox = styled.div`
   padding: 10px 10px;
 `;
 export const Container = styled.div`
-  border: 1px ridge;
   padding: 10px 10px;
 
   @media (max-width: 510px) {
