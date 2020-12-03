@@ -189,6 +189,7 @@ export const Navbar = styled.div`
 
   @media (max-width: 600px) {
     font-size: 1rem;
+    padding-bottom: 10px;
   }
 
   @media (min-width: 1800px) {
@@ -229,9 +230,9 @@ export const Logo = styled.img`
 
 export const Content = styled.div`
   padding: 10px 10px;
-  @media (max-width: 510px) {
-    padding: 15px 0 10px 0;
-  }
+  // @media (max-width: 510px) {
+  //   padding: 15px 0 10px 0;
+  // }
 `;
 
 export const PaddingBox = styled.div`
@@ -241,8 +242,7 @@ export const Container = styled.div`
   padding: 10px 10px;
 
   @media (max-width: 510px) {
-    border: none;
-    padding: 0;
+    padding: 5px 5px;
   }
 `;
 
