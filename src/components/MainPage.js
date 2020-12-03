@@ -16,6 +16,7 @@ import Nature from "./Nature";
 import About from "./About";
 import igLogo from "./Logos/logo-instagram.svg";
 import mailLogo from "./Logos/mail-outline.svg";
+import linkedinLogo from "./Logos/logo-linkedin.svg";
 
 function MainPaige(props) {
   console.log("PROPS", props);
@@ -27,6 +28,7 @@ function MainPaige(props) {
       </Heading>
       <LogoBox>
         <Logo src={igLogo} />
+        <Logo src={linkedinLogo} />
         <Logo src={mailLogo} />
       </LogoBox>
       <Navigation className="navigation" />

@@ -1,9 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
-// import igLogo from "../src/components/Logos/logo-instagram.svg";
-// import mailLogo from "./Logos/mail-outline.svg";
 
 ////// ANIMATION
+
 const FadeIn = keyframes`
   0% {
     opacity: 0;
@@ -25,6 +24,7 @@ const FadeIn = keyframes`
 // `;
 
 //////// LANDING PAGE
+
 export const LandingPageBox = styled.div`
   box-sizing: border-box;
   font-size: 62.5%;
@@ -108,29 +108,20 @@ export const Main = styled.div`
   float: left;
   flex-direction: column;
   justify-content: center;
-  // flex-flow: wrap;
   align-items: center;
-  // display: block;
-
   width: 100%;
-
-  // border: 2px solid teal;
-  // position: relative;
   flex-flow: column wrap;
 `;
 
 export const Heading = styled.div`
   display: flex;
-  //border: 2px solid black;
   flex-direction: column;
-  // flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
 
   color: rgb(58, 58, 58);
-  // text-align: center;
   opacity: 1;
-  margin: 2.5em 0 1em 0;
+  margin: 2.5em 0 1.5em 0;
 
   @media (min-width: 1800px) {
     margin: 4.5em 0 4em 0;
@@ -138,7 +129,6 @@ export const Heading = styled.div`
 `;
 export const Heading2 = styled.div`
   align-self: center;
-  // background-color: yellow;
   font-weight: bold;
   font-style: italic;
   font-family: "Tangerine", cursive;
@@ -158,9 +148,8 @@ export const Heading2 = styled.div`
 
 export const Heading3 = styled.div`
   margin-top: 0.6em;
-  // background-color: plum;
-  // font-size: 0.8rem;
-  display: block;
+  // display: block;
+  align-self: center;
   font-family: "Raleway", serif;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
@@ -224,6 +213,7 @@ export const LogoBox = styled.div`
 export const Logo = styled.img`
   width: 20px;
   margin: 0 1.5rem 1.5rem 1.5rem;
+  opacity: 0.9;
 `;
 
 //////// GRID
