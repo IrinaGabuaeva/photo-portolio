@@ -14,7 +14,7 @@ function LandingPage() {
   const history = useHistory();
 
   function handleClick() {
-    return history.push("/mainPage");
+    return history.push("/people");
   }
 
   return (

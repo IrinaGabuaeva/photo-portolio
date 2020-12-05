@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import {
   Content,
   Main,
+  HeadersBox,
+  Arrow,
   Heading,
   Heading2,
   Heading3,
@@ -17,11 +19,15 @@ import About from "./About";
 import igLogo from "./Logos/logo-instagram.svg";
 import mailLogo from "./Logos/mail-outline.svg";
 import linkedinLogo from "./Logos/logo-linkedin.svg";
+import arrow from "./Logos/chevron-back-outline.svg";
 
 function MainPaige(props) {
   console.log("PROPS", props);
   return (
     <Main className="main">
+      <HeadersBox>
+        <Arrow src={arrow} />
+      </HeadersBox>
       <Heading className="heading">
         <Heading2 className="heading2">Irina Gabuaeva</Heading2>
         <Heading3 className="heading3">Photography</Heading3>

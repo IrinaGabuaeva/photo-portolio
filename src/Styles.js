@@ -105,7 +105,7 @@ export const Main = styled.div`
   display: flex;
 
   overflow: auto;
-  float: left;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -113,19 +113,32 @@ export const Main = styled.div`
   flex-flow: column wrap;
 `;
 
+export const HeadersBox = styled.div`
+  margin: 10px 10px 0 10px;
+
+  display: flex;
+  align-self: flex-start;
+
+  // justify-content: space-between;
+`;
 export const Heading = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
 
   color: rgb(58, 58, 58);
-  opacity: 1;
-  margin: 2.5em 0 1.5em 0;
+  align-self: center;
+
+  margin: 0 0 1.5em 0;
 
   @media (min-width: 1800px) {
     margin: 4.5em 0 4em 0;
   }
+`;
+export const Arrow = styled.img`
+  width: 30px;
+
+  opacity: 0.6;
+  align-self: flex-start;
 `;
 export const Heading2 = styled.div`
   align-self: center;
