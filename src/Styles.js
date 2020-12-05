@@ -113,14 +113,6 @@ export const Main = styled.div`
   flex-flow: column wrap;
 `;
 
-export const HeadersBox = styled.div`
-  margin: 10px 10px 0 10px;
-
-  display: flex;
-  align-self: flex-start;
-
-  // justify-content: space-between;
-`;
 export const Heading = styled.div`
   display: flex;
   flex-direction: column;
@@ -136,9 +128,12 @@ export const Heading = styled.div`
 `;
 export const Arrow = styled.img`
   width: 30px;
-
+  margin: 10px 10px 0 10px;
   opacity: 0.6;
   align-self: flex-start;
+  &:hover {
+    transform: scale(1.5, 1.5);
+  }
 `;
 export const Heading2 = styled.div`
   align-self: center;

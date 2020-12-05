@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import {
   Content,
   Main,
@@ -22,12 +22,15 @@ import linkedinLogo from "./Logos/logo-linkedin.svg";
 import arrow from "./Logos/chevron-back-outline.svg";
 
 function MainPaige(props) {
+  const history = useHistory();
+
+  function handleClick() {
+    return history.push("/");
+  }
   console.log("PROPS", props);
   return (
     <Main className="main">
-      <HeadersBox>
-        <Arrow src={arrow} />
-      </HeadersBox>
+      <Arrow src={arrow} onClick={handleClick} />
       <Heading className="heading">
         <Heading2 className="heading2">Irina Gabuaeva</Heading2>
         <Heading3 className="heading3">Photography</Heading3>
