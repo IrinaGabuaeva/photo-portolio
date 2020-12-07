@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Link, Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Navigation from "./Navigation";
 import People from "./People";
@@ -17,9 +17,15 @@ function MainPaige(props) {
   function handleClick() {
     return history.push("/");
   }
+
+  function clearHistory() {
+    return window.location.assign("http://www.localhost:3000/art");
+  }
+
   useEffect(() => {
-    history.push("/art/people");
+    return history.push("/art/people");
   }, []);
+
   console.log("PROPS", props);
   return (
     <Main className="main">
@@ -29,7 +35,9 @@ function MainPaige(props) {
         <Heading3 className="heading3">Photography</Heading3>
       </Heading>
       <LogoBox>
-        <Logo src={igLogo} />
+        <Link to="/instagram" onClick={() => setTimeout(clearHistory, 1000)}>
+          <Logo src={igLogo} />
+        </Link>
         <Logo src={linkedinLogo} />
         <Logo src={mailLogo} />
       </LogoBox>
