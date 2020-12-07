@@ -84,7 +84,6 @@ const LpLink = styled(Link)`
 
   &:hover {
     transform: scale(1.5, 1.5);
-    cursor: pointer;
   }
 `;
 
