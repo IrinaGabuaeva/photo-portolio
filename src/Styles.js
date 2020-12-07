@@ -115,6 +115,7 @@ export const Main = styled.div`
 export const TextBox = styled.div`
   display: flex;
   align-items: center;
+
   border: 2px solid red;
 `;
 export const Heading = styled.div`
@@ -136,6 +137,9 @@ export const MainLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 `;
 export const Arrow = styled.img`
   width: 30px;

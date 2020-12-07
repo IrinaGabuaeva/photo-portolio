@@ -1,16 +1,6 @@
 import Video from "./video/IMG_3764 copy.mp4";
-import { useHistory } from "react-router-dom";
-import {
-  Body,
-  LandingPageBox,
-  LandingPageHeader,
-  BlackBg,
-  BgVideo,
-  BgVideoContent,
-  PaddingBox,
-  MainLink,
-  TextBox,
-} from "../Styles";
+import { useHistory, Link } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 
 function LandingPage() {
   const history = useHistory();
@@ -21,7 +11,7 @@ function LandingPage() {
 
   return (
     // <Body>
-    <LandingPageBox className="LandingPageBox" onClick={handleClick}>
+    <LpBox className="LpBox" onClick={handleClick}>
       <BgVideo className="BgVideo">
         <BgVideoContent className="BgVideoContent" autoPlay muted loop>
           <source src={Video} type="video/mp4" />
@@ -32,13 +22,113 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <MainLink>Art</MainLink>
-        <LandingPageHeader>Irina Gabuaeva</LandingPageHeader>
-        <MainLink>Dev</MainLink>
+        <LpLink>Art</LpLink>
+        <LpHeader>Irina Gabuaeva</LpHeader>
+        <LpLink>Dev</LpLink>
       </TextBox>
-    </LandingPageBox>
+    </LpBox>
     // </Body>
   );
 }
-
 export default LandingPage;
+
+////// ANIMATION ////////
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+///////// STYLES ///////
+
+const LpBox = styled.div`
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Tangerine", cursive;
+  font-weight: 100;
+  line-height: 1.7;
+  margin: 0;
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  left: 7px;
+  position: absolute;
+`;
+const TextBox = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+const LpHeader = styled.header`
+  font-size: 1rem;
+  opacity: 0.8;
+  letter-spacing: 0.8rem;
+  animation-name: ${FadeIn};
+  animation-duration: 4s;
+
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+    letter-spacing: 0.5rem;
+  }
+`;
+
+const LpLink = styled(Link)`
+  font-family: "Raleway", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-decoration: none;
+  color: currentColor;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+  }
+`;
+
+const BlackBg = styled.div`
+  background-color: hsla(0, 0%, 2%, 1);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 7s ease-in;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  // border: 3px solid red;
+`;
+
+const BgVideo = styled.div`
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //   border: 1px solid green;
+`;
+
+const BgVideoContent = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  overflow: hidden;
+  // border: 1px solid pink;
+`;
