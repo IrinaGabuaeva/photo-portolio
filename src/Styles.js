@@ -112,7 +112,11 @@ export const Main = styled.div`
   width: 100%;
   flex-flow: column wrap;
 `;
-
+export const TextBox = styled.div`
+  display: flex;
+  align-items: center;
+  border: 2px solid red;
+`;
 export const Heading = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,6 +130,13 @@ export const Heading = styled.div`
     margin: 4.5em 0 4em 0;
   }
 `;
+
+export const MainLink = styled(Link)`
+  font-family: "Raleway", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-decoration: none;
+`;
 export const Arrow = styled.img`
   width: 30px;
   margin: 10px 10px 0 10px;
@@ -133,6 +144,7 @@ export const Arrow = styled.img`
   align-self: flex-start;
   &:hover {
     transform: scale(1.5, 1.5);
+    cursor: pointer;
   }
 `;
 export const Heading2 = styled.div`

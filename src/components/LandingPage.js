@@ -8,6 +8,8 @@ import {
   BgVideo,
   BgVideoContent,
   PaddingBox,
+  MainLink,
+  TextBox,
 } from "../Styles";
 
 function LandingPage() {
@@ -29,7 +31,11 @@ function LandingPage() {
       </BgVideo>
       <div></div>
       <BlackBg />
-      <LandingPageHeader>Irina Gabuaeva</LandingPageHeader>
+      <TextBox>
+        <MainLink>Art</MainLink>
+        <LandingPageHeader>Irina Gabuaeva</LandingPageHeader>
+        <MainLink>Dev</MainLink>
+      </TextBox>
     </LandingPageBox>
     // </Body>
   );
