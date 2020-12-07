@@ -43,10 +43,10 @@ function MainPaige(props) {
       <Navigation className="navigation" />
       <Content className="content">
         <Switch>
-          <Route path="/people" component={People} />
-          <Route path="/nyc" component={Nyc} />
-          <Route path="/nature" component={Nature} />
-          <Route path="/about" component={About} />
+          <Route path="/art/people" component={People} />
+          <Route path="/art/nyc" component={Nyc} />
+          <Route path="/art/nature" component={Nature} />
+          <Route path="/art/about" component={About} />
         </Switch>
       </Content>
     </Main>

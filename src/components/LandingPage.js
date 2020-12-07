@@ -3,15 +3,9 @@ import { useHistory, Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 function LandingPage() {
-  const history = useHistory();
-
-  function handleClick() {
-    return history.push("/people");
-  }
-
   return (
     // <Body>
-    <LpBox className="LpBox" onClick={handleClick}>
+    <LpBox className="LpBox">
       <BgVideo className="BgVideo">
         <BgVideoContent className="BgVideoContent" autoPlay muted loop>
           <source src={Video} type="video/mp4" />
@@ -22,9 +16,9 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLink>Art</LpLink>
+        <LpLink to="/art">Art</LpLink>
         <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLink>Dev</LpLink>
+        <LpLink to="/dev">Dev</LpLink>
       </TextBox>
     </LpBox>
     // </Body>
@@ -101,7 +95,7 @@ const BlackBg = styled.div`
   width: 100%;
   opacity: 0;
   transition: opacity 7s ease-in;
-  z-index: 100;
+
   top: 0;
   left: 0;
   // border: 3px solid red;
