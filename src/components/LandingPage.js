@@ -1,5 +1,5 @@
 import Video from "./video/IMG_3764 copy.mp4";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 function LandingPage() {
@@ -16,9 +16,13 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLink to="/art">Art</LpLink>
+        <LpLink to="/art/people" direction="margin-left">
+          Art
+        </LpLink>
         <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLink to="/dev">Dev</LpLink>
+        <LpLink to="/dev" direction="margin-right">
+          Dev
+        </LpLink>
       </TextBox>
     </LpBox>
     // </Body>
@@ -35,6 +39,16 @@ const FadeIn = keyframes`
   100% {
     opacity: 1;
   }
+`;
+const slideIn = (direction) => keyframes`
+0% {
+  ${direction}: -100%;
+}
+`;
+const slideInRight = keyframes`
+0% {
+  margin-right: -100%;
+}
 `;
 
 ///////// STYLES ///////
@@ -63,7 +77,7 @@ const TextBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 const LpHeader = styled.header`
-  font-size: 1rem;
+  font-size: 1.2rem;
   opacity: 0.8;
   letter-spacing: 0.8rem;
   animation-name: ${FadeIn};
@@ -76,11 +90,15 @@ const LpHeader = styled.header`
 `;
 
 const LpLink = styled(Link)`
-  font-family: "Raleway", serif;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-decoration: none;
   color: currentColor;
+  animation-name: ${(props) => slideIn(props.direction)};
+  animation-duration: 4s;
 
   &:hover {
     transform: scale(1.5, 1.5);

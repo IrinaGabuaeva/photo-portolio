@@ -18,14 +18,6 @@ function MainPaige(props) {
     return history.push("/");
   }
 
-  function clearHistory() {
-    return window.location.assign("http://www.localhost:3000/art");
-  }
-
-  useEffect(() => {
-    return history.push("/art/people");
-  }, []);
-
   console.log("PROPS", props);
   return (
     <Main className="main">
@@ -35,19 +27,19 @@ function MainPaige(props) {
         <Heading3 className="heading3">Photography</Heading3>
       </Heading>
       <LogoBox>
-        <Link to="/instagram" onClick={() => setTimeout(clearHistory, 1000)}>
+        <a href="https://www.instagram.com/irishka_nyx">
           <Logo src={igLogo} />
-        </Link>
+        </a>
         <Logo src={linkedinLogo} />
         <Logo src={mailLogo} />
       </LogoBox>
       <Navigation className="navigation" />
       <Content className="content">
         <Switch>
-          <Route path="/art/people" component={People} />
           <Route path="/art/nyc" component={Nyc} />
           <Route path="/art/nature" component={Nature} />
           <Route path="/art/about" component={About} />
+          <Route path="/art*" component={People} />
         </Switch>
       </Content>
     </Main>
