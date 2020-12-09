@@ -17,10 +17,12 @@ function LandingPage() {
       <BlackBg />
       <TextBox>
         <LpLink to="/art/people" direction="left">
+          <LpLinkPulse />
           Art
         </LpLink>
         <LpHeader>Irina Gabuaeva</LpHeader>
         <LpLink to="/dev" direction="right">
+          <LpLinkPulse />
           Dev
         </LpLink>
       </TextBox>
@@ -46,6 +48,22 @@ const slideIn = (direction) => keyframes`
 }
 `;
 
+const pulse = keyframes`
+	0% {
+		transform: scale(0);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(2);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+`;
 ///////// STYLES ///////
 
 const LpBox = styled.div`
@@ -83,7 +101,21 @@ const LpHeader = styled.header`
     letter-spacing: 0.5rem;
   }
 `;
+const LpLinkPulse = styled.div`
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: inline;
+  filter: blur(20px);
+  position: fixed;
+  padding: 0 20px 0 0px;
+  height: 60px;
+  width: 60px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 
+  transform: scale(1);
+  animation: ${pulse} 3s infinite;
+`;
 const LpLink = styled(Link)`
   font-family: "Raleway", sans-serif;
   font-size: 1.5rem;
@@ -91,12 +123,18 @@ const LpLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-decoration: none;
+
   color: currentColor;
   animation-name: ${(props) => slideIn(props.direction)};
   animation-duration: 3s;
 
   &:hover {
     transform: scale(1.2);
+  }
+  &:after {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+
+    transform: scale(1);
   }
 `;
 
