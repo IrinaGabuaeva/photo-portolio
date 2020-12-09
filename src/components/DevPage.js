@@ -22,26 +22,18 @@ export default function DevPage() {
 function DevNavigation() {
   return (
     <DevNavbar>
-      <DevLink smooth to="path/#about">
-        About
-      </DevLink>
-      <DevLink smooth to="">
-        Projects
-      </DevLink>
-      <DevLink smooth to="">
-        Skills
-      </DevLink>
-      <DevLink snooth to="">
-        Contact
-      </DevLink>
+      <DevLink to="#about">About</DevLink>
+      <DevLink to="#projects">Projects</DevLink>
+      <DevLink to="#skills">Skills</DevLink>
+      <DevLink to="#contact">Contact</DevLink>
     </DevNavbar>
   );
 }
 
 function About() {
   return (
-    <AboutBox id="about">
-      <Header>About</Header>
+    <AboutBox>
+      <Header id="about">About</Header>
       <RowDirection>
         <Picture />
         <Description>
@@ -61,7 +53,7 @@ function About() {
 function Projects() {
   return (
     <ProjectsBox>
-      <Header>PROJECTS</Header>
+      <Header id="projects">PROJECTS</Header>
       <RowDirection>
         <SingleProject>
           <Picture />
@@ -85,7 +77,7 @@ function Projects() {
 function Skills() {
   return (
     <SkillsBox>
-      <Header>SKILLS</Header>
+      <Header id="skills">SKILLS</Header>
     </SkillsBox>
   );
 }
@@ -93,7 +85,7 @@ function Skills() {
 function Contact() {
   return (
     <ContactBox>
-      <Header>CONTACT</Header>
+      <Header id="contact">CONTACT</Header>
     </ContactBox>
   );
 }
