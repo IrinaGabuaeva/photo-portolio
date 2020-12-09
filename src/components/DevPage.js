@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import { Navbar, StyledLink } from "../Styles";
-import { HashLink } from "react-router-hash-link";
-{
-  /* <HashLink smooth to="/path#hash">
-  Link to Hash Fragment
-</HashLink>; */
-}
+import { Navbar } from "../Styles";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function DevPage() {
   return (
@@ -22,10 +17,46 @@ export default function DevPage() {
 function DevNavigation() {
   return (
     <DevNavbar>
-      <DevLink to="#about">About</DevLink>
-      <DevLink to="#projects">Projects</DevLink>
-      <DevLink to="#skills">Skills</DevLink>
-      <DevLink to="#contact">Contact</DevLink>
+      <DevLink
+        to="about"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        About
+      </DevLink>
+      <DevLink
+        to="projects"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        Projects
+      </DevLink>
+      <DevLink
+        to="skills"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        Skills
+      </DevLink>
+      <DevLink
+        to="contact"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        Contact
+      </DevLink>
     </DevNavbar>
   );
 }
@@ -52,7 +83,7 @@ function About() {
 
 function Projects() {
   return (
-    <ProjectsBox>
+    <ProjectsBox className="projects">
       <Header id="projects">PROJECTS</Header>
       <RowDirection>
         <SingleProject>
@@ -103,11 +134,19 @@ const DevNavbar = styled(Navbar)`
   opacity: 2;
   padding: 20px 0 20px 0;
 `;
-const DevLink = styled(HashLink)`
+const DevLink = styled(Link)`
   margin-left: 4rem;
   margin-right: 4rem;
   text-decoration: none;
   color: currentColor;
+
+  &:active {
+    color: #90d8f0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Header = styled.header`
   font-size: 35px;
