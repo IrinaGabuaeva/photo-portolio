@@ -16,11 +16,11 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLink to="/art/people" direction="margin-left">
+        <LpLink to="/art/people" direction="left">
           Art
         </LpLink>
         <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLink to="/dev" direction="margin-right">
+        <LpLink to="/dev" direction="right">
           Dev
         </LpLink>
       </TextBox>
@@ -42,12 +42,7 @@ const FadeIn = keyframes`
 `;
 const slideIn = (direction) => keyframes`
 0% {
-  ${direction}: -100%;
-}
-`;
-const slideInRight = keyframes`
-0% {
-  margin-right: -100%;
+  margin-${direction}: -100%;
 }
 `;
 
@@ -98,10 +93,10 @@ const LpLink = styled(Link)`
   text-decoration: none;
   color: currentColor;
   animation-name: ${(props) => slideIn(props.direction)};
-  animation-duration: 4s;
+  animation-duration: 3s;
 
   &:hover {
-    transform: scale(1.5, 1.5);
+    transform: scale(1.2);
   }
 `;
 
