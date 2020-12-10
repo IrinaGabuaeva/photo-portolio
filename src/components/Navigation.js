@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Navbar, StyledLink } from "../Styles";
+import { Navbar, colorPrimary } from "../Styles";
 
 function Navigation(props) {
   return (
@@ -14,5 +14,25 @@ function Navigation(props) {
 }
 
 export default Navigation;
+
+const StyledLink = styled(Link)`
+  margin-left: 4rem;
+  margin-right: 4rem;
+  text-decoration: none;
+  color: currentColor;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${colorPrimary};
+    transform: translate(0, -3px);
+  }
+  &:focus {
+    text-decoration: underline;
+  }
+  @media (max-width: 700px) {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+`;
 
 ////// STYLES //////

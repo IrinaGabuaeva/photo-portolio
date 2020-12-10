@@ -1,6 +1,7 @@
 import Video from "./video/IMG_3764 copy.mp4";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { colorPrimary } from "../Styles";
 
 function LandingPage() {
   return (
@@ -16,15 +17,13 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLink to="/art/people" direction="left">
-          <LpLinkPulse />
-          Art
-        </LpLink>
+        <LpLinkPulse direction="left">
+          <LpLink to="/art/people">Art</LpLink>
+        </LpLinkPulse>
         <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLink to="/dev" direction="right">
-          <LpLinkPulse />
-          Dev
-        </LpLink>
+        <LpLinkPulse direction="right">
+          <LpLink to="/dev">Dev</LpLink>
+        </LpLinkPulse>
       </TextBox>
     </LpBox>
     // </Body>
@@ -49,19 +48,22 @@ const slideIn = (direction) => keyframes`
 `;
 
 const pulse = keyframes`
-	0% {
-		transform: scale(0);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
+0% {
+  opacity: .5;
+  font-size: 1rem;
+}
 
-	70% {
-		transform: scale(2);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	40% {
+    opacity: 1;
+    font-size: 2rem;
 	}
-
+60% {
+  color: black;
+font-weight: 500;
+}
 	100% {
-		transform: scale(0);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	
+     opacity: 0;
 	}
 `;
 ///////// STYLES ///////
@@ -102,39 +104,27 @@ const LpHeader = styled.header`
   }
 `;
 const LpLinkPulse = styled.div`
-  background-color: white;
-  border-radius: 50%;
-  padding: 0.5rem;
-  display: inline;
-  filter: blur(20px);
-  position: fixed;
-  padding: 0 20px 0 0px;
-  height: 60px;
-  width: 60px;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-
-  transform: scale(1);
-  animation: ${pulse} 3s infinite;
+  animation-name: ${(props) => slideIn(props.direction)};
+  animation-duration: 3s;
 `;
 const LpLink = styled(Link)`
   font-family: "Raleway", sans-serif;
   font-size: 1.5rem;
-  font-weight: 100;
+  font-weight: 200;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   text-decoration: none;
 
-  color: currentColor;
-  animation-name: ${(props) => slideIn(props.direction)};
-  animation-duration: 3s;
+  color: white;
+
+  animation: ${pulse} 3s infinite;
+  animation-delay: 2.8s;
 
   &:hover {
     transform: scale(1.2);
   }
   &:after {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-
-    transform: scale(1);
+    transform: scale(1.2);
   }
 `;
 

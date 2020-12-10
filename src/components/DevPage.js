@@ -159,7 +159,7 @@ const DevLink = styled(Link)`
   }
 `;
 const HeaderBox = styled.div`
-  border-bottom: 1px ridge ${colorPrimary};
+  border-bottom: 1px ridge white;
   margin: 0 0 30px 0;
 `;
 const Header = styled.header`
@@ -169,7 +169,7 @@ const Header = styled.header`
   font-family: "Raleway", sans-serif;
   font-weight: 100;
   letter-spacing: 0.5rem;
-  color: ${colorPrimary};
+  color: white;
 `;
 const RowDirection = styled.div`
   display: flex;

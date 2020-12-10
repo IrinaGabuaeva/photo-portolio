@@ -33,25 +33,7 @@ export const Navbar = styled.div`
     font-size: 2.5rem;
   }
 `;
-export const StyledLink = styled(Link)`
-  margin-left: 4rem;
-  margin-right: 4rem;
-  text-decoration: none;
-  color: currentColor;
 
-  &:hover {
-    text-decoration: underline;
-    color: #303030;
-    transform: translate(0, -3px);
-  }
-  &:focus {
-    text-decoration: underline;
-  }
-  @media (max-width: 700px) {
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-  }
-`;
 //////// GRID
 
 export const PaddingBox = styled.div`
