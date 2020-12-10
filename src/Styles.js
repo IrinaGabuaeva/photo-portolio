@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 //   border: 1px solid greenyellow;
 // `;
 
+export const colorPrimary = "#90d8f0";
+
 export const Navbar = styled.div`
   align-self: stretch;
   display: flex;
