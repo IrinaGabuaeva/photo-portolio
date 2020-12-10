@@ -11,7 +11,9 @@ import { Link } from "react-router-dom";
 //   border: 1px solid greenyellow;
 // `;
 
+/////// COLORS /////////
 export const colorPrimary = "#90d8f0";
+export const blueBg = "rgba(144, 216, 240, .5)";
 
 export const Navbar = styled.div`
   align-self: stretch;
@@ -34,7 +36,7 @@ export const Navbar = styled.div`
   }
 `;
 
-//////// GRID
+//////// GRID ////////
 
 export const PaddingBox = styled.div`
   padding: 10px 10px;

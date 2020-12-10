@@ -1,20 +1,38 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { Navbar, colorPrimary } from "../Styles";
+import { Navbar, colorPrimary, blueBg } from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
+const blueMode = {
+  text: "black",
+  bg: blueBg,
+};
+const darkMode = {
+  text: "white",
+  bg: "black",
+};
+
 export default function DevPage() {
+  const [mode, setMode] = useState(darkMode);
+
+  const newMode = mode === darkMode ? blueMode : darkMode;
+
+  const toggle = (mode) => {
+    setMode(newMode);
+  };
+  console.log("MODE", mode);
   return (
     <Body>
-      <DevNavigation />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
+      <DevNavigation toggle={toggle} />
+      <About mode={mode} />
+      <Projects mode={mode} />
+      <Skills mode={mode} />
+      <Contact mode={mode} />
     </Body>
   );
 }
 
-function DevNavigation() {
+function DevNavigation(props) {
   return (
     <DevNavbar>
       <DevLink
@@ -57,19 +75,21 @@ function DevNavigation() {
       >
         Contact
       </DevLink>
+      <BlueButton onClick={() => props.toggle()}>Feeling blue?</BlueButton>
     </DevNavbar>
   );
 }
 
-function About() {
+function About(props) {
+  console.log("PROPS", props);
   return (
-    <AboutBox>
-      <HeaderBox>
-        <Header id="about">About</Header>
+    <ContentBox id="about" bgColor={props.mode.bg} color={props.mode.text}>
+      <HeaderBox color={props.mode.text}>
+        <Header color={props.mode.text}>About</Header>
       </HeaderBox>
       <RowDirection>
-        <Picture />
-        <Description>
+        <Picture color={props.mode.text} />
+        <Description color={props.mode.text}>
           After working in the restaurant industry for 16 years I found myself
           intrigued and fascinated by the software engineering field. It allows
           me to grow professionally and as a person, constantly pushing me out
@@ -80,53 +100,59 @@ function About() {
           responsible.
         </Description>
       </RowDirection>
-    </AboutBox>
+    </ContentBox>
   );
 }
 
-function Projects() {
+function Projects(props) {
   return (
-    <ProjectsBox className="projects">
-      <HeaderBox>
-        <Header id="projects">PROJECTS</Header>
+    <ContentBox id="projects" bgColor={props.mode.bg} color={props.mode.text}>
+      <HeaderBox color={props.mode.text}>
+        <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
       <RowDirection>
         <SingleProject>
           <Picture />
-          <Description>PROJECT1 DESCRIPTION</Description>
+          <Description color={props.mode.text}>
+            PROJECT1 DESCRIPTION
+          </Description>
         </SingleProject>
 
         <SingleProject>
           <Picture />
-          <Description>PROJECT2 DESCRIPTION</Description>
+          <Description color={props.mode.text}>
+            PROJECT2 DESCRIPTION
+          </Description>
         </SingleProject>
 
         <SingleProject>
           <Picture />
-          <Description>PROJECT3 DESCRIPTION</Description>
+          <Description color={props.mode.text}>
+            PROJECT3 DESCRIPTION
+          </Description>
         </SingleProject>
       </RowDirection>
-    </ProjectsBox>
+    </ContentBox>
   );
 }
 
-function Skills() {
+function Skills(props) {
   return (
-    <SkillsBox>
-      <HeaderBox>
-        <Header id="skills">SKILLS</Header>
+    <ContentBox id="skills" bgColor={props.mode.bg} color={props.mode.text}>
+      <HeaderBox color={props.mode.text}>
+        <Header color={props.mode.text}>SKILLS</Header>
       </HeaderBox>
-    </SkillsBox>
+    </ContentBox>
   );
 }
 
-function Contact() {
+function Contact(props) {
   return (
-    <ContactBox>
-      <HeaderBox>
-        <Header id="contact">CONTACT</Header>
+    <ContentBox id="contact" bgColor={props.mode.bg} color={props.mode.text}>
+      <HeaderBox color={props.mode.text}>
+        <Header color={props.mode.text}>CONTACT</Header>
       </HeaderBox>
-    </ContactBox>
+    </ContentBox>
   );
 }
 
@@ -144,11 +170,31 @@ const DevNavbar = styled(Navbar)`
   padding: 20px 0 20px 0;
   border-bottom: 1px solid ${colorPrimary};
 `;
+
+const BlueButton = styled.button`
+outline: none;
+
+  background-color: ${colorPrimary};
+  color: black;
+  border 1px ridge white;
+  font-family: "Tangerine", cursive;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  text-shadow: 3px 5px 2px #474747, 2px 2px 8px rgba(144,216,240,0);
+
+  &:active {
+      border: 1px solid black;
+  }
+  &:hover {
+cursor: pointer;
+  }
+`;
 const DevLink = styled(Link)`
   margin-left: 4rem;
   margin-right: 4rem;
   text-decoration: none;
   color: white;
+  outline none;
 
   &:active {
     color: ${colorPrimary};
@@ -159,7 +205,7 @@ const DevLink = styled(Link)`
   }
 `;
 const HeaderBox = styled.div`
-  border-bottom: 1px ridge white;
+  border-bottom: 1px ridge ${(props) => props.color};
   margin: 0 0 30px 0;
 `;
 const Header = styled.header`
@@ -169,7 +215,7 @@ const Header = styled.header`
   font-family: "Raleway", sans-serif;
   font-weight: 100;
   letter-spacing: 0.5rem;
-  color: white;
+  color: ${(props) => props.color};
 `;
 const RowDirection = styled.div`
   display: flex;
@@ -180,13 +226,13 @@ const RowDirection = styled.div`
 `;
 ///// ABOUT //////
 
-const AboutBox = styled.div`
+const ContentBox = styled.div`
   display: flex;
-  background-color: black;
+  background-color: ${(props) => props.bgColor};
   flex-direction: column;
   align-items: center;
   height: 600px;
-  border-bottom: 1px ridge ${colorPrimary};
+  border-bottom: 1px ridge ${(props) => props.color};
 `;
 const Picture = styled.div`
   background-image: url(/images/me2.jpeg);
@@ -195,12 +241,12 @@ const Picture = styled.div`
   height: 200px;
   width: 300px;
   margin-right: 30px;
-  border: 1px ridge ${colorPrimary};
+  border: 1px ridge ${(props) => props.color};
   border-radius: 2px;
 `;
 const Description = styled.div`
   display: flex;
-  color: white;
+  color: ${(props) => props.color};
   width: 50%;
   padding: 30px;
   font-family: "Raleway", sans-serif;
