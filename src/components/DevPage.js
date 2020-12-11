@@ -9,18 +9,20 @@ import {
 } from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
-const blueMode = {
-  text: colorBlack,
-  bg: blueBg,
-};
 const darkMode = {
   text: colorWhite,
   bg: colorBlack,
+  buttonText: "Feeling blue?",
 };
-
+const blueMode = {
+  text: colorBlack,
+  bg: blueBg,
+  buttonText: "Cheer me up!",
+};
 const pinkMode = {
   text: colorBlack,
   bg: "#ffccff",
+  buttonText: "Back to norm",
 };
 
 export default function DevPage() {
@@ -37,13 +39,11 @@ export default function DevPage() {
     }
     setMode(newMode);
   };
-  //   const toggle = () => {
-  //     setMode(newMode);
-  //   };
+
   console.log("MODE", mode);
   return (
     <Body>
-      <DevNavigation toggle={toggle} />
+      <DevNavigation toggle={toggle} mode={mode} />
       <About mode={mode} />
       <Projects mode={mode} />
       <Skills mode={mode} />
@@ -95,7 +95,7 @@ function DevNavigation(props) {
       >
         Contact
       </DevLink>
-      <BlueButton onClick={() => props.toggle()}>Feeling blue?</BlueButton>
+      <Button onClick={() => props.toggle()}>{props.mode.buttonText}</Button>
     </DevNavbar>
   );
 }
@@ -196,7 +196,7 @@ const DevNavbar = styled(Navbar)`
   border-bottom: 1px solid ${colorPrimary};
 `;
 
-const BlueButton = styled.button`
+const Button = styled.button`
   outline: none;
   font-weight: 700;
   background-color: ${colorWhite};
