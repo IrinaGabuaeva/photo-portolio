@@ -1,15 +1,21 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Navbar, colorPrimary, blueBg } from "../Styles";
+import {
+  Navbar,
+  colorPrimary,
+  blueBg,
+  colorWhite,
+  colorBlack,
+} from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const blueMode = {
-  text: "black",
+  text: colorBlack,
   bg: blueBg,
 };
 const darkMode = {
-  text: "white",
-  bg: "black",
+  text: colorWhite,
+  bg: colorBlack,
 };
 
 export default function DevPage() {
@@ -82,13 +88,15 @@ function DevNavigation(props) {
 
 function About(props) {
   console.log("PROPS", props);
+  const [url, setUrl] = useState("/images/me2.jpeg");
+  console.log("URL", url);
   return (
     <ContentBox id="about" bgColor={props.mode.bg} color={props.mode.text}>
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>About</Header>
       </HeaderBox>
       <RowDirection>
-        <Picture color={props.mode.text} />
+        <Picture color={props.mode.text} url={url} />
         <Description color={props.mode.text}>
           After working in the restaurant industry for 16 years I found myself
           intrigued and fascinated by the software engineering field. It allows
@@ -105,33 +113,36 @@ function About(props) {
 }
 
 function Projects(props) {
+  const [urls, setUrls] = useState([
+    "/images/portfolio.png",
+    "/images/liftLog.png",
+    "/images/polishd.png",
+  ]);
   return (
     <ContentBox id="projects" bgColor={props.mode.bg} color={props.mode.text}>
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
-      <RowDirection>
-        <SingleProject>
-          <Picture />
-          <Description color={props.mode.text}>
-            PROJECT1 DESCRIPTION
-          </Description>
-        </SingleProject>
+      <SingleProject className="singleProject">
+        <ProjectPicture className="projectPicture" url={urls[0]} />
+        <ProjectDescription color={props.mode.text}>
+          PROJECT1 DESCRIPTION
+        </ProjectDescription>
+      </SingleProject>
 
-        <SingleProject>
-          <Picture />
-          <Description color={props.mode.text}>
-            PROJECT2 DESCRIPTION
-          </Description>
-        </SingleProject>
+      <SingleProject>
+        <ProjectPicture url={urls[1]} />
+        <ProjectDescription color={props.mode.text}>
+          PROJECT2 DESCRIPTION
+        </ProjectDescription>
+      </SingleProject>
 
-        <SingleProject>
-          <Picture />
-          <Description color={props.mode.text}>
-            PROJECT3 DESCRIPTION
-          </Description>
-        </SingleProject>
-      </RowDirection>
+      <SingleProject>
+        <ProjectPicture url={urls[2]} />
+        <ProjectDescription color={props.mode.text}>
+          PROJECT3 DESCRIPTION
+        </ProjectDescription>
+      </SingleProject>
     </ContentBox>
   );
 }
@@ -163,7 +174,7 @@ const Body = styled.div`
   flex-direction: column;
 `;
 const DevNavbar = styled(Navbar)`
-  background-color: black;
+  background-color: ${colorBlack};
   position: sticky;
   top: 0;
   opacity: 2;
@@ -172,28 +183,31 @@ const DevNavbar = styled(Navbar)`
 `;
 
 const BlueButton = styled.button`
-outline: none;
-
-  background-color: ${colorPrimary};
-  color: black;
-  border 1px ridge white;
+  outline: none;
+  font-weight: 700;
+  background-color: ${colorWhite};
+  color: #35b8e3;
+  //   border 1px ridge ${colorWhite};
   font-family: "Tangerine", cursive;
   letter-spacing: 0.1rem;
   font-size: 0.9rem;
-  text-shadow: 3px 5px 2px #474747, 2px 2px 8px rgba(144,216,240,0);
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #90d8f0 0px 0px 20px, #90d8f0 0px 0px 30px, #90d8f0 0px 0px 40px,
+    #90d8f0 0px 0px 50px, #90d8f0 0px 0px 75px,
+    2px 2px 2px rgba(144, 216, 240, 0);
 
   &:active {
-      border: 1px solid black;
+    border: 1px solid ${colorBlack};
   }
   &:hover {
-cursor: pointer;
+    cursor: pointer;
   }
 `;
 const DevLink = styled(Link)`
   margin-left: 4rem;
   margin-right: 4rem;
   text-decoration: none;
-  color: white;
+  color: ${colorWhite};
   outline none;
 
   &:active {
@@ -222,7 +236,7 @@ const RowDirection = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 40px 40px 200px 40px; ;
 `;
 ///// ABOUT //////
 
@@ -231,11 +245,11 @@ const ContentBox = styled.div`
   background-color: ${(props) => props.bgColor};
   flex-direction: column;
   align-items: center;
-  height: 600px;
+  //   height: 600px;
   border-bottom: 1px ridge ${(props) => props.color};
 `;
 const Picture = styled.div`
-  background-image: url(/images/me2.jpeg);
+  background-image: url(${(props) => props.url});
   background-size: cover;
   background-repeat: no-repeat;
   height: 200px;
@@ -244,6 +258,7 @@ const Picture = styled.div`
   border: 1px ridge ${(props) => props.color};
   border-radius: 2px;
 `;
+
 const Description = styled.div`
   display: flex;
   color: ${(props) => props.color};
@@ -260,7 +275,7 @@ const Description = styled.div`
 
 const ProjectsBox = styled.div`
   display: flex;
-  background-color: black;
+  background-color: ${colorBlack};
   border-bottom: 1px ridge ${colorPrimary};
   width: 100%;
   flex-direction: column;
@@ -268,14 +283,22 @@ const ProjectsBox = styled.div`
   height: 600px;
 `;
 const SingleProject = styled.div`
-  border: 1px solid black;
   flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 `;
-
+const ProjectPicture = styled(Picture)`
+  width: 480px;
+  height: 260px;
+  margin: 20px;
+`;
+const ProjectDescription = styled(Description)`
+  width: 10%;
+`;
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: ${colorBlack};
   border-bottom: 1px ridge ${colorPrimary};
   height: 600px;
   align-items: center;
@@ -283,7 +306,7 @@ const SkillsBox = styled.div`
 
 const ContactBox = styled.div`
   display: flex;
-  background-color: black;
+  background-color: ${colorBlack};
   border-bottom: 1px ridge ${colorPrimary};
   flex-direction: column;
   height: 600px;

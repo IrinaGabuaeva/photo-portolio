@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 /////// COLORS /////////
 export const colorPrimary = "#90d8f0";
 export const blueBg = "rgba(144, 216, 240, .5)";
+export const colorWhite = "#fafdff";
+export const colorBlack = "#011017";
 
 export const Navbar = styled.div`
   align-self: stretch;

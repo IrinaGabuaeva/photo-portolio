@@ -1,7 +1,7 @@
 import Video from "./video/IMG_3764 copy.mp4";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import { colorPrimary } from "../Styles";
+import { colorPrimary, colorBlack } from "../Styles";
 
 function LandingPage() {
   return (
@@ -49,22 +49,21 @@ const slideIn = (direction) => keyframes`
 
 const pulse = keyframes`
 0% {
-  opacity: .5;
+ 
   font-size: 1rem;
 }
 
 	40% {
-    opacity: 1;
+    
     font-size: 2rem;
 	}
 60% {
-  color: black;
+ 
 font-weight: 500;
 }
 	100% {
-	
-     opacity: 0;
-	}
+    font-size: 1rem;
+  }
 `;
 ///////// STYLES ///////
 
@@ -97,7 +96,7 @@ const LpHeader = styled.header`
   letter-spacing: 0.8rem;
   animation-name: ${FadeIn};
   animation-duration: 4s;
-
+  color: ${colorBlack};
   @media (max-width: 600px) {
     font-size: 0.7rem;
     letter-spacing: 0.5rem;
@@ -115,7 +114,7 @@ const LpLink = styled(Link)`
   letter-spacing: 0.5rem;
   text-decoration: none;
 
-  color: white;
+  color: rgb(58, 58, 58);
 
   animation: ${pulse} 3s infinite;
   animation-delay: 2.8s;
