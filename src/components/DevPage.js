@@ -18,14 +18,28 @@ const darkMode = {
   bg: colorBlack,
 };
 
+const pinkMode = {
+  text: colorBlack,
+  bg: "#ffccff",
+};
+
 export default function DevPage() {
   const [mode, setMode] = useState(darkMode);
 
-  const newMode = mode === darkMode ? blueMode : darkMode;
-
-  const toggle = (mode) => {
+  const toggle = () => {
+    let newMode = mode;
+    if (mode === darkMode) {
+      newMode = blueMode;
+    } else if (mode === blueMode) {
+      newMode = pinkMode;
+    } else {
+      newMode = darkMode;
+    }
     setMode(newMode);
   };
+  //   const toggle = () => {
+  //     setMode(newMode);
+  //   };
   console.log("MODE", mode);
   return (
     <Body>
