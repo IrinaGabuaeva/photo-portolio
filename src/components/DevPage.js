@@ -13,16 +13,19 @@ const darkMode = {
   text: colorWhite,
   bg: colorBlack,
   buttonText: "Feeling blue?",
+  buttonColor: colorPrimary,
 };
 const blueMode = {
   text: colorBlack,
   bg: blueBg,
   buttonText: "Cheer me up!",
+  buttonColor: colorWhite,
 };
 const pinkMode = {
   text: colorBlack,
   bg: "#ffccff",
   buttonText: "Back to norm",
+  buttonColor: colorBlack,
 };
 
 export default function DevPage() {
@@ -95,7 +98,9 @@ function DevNavigation(props) {
       >
         Contact
       </DevLink>
-      <Button onClick={() => props.toggle()}>{props.mode.buttonText}</Button>
+      <Button onClick={() => props.toggle()} color={props.mode.buttonColor}>
+        {props.mode.buttonText}
+      </Button>
     </DevNavbar>
   );
 }
@@ -197,18 +202,22 @@ const DevNavbar = styled(Navbar)`
 `;
 
 const Button = styled.button`
+  width: 120px;
   outline: none;
   font-weight: 700;
-  background-color: ${colorWhite};
-  color: #35b8e3;
+  background-color: ${(props) => props.color};
+  color: ${colorWhite};
   //   border 1px ridge ${colorWhite};
   font-family: "Tangerine", cursive;
   letter-spacing: 0.1rem;
   font-size: 0.9rem;
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-    #90d8f0 0px 0px 20px, #90d8f0 0px 0px 30px, #90d8f0 0px 0px 40px,
-    #90d8f0 0px 0px 50px, #90d8f0 0px 0px 75px,
-    2px 2px 2px rgba(144, 216, 240, 0);
+  //   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+  //     #90d8f0 0px 0px 20px, #90d8f0 0px 0px 30px, #90d8f0 0px 0px 40px,
+  //     #90d8f0 0px 0px 50px, #90d8f0 0px 0px 75px,
+  //     2px 2px 2px rgba(144, 216, 240, 0);
+
+  text-shadow: 1px 1px 2px ${colorWhite}, 0 0 1em ${colorBlack},
+    0 0 0.2em ${colorBlack};
 
   &:active {
     border: 1px solid ${colorBlack};
