@@ -19,7 +19,7 @@ const blueMode = {
   text: colorBlack,
   bg: blueBg,
   buttonText: "Cheer me up!",
-  buttonColor: colorWhite,
+  buttonColor: colorBlack,
 };
 const pinkMode = {
   text: colorBlack,
@@ -144,23 +144,55 @@ function Projects(props) {
       </HeaderBox>
       <SingleProject className="singleProject">
         <ProjectPicture className="projectPicture" url={urls[0]} />
-        <ProjectDescription color={props.mode.text}>
-          PROJECT1 DESCRIPTION
-        </ProjectDescription>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.buttonColor}>
+            Photo Portfolio
+          </ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            A photo portfolio website built with Create React App and Styled
+            Components
+          </ProjectDescription>
+          <ProjectLink
+            href="http://www.localhost:3000/art/people"
+            color={props.mode.buttonColor}
+          >
+            IrinaGabuaeva.art
+          </ProjectLink>
+        </ProjectContent>
       </SingleProject>
 
       <SingleProject>
         <ProjectPicture url={urls[1]} />
-        <ProjectDescription color={props.mode.text}>
-          PROJECT2 DESCRIPTION
-        </ProjectDescription>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.buttonColor}>Lift Log</ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            A web app that tracks your movement during weight training and logs
+            the details of your workout.
+          </ProjectDescription>
+          <ProjectLink
+            href="https://lift-log-pro.herokuapp.com/"
+            color={props.mode.buttonColor}
+          >
+            lift-log-pro.herokuapp.com
+          </ProjectLink>
+        </ProjectContent>
       </SingleProject>
 
       <SingleProject>
         <ProjectPicture url={urls[2]} />
-        <ProjectDescription color={props.mode.text}>
-          PROJECT3 DESCRIPTION
-        </ProjectDescription>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.buttonColor}>Polish'd</ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            An e-commerce web application featuring a product catalog, user
+            cart, checkout process, and admin dashboard.
+          </ProjectDescription>
+          <ProjectLink
+            href="http://polishd.herokuapp.com/"
+            color={props.mode.buttonColor}
+          >
+            polishd.herokuapp.com
+          </ProjectLink>
+        </ProjectContent>
       </SingleProject>
     </ContentBox>
   );
@@ -211,10 +243,6 @@ const Button = styled.button`
   font-family: "Tangerine", cursive;
   letter-spacing: 0.1rem;
   font-size: 0.9rem;
-  //   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-  //     #90d8f0 0px 0px 20px, #90d8f0 0px 0px 30px, #90d8f0 0px 0px 40px,
-  //     #90d8f0 0px 0px 50px, #90d8f0 0px 0px 75px,
-  //     2px 2px 2px rgba(144, 216, 240, 0);
 
   text-shadow: 1px 1px 2px ${colorWhite}, 0 0 1em ${colorBlack},
     0 0 0.2em ${colorBlack};
@@ -232,6 +260,7 @@ const DevLink = styled(Link)`
   text-decoration: none;
   color: ${colorWhite};
   outline none;
+  font-family: "Raleway", sans-serif;
 
   &:active {
     color: ${colorPrimary};
@@ -306,17 +335,44 @@ const ProjectsBox = styled.div`
   height: 600px;
 `;
 const SingleProject = styled.div`
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   width: 100%;
+  padding: 60px 0 40px 0;
+  border-bottom: 0.5px solid ${(props) => props.color};
 `;
 const ProjectPicture = styled(Picture)`
   width: 480px;
   height: 260px;
   margin: 20px;
 `;
+const ProjectContent = styled.div`
+  width: 50%;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  //   border: 1px solid red;
+`;
+const ProjectTitle = styled(Header)`
+  font-family: "Tangerine", cursive;
+  color: ${(props) => props.color};
+  font-size: 25px;
+  margin: 0;
+`;
 const ProjectDescription = styled(Description)`
-  width: 10%;
+  width: 80%;
+`;
+const ProjectLink = styled.a`
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  text-decoration: underline;
+  color: ${(props) => props.color};
+
+  font-family: "Tangerine", cursive;
 `;
 const SkillsBox = styled.div`
   display: flex;

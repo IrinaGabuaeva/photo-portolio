@@ -27,9 +27,9 @@ function MainPaige(props) {
         <Heading3 className="heading3">Photography</Heading3>
       </Heading>
       <LogoBox>
-        <a href="https://www.instagram.com/irishka_nyx">
+        <ExternalLink href="https://www.instagram.com/irishka_nyx">
           <Logo src={igLogo} />
-        </a>
+        </ExternalLink>
         <Logo src={linkedinLogo} />
         <Logo src={mailLogo} />
       </LogoBox>
@@ -129,7 +129,10 @@ const LogoBox = styled.div`
   align-self: center;
   display: flex;
 `;
-
+const ExternalLink = styled.a`
+  display: flex;
+  align-self: center;
+`;
 const Logo = styled.img`
   width: 20px;
   margin: 0 1.5rem 1.5rem 1.5rem;
