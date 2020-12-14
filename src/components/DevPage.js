@@ -9,6 +9,21 @@ import {
 } from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
+import nodeLogo from "./Logos/logo-nodejs.svg";
+import jsLogo from "./Logos/logo-javascript.svg";
+import reactLogo from "./Logos/react-js.svg";
+import expressLogo from "./Logos/expressjs.svg";
+import htmlLogo from "./Logos/logo-html5.svg";
+import reduxLogo from "./Logos/redux.svg";
+import gitLogo from "./Logos/git-branch-outline.svg";
+import githubLogo from "./Logos/logo-github.svg";
+import sequelizeLogo from "./Logos/sequelize.svg";
+import styledLogo from "./Logos/styled-components.svg";
+import cssLogo from "./Logos/logo-css3.svg";
+import materialLogo from "./Logos/material-ui.svg";
+import scssLogo from "./Logos/sass-1.svg";
+import postgresqlLogo from "./Logos/postgresql.svg";
+
 const darkMode = {
   name: "dark mode",
   text: colorWhite,
@@ -169,7 +184,11 @@ function Projects(props) {
         <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
       <SingleProject className="singleProject">
-        <ProjectPicture className="projectPicture" url={urls[0]} />
+        <ProjectPicture
+          className="projectPicture"
+          url={urls[0]}
+          color={props.mode.buttonColor}
+        />
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>
             Photo Portfolio
@@ -188,7 +207,7 @@ function Projects(props) {
       </SingleProject>
 
       <SingleProject>
-        <ProjectPicture url={urls[1]} />
+        <ProjectPicture url={urls[1]} color={props.mode.buttonColor} />
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>Lift Log</ProjectTitle>
           <ProjectDescription color={props.mode.text}>
@@ -205,7 +224,7 @@ function Projects(props) {
       </SingleProject>
 
       <SingleProject>
-        <ProjectPicture url={urls[2]} />
+        <ProjectPicture url={urls[2]} color={props.mode.buttonColor} />
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>Polish'd</ProjectTitle>
           <ProjectDescription color={props.mode.text}>
@@ -229,17 +248,69 @@ function Skills(props) {
     bg: blueBg,
     text: colorBlack,
   });
+
+  const [skills, setSkills] = useState([
+    "Node.js",
+    "Javascript",
+    "React",
+    "Express",
+    "HTML",
+    "Redux",
+    "Git",
+    "Github",
+    "Sequelize",
+    "Styled-components",
+    "CSS",
+    "Material UI",
+    "SCSS",
+    "PostgreSQL",
+  ]);
+
+  const [logos, setLogos] = useState([
+    nodeLogo,
+    jsLogo,
+    reactLogo,
+    expressLogo,
+    htmlLogo,
+    reduxLogo,
+    gitLogo,
+    githubLogo,
+    sequelizeLogo,
+    styledLogo,
+    cssLogo,
+    materialLogo,
+    scssLogo,
+    postgresqlLogo,
+  ]);
+
   const bgColor =
     props.mode.name === "mixed mode" ? localMode.bg : props.mode.bg;
   console.log("LOCAL MODE", localMode);
 
   const textColor =
     props.mode.name === "mixed mode" ? localMode.text : props.mode.text;
+  console.log("SKILLS", skills);
+  console.log("LOGOS", logos);
   return (
     <ContentBox id="skills" bgColor={bgColor} color={textColor}>
       <HeaderBox color={textColor}>
         <Header color={textColor}>SKILLS</Header>
       </HeaderBox>
+
+      <LogoBox>
+        {logos.map((logo) => {
+          console.log("MAP LOGO", logo);
+          return <Logo src={logo} />;
+        })}
+      </LogoBox>
+
+      <LogoBox>
+        {skills.map((skill) => {
+          return <SkillName>{skill}</SkillName>;
+        })}
+      </LogoBox>
+      {/* <Logo src={logos[0]} color={textColor} />
+          <SkillName color={textColor}>{skills[0]} </SkillName> */}
     </ContentBox>
   );
 }
@@ -414,6 +485,28 @@ const ProjectLink = styled.a`
 
   font-family: "Tangerine", cursive;
 `;
+
+////////// SKILLS ///////
+const LogoBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  //   width: 100px;
+  flex-wrap: wrap;
+`;
+
+const Logo = styled.img`
+  width: 60px;
+  height: 60px;
+  margin: 15px 15px 0 15px;
+  background-color: ${colorWhite};
+`;
+
+const SkillName = styled.text`
+  font-size: 1.1rem;
+  color: ${(props) => props.color};
+  margin: 13px 0 13px 13px;
+`;
+
 const SkillsBox = styled.div`
   display: flex;
   flex-direction: column;
