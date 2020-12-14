@@ -10,24 +10,33 @@ import {
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const darkMode = {
+  name: "dark mode",
   text: colorWhite,
   bg: colorBlack,
   buttonText: "Feeling blue?",
   buttonColor: colorPrimary,
 };
 const blueMode = {
+  name: "blue mode",
   text: colorBlack,
   bg: blueBg,
   buttonText: "Cheer me up!",
   buttonColor: colorBlack,
 };
 const pinkMode = {
+  name: "pink mode",
   text: colorBlack,
   bg: "#ffccff",
-  buttonText: "Back to norm",
+  buttonText: "Black & blue",
   buttonColor: colorBlack,
 };
-
+const mixedMode = {
+  name: "mixed mode",
+  text: colorWhite,
+  bg: colorBlack,
+  buttonText: "Back to norm",
+  buttonColor: colorPrimary,
+};
 export default function DevPage() {
   const [mode, setMode] = useState(darkMode);
 
@@ -37,6 +46,8 @@ export default function DevPage() {
       newMode = blueMode;
     } else if (mode === blueMode) {
       newMode = pinkMode;
+    } else if (mode === pinkMode) {
+      newMode = mixedMode;
     } else {
       newMode = darkMode;
     }
@@ -106,17 +117,27 @@ function DevNavigation(props) {
 }
 
 function About(props) {
-  console.log("PROPS", props);
+  //   console.log("PROPS", props);
   const [url, setUrl] = useState("/images/me2.jpeg");
   console.log("URL", url);
+  const [localMode, setLocalMode] = useState({
+    bg: blueBg,
+    text: colorBlack,
+  });
+  const bgColor =
+    props.mode.name === "mixed mode" ? localMode.bg : props.mode.bg;
+  console.log("LOCAL MODE", localMode);
+
+  const textColor =
+    props.mode.name === "mixed mode" ? localMode.text : props.mode.text;
   return (
-    <ContentBox id="about" bgColor={props.mode.bg} color={props.mode.text}>
-      <HeaderBox color={props.mode.text}>
-        <Header color={props.mode.text}>About</Header>
+    <ContentBox id="about" bgColor={bgColor} color={textColor}>
+      <HeaderBox color={textColor}>
+        <Header color={textColor}>About</Header>
       </HeaderBox>
       <RowDirection>
-        <Picture color={props.mode.text} url={url} />
-        <Description color={props.mode.text}>
+        <Picture color={textColor} url={url} />
+        <Description color={textColor}>
           After working in the restaurant industry for 16 years I found myself
           intrigued and fascinated by the software engineering field. It allows
           me to grow professionally and as a person, constantly pushing me out
@@ -132,13 +153,18 @@ function About(props) {
 }
 
 function Projects(props) {
+  console.log("PROJECT PROPS", props);
   const [urls, setUrls] = useState([
     "/images/portfolio.png",
     "/images/liftLog.png",
     "/images/polishd.png",
   ]);
+  const [borderColor, setColor] = useState(colorBlack);
+  console.log("BORDER COLOR", borderColor);
+  const color =
+    props.mode.name === "mixed mode" ? borderColor : props.mode.text;
   return (
-    <ContentBox id="projects" bgColor={props.mode.bg} color={props.mode.text}>
+    <ContentBox id="projects" bgColor={props.mode.bg} color={color}>
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
@@ -199,10 +225,20 @@ function Projects(props) {
 }
 
 function Skills(props) {
+  const [localMode, setLocalMode] = useState({
+    bg: blueBg,
+    text: colorBlack,
+  });
+  const bgColor =
+    props.mode.name === "mixed mode" ? localMode.bg : props.mode.bg;
+  console.log("LOCAL MODE", localMode);
+
+  const textColor =
+    props.mode.name === "mixed mode" ? localMode.text : props.mode.text;
   return (
-    <ContentBox id="skills" bgColor={props.mode.bg} color={props.mode.text}>
-      <HeaderBox color={props.mode.text}>
-        <Header color={props.mode.text}>SKILLS</Header>
+    <ContentBox id="skills" bgColor={bgColor} color={textColor}>
+      <HeaderBox color={textColor}>
+        <Header color={textColor}>SKILLS</Header>
       </HeaderBox>
     </ContentBox>
   );
@@ -298,7 +334,7 @@ const ContentBox = styled.div`
   flex-direction: column;
   align-items: center;
   //   height: 600px;
-  border-bottom: 1px ridge ${(props) => props.color};
+  border-bottom: 2px ridge ${(props) => props.color};
 `;
 const Picture = styled.div`
   background-image: url(${(props) => props.url});
@@ -341,7 +377,10 @@ const SingleProject = styled.div`
   align-items: center;
   width: 100%;
   padding: 60px 0 40px 0;
-  border-bottom: 0.5px solid ${(props) => props.color};
+
+  &:not(:last-child) {
+    border-bottom: 1px solid ${(props) => props.color};
+  }
 `;
 const ProjectPicture = styled(Picture)`
   width: 480px;
@@ -362,6 +401,7 @@ const ProjectTitle = styled(Header)`
   color: ${(props) => props.color};
   font-size: 25px;
   margin: 0;
+  border-bottom: 1px solid ${(props) => props.color};
 `;
 const ProjectDescription = styled(Description)`
   width: 80%;
