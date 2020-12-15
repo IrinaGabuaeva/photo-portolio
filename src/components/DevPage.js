@@ -291,12 +291,6 @@ function Skills(props) {
           );
         })}
       </RowDirection>
-
-      {/* <LogoBox>
-        {skills.map((skill) => {
-          return <SkillName>{skill}</SkillName>;
-        })}
-      </LogoBox> */}
     </ContentBox>
   );
 }
@@ -372,7 +366,7 @@ const Header = styled.header`
 
   margin: 0 -8px 10px 0;
   font-family: "Raleway", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: 0.5rem;
   color: ${(props) => props.color};
 `;
@@ -413,7 +407,7 @@ const Description = styled.div`
   padding: 30px;
   font-family: "Raleway", sans-serif;
   font-size: 0.8rem;
-  font-weight: 100;
+  font-weight: 400;
   margin: 0 0 0 40px;
   letter-spacing: 0.2rem;
   line-height: 1.3rem;
@@ -459,6 +453,7 @@ const ProjectTitle = styled(Header)`
   font-family: "Tangerine", cursive;
   color: ${(props) => props.color};
   font-size: 25px;
+  font-weight: 400;
   margin: 0;
   border-bottom: 1px solid ${(props) => props.color};
 `;
@@ -478,14 +473,14 @@ const ProjectLink = styled.a`
 const LogoBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px;
+  margin: 60px;
   flex-wrap: wrap;
   align-items: center;
 `;
 
 const Logo = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   background-color: ${colorWhite};
   border: 1px solid ${colorBlack};
 `;
@@ -495,6 +490,7 @@ const SkillName = styled.text`
   color: ${(props) => props.color};
   align-self: center;
   margin-top: 4px;
+  font-family: "Raleway", sans-serif;
 `;
 
 const SkillsBox = styled.div`
