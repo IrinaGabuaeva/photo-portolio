@@ -30,7 +30,9 @@ function MainPaige(props) {
         <ExternalLink href="https://www.instagram.com/irishka_nyx">
           <Logo src={igLogo} />
         </ExternalLink>
-        <Logo src={linkedinLogo} />
+        <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
+          <Logo src={linkedinLogo} />
+        </ExternalLink>
         <Logo src={mailLogo} />
       </LogoBox>
       <Navigation className="navigation" />

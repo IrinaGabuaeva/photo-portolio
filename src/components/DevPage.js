@@ -24,6 +24,10 @@ import materialLogo from "./Logos/material-ui.svg";
 import scssLogo from "./Logos/sass-1.svg";
 import postgresqlLogo from "./Logos/postgresql.svg";
 
+import mailLogo from "./Logos/mail-outline.svg";
+import linkedinLogo from "./Logos/logo-linkedin.svg";
+import facebookLogo from "./Logos/logo-facebook.svg";
+
 const darkMode = {
   name: "dark mode",
   text: colorWhite,
@@ -301,6 +305,52 @@ function Contact(props) {
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>CONTACT</Header>
       </HeaderBox>
+      <FormTitle color={props.mode.buttonColor}>
+        Have a question or want to work together?
+      </FormTitle>
+      <Form>
+        <FormContainer color={props.mode.text}>
+          <label htmlFor="name" />
+          <Input
+            type="name"
+            name="name"
+            placeholder="Name"
+            color={props.mode.text}
+          />
+
+          <label htmlFor="email" />
+          <Input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            color={props.mode.text}
+          />
+
+          <label htmlFor="message" />
+          <Textarea
+            name="message"
+            placeholder="Your Message"
+            color={props.mode.text}
+          />
+        </FormContainer>
+        <SubmitButton type="submit" color={props.mode.buttonColor}>
+          Submit
+        </SubmitButton>
+      </Form>
+      <ContactBox>
+        <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
+          <ContactLogo src={linkedinLogo} />
+        </ExternalLink>
+        <ExternalLink href="">
+          <ContactLogo src={mailLogo} />
+        </ExternalLink>
+        <ExternalLink href="https://www.github.com/IrinaGabuaeva">
+          <ContactLogo src={githubLogo} />
+        </ExternalLink>
+        <ExternalLink href="https://www.facebook.com/irina.gabuaeva">
+          <ContactLogo src={facebookLogo} />
+        </ExternalLink>
+      </ContactBox>
     </ContentBox>
   );
 }
@@ -493,20 +543,66 @@ const SkillName = styled.text`
   font-family: "Raleway", sans-serif;
 `;
 
-const SkillsBox = styled.div`
+const FormTitle = styled.text`
+  color: ${(props) => props.color};
+  font-family: "Tangerine", cursive;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+`;
+const Form = styled.form`
   display: flex;
   flex-direction: column;
-  background-color: ${colorBlack};
-  border-bottom: 1px ridge ${colorPrimary};
-  height: 600px;
-  align-items: center;
+`;
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  border: 3px solid ${(props) => props.color};
+`;
+const Input = styled.input`
+  height: 40px;
+  margin: 4px;
+  padding: 0 0 0 10px;
+  background-color: ${(props) => props.color};
+  outline: none;
+  border: none;
+  color: ${colorPrimary};
+  &::placeholder {
+    color: ${colorPrimary};
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.8px;
+  }
+`;
+const Textarea = styled.textarea`
+  height: 100px;
+  margin: 4px;
+  padding: 10px 0 0 10px;
+  background-color: ${(props) => props.color};
+  outline: none;
+  border: none;
+  color: ${colorPrimary};
+  &::placeholder {
+    color: ${colorPrimary};
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.8px;
+  }
 `;
 
+const SubmitButton = styled(Button)`
+  align-self: flex-end;
+  margin-top: 8px;
+`;
 const ContactBox = styled.div`
   display: flex;
-  background-color: ${colorBlack};
-  border-bottom: 1px ridge ${colorPrimary};
-  flex-direction: column;
-  height: 600px;
+  margin: 70px 0 -20px 0;
   align-items: center;
+`;
+const ContactLogo = styled(Logo)`
+  width: 50px;
+  height: 50px;
+  margin: 15px;
+`;
+const ExternalLink = styled.a`
+  display: flex;
+  align-self: center;
 `;
