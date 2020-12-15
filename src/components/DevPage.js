@@ -249,38 +249,21 @@ function Skills(props) {
     text: colorBlack,
   });
 
-  const [skills, setSkills] = useState([
-    "Node.js",
-    "Javascript",
-    "React",
-    "Express",
-    "HTML",
-    "Redux",
-    "Git",
-    "Github",
-    "Sequelize",
-    "Styled-components",
-    "CSS",
-    "Material UI",
-    "SCSS",
-    "PostgreSQL",
-  ]);
-
   const [logos, setLogos] = useState([
-    nodeLogo,
-    jsLogo,
-    reactLogo,
-    expressLogo,
-    htmlLogo,
-    reduxLogo,
-    gitLogo,
-    githubLogo,
-    sequelizeLogo,
-    styledLogo,
-    cssLogo,
-    materialLogo,
-    scssLogo,
-    postgresqlLogo,
+    { img: nodeLogo, name: "Node.js" },
+    { img: jsLogo, name: "Javascript" },
+    { img: reactLogo, name: "React" },
+    { img: expressLogo, name: "Express" },
+    { img: htmlLogo, name: "HTML" },
+    { img: reduxLogo, name: "Redux" },
+    { img: gitLogo, name: "Git" },
+    { img: githubLogo, name: "Github" },
+    { img: sequelizeLogo, name: "Sequelize" },
+    { img: styledLogo, name: "Styled-components" },
+    { img: cssLogo, name: "CSS" },
+    { img: materialLogo, name: "Material UI" },
+    { img: scssLogo, name: "SCSS" },
+    { img: postgresqlLogo, name: "PostgreSQL" },
   ]);
 
   const bgColor =
@@ -289,7 +272,7 @@ function Skills(props) {
 
   const textColor =
     props.mode.name === "mixed mode" ? localMode.text : props.mode.text;
-  console.log("SKILLS", skills);
+
   console.log("LOGOS", logos);
   return (
     <ContentBox id="skills" bgColor={bgColor} color={textColor}>
@@ -297,20 +280,23 @@ function Skills(props) {
         <Header color={textColor}>SKILLS</Header>
       </HeaderBox>
 
-      <LogoBox>
+      <RowDirection>
         {logos.map((logo) => {
           console.log("MAP LOGO", logo);
-          return <Logo src={logo} />;
+          return (
+            <LogoBox>
+              <Logo src={logo.img} />
+              <SkillName color={textColor}>{logo.name}</SkillName>
+            </LogoBox>
+          );
         })}
-      </LogoBox>
+      </RowDirection>
 
-      <LogoBox>
+      {/* <LogoBox>
         {skills.map((skill) => {
           return <SkillName>{skill}</SkillName>;
         })}
-      </LogoBox>
-      {/* <Logo src={logos[0]} color={textColor} />
-          <SkillName color={textColor}>{skills[0]} </SkillName> */}
+      </LogoBox> */}
     </ContentBox>
   );
 }
@@ -384,7 +370,7 @@ const HeaderBox = styled.div`
 const Header = styled.header`
   font-size: 35px;
 
-  margin: 40px -8px 10px 0;
+  margin: 0 -8px 10px 0;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
   letter-spacing: 0.5rem;
@@ -395,7 +381,8 @@ const RowDirection = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 40px 40px 200px 40px; ;
+  padding: 40px 40px 40px 40px;
+  flex-wrap: wrap;
 `;
 ///// ABOUT //////
 
@@ -406,6 +393,7 @@ const ContentBox = styled.div`
   align-items: center;
   //   height: 600px;
   border-bottom: 2px ridge ${(props) => props.color};
+  padding: 50px 0 50px 0;
 `;
 const Picture = styled.div`
   background-image: url(${(props) => props.url});
@@ -489,22 +477,24 @@ const ProjectLink = styled.a`
 ////////// SKILLS ///////
 const LogoBox = styled.div`
   display: flex;
-  flex-direction: row;
-  //   width: 100px;
+  flex-direction: column;
+  margin: 30px;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 const Logo = styled.img`
-  width: 60px;
-  height: 60px;
-  margin: 15px 15px 0 15px;
+  width: 100px;
+  height: 100px;
   background-color: ${colorWhite};
+  border: 1px solid ${colorBlack};
 `;
 
 const SkillName = styled.text`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: ${(props) => props.color};
-  margin: 13px 0 13px 13px;
+  align-self: center;
+  margin-top: 4px;
 `;
 
 const SkillsBox = styled.div`
