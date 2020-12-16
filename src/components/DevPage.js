@@ -1,5 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
+// import{ init } from 'emailjs-com';
+// init("user_TeKdi5b6kVrfOsjleRRCr");
+
+import emailjs from "emailjs-com";
 import {
   Navbar,
   colorPrimary,
@@ -300,6 +304,27 @@ function Skills(props) {
 }
 
 function Contact(props) {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_9wql7fm",
+        "template_bclag76",
+        e.target,
+        "user_TeKdi5b6kVrfOsjleRRCr"
+      )
+
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
+
   return (
     <ContentBox id="contact" bgColor={props.mode.bg} color={props.mode.text}>
       <HeaderBox color={props.mode.text}>
@@ -308,7 +333,7 @@ function Contact(props) {
       <FormTitle color={props.mode.buttonColor}>
         Have a question or want to work together?
       </FormTitle>
-      <Form>
+      <Form onSubmit={sendEmail}>
         <FormContainer color={props.mode.text}>
           <label htmlFor="name" />
           <Input
@@ -558,17 +583,19 @@ const FormContainer = styled.div`
   flex-direction: column;
   width: 500px;
   border: 3px solid ${(props) => props.color};
+  background-color: #303030;
 `;
 const Input = styled.input`
   height: 40px;
   margin: 4px;
   padding: 0 0 0 10px;
-  background-color: ${(props) => props.color};
+  background-color: ${colorWhite};
   outline: none;
   border: none;
   color: ${colorPrimary};
+  font-size: 1rem;
   &::placeholder {
-    color: ${colorPrimary};
+    color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
   }
@@ -577,12 +604,13 @@ const Textarea = styled.textarea`
   height: 100px;
   margin: 4px;
   padding: 10px 0 0 10px;
-  background-color: ${(props) => props.color};
+  background-color: ${colorWhite};
   outline: none;
   border: none;
+  font-size: 1rem;
   color: ${colorPrimary};
   &::placeholder {
-    color: ${colorPrimary};
+    color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
   }
