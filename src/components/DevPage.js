@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+
 // import{ init } from 'emailjs-com';
 // init("user_TeKdi5b6kVrfOsjleRRCr");
 
@@ -28,7 +29,6 @@ import materialLogo from "./Logos/material-ui.svg";
 import scssLogo from "./Logos/sass-1.svg";
 import postgresqlLogo from "./Logos/postgresql.svg";
 
-import mailLogo from "./Logos/mail-outline.svg";
 import linkedinLogo from "./Logos/logo-linkedin.svg";
 import facebookLogo from "./Logos/logo-facebook.svg";
 
@@ -304,6 +304,27 @@ function Skills(props) {
 }
 
 function Contact(props) {
+  const [nameValue, setNameValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [messageValue, setMessageValue] = useState("");
+
+  const nameChange = (event) => {
+    setNameValue(event.target.value);
+  };
+
+  const emailChange = (event) => {
+    setEmailValue(event.target.value);
+  };
+  const messageChange = (event) => {
+    setMessageValue(event.target.value);
+  };
+
+  const clear = (event) => {
+    setNameValue("");
+    setEmailValue("");
+    setMessageValue("");
+  };
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -317,6 +338,7 @@ function Contact(props) {
 
       .then(
         (result) => {
+          clear();
           console.log(result.text);
         },
         (error) => {
@@ -341,6 +363,8 @@ function Contact(props) {
             name="name"
             placeholder="Name"
             color={props.mode.text}
+            onChange={nameChange}
+            value={nameValue}
           />
 
           <label htmlFor="email" />
@@ -349,6 +373,8 @@ function Contact(props) {
             name="email"
             placeholder="Enter email"
             color={props.mode.text}
+            onChange={emailChange}
+            value={emailValue}
           />
 
           <label htmlFor="message" />
@@ -356,6 +382,8 @@ function Contact(props) {
             name="message"
             placeholder="Your Message"
             color={props.mode.text}
+            onChange={messageChange}
+            value={messageValue}
           />
         </FormContainer>
         <SubmitButton type="submit" color={props.mode.buttonColor}>
@@ -365,9 +393,6 @@ function Contact(props) {
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
           <ContactLogo src={linkedinLogo} />
-        </ExternalLink>
-        <ExternalLink href="">
-          <ContactLogo src={mailLogo} />
         </ExternalLink>
         <ExternalLink href="https://www.github.com/IrinaGabuaeva">
           <ContactLogo src={githubLogo} />
@@ -587,12 +612,12 @@ const FormContainer = styled.div`
 `;
 const Input = styled.input`
   height: 40px;
-  margin: 4px;
+  margin: 8px 8px 0 8px;
   padding: 0 0 0 10px;
   background-color: ${colorWhite};
   outline: none;
   border: none;
-  color: ${colorPrimary};
+  color: ${colorBlack};
   font-size: 1rem;
   &::placeholder {
     color: ${colorBlack};
@@ -602,13 +627,13 @@ const Input = styled.input`
 `;
 const Textarea = styled.textarea`
   height: 100px;
-  margin: 4px;
+  margin: 8px 8px 8px 8px;
   padding: 10px 0 0 10px;
   background-color: ${colorWhite};
   outline: none;
   border: none;
   font-size: 1rem;
-  color: ${colorPrimary};
+  color: ${colorBlack};
   &::placeholder {
     color: ${colorBlack};
     font-family: "Raleway", sans-serif;
