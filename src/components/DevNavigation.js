@@ -67,6 +67,7 @@ const DevNavbar = styled(Navbar)`
   opacity: 2;
   padding: 20px 0 20px 0;
   border-bottom: 1px solid ${colorPrimary};
+  overflow: hidden;
 `;
 
 const DevLink = styled(Link)`
