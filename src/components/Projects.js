@@ -88,19 +88,19 @@ export default function Projects(props) {
 
 //////// STYLES ///////
 
-const ProjectsBox = styled.div`
-  display: flex;
-  background-color: ${colorBlack};
-  border-bottom: 1px ridge ${colorPrimary};
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  height: 600px;
-`;
+// const ProjectsBox = styled.div`
+//   display: flex;
+//   background-color: ${colorBlack};
+//   border-bottom: 1px ridge ${colorPrimary};
+//   width: 100%;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 600px;
+// `;
 const SingleProject = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   padding: 60px 0 40px 0;
@@ -108,11 +108,21 @@ const SingleProject = styled.div`
   &:not(:last-child) {
     border-bottom: 1px solid ${(props) => props.color};
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 const ProjectPicture = styled(DevPicture)`
-  width: 480px;
+  width: 460px;
   height: 260px;
-  margin: 20px;
+  //   margin: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media (max-width: 900px) {
+    margin: 0 20px 20px 20px;
+  }
 `;
 const ProjectContent = styled.div`
   width: 50%;
@@ -122,20 +132,24 @@ const ProjectContent = styled.div`
   justify-content: space-between;
   align-items: center;
   //   border: 1px solid red;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 const ProjectTitle = styled(Header)`
   font-family: "Tangerine", cursive;
   color: ${(props) => props.color};
   font-size: 25px;
   font-weight: 400;
-  margin: 0;
+
   border-bottom: 1px solid ${(props) => props.color};
 `;
 const ProjectDescription = styled(Description)`
   width: 80%;
 `;
 const ProjectLink = styled.a`
-  font-size: 15px;
+  font-size: 25px;
   font-family: "Raleway", sans-serif;
   text-decoration: underline;
   color: ${(props) => props.color};

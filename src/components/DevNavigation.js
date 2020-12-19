@@ -61,6 +61,7 @@ export default function DevNavigation(props) {
 ////// STYLES //////
 
 const DevNavbar = styled(Navbar)`
+  display: flex;
   background-color: ${colorBlack};
   position: sticky;
   top: 0;
@@ -68,6 +69,11 @@ const DevNavbar = styled(Navbar)`
   padding: 20px 0 20px 0;
   border-bottom: 1px solid ${colorPrimary};
   overflow: hidden;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    padding: 10px 0 10px 0;
+  }
 `;
 
 const DevLink = styled(Link)`
@@ -84,5 +90,12 @@ const DevLink = styled(Link)`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+      margin: 0 1rem 0 1rem;
+  }
+  @media (min-width: 1800px) {
+      margin: 0 6rem 0 6rem;
   }
 `;

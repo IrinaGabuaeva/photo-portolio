@@ -13,20 +13,23 @@ const darkMode = {
   bg: colorBlack,
   buttonText: "Feeling blue?",
   buttonColor: colorPrimary,
+  title: colorPrimary,
 };
 const blueMode = {
   name: "blue mode",
   text: colorBlack,
   bg: blueBg,
   buttonText: "Cheer me up!",
-  buttonColor: colorBlack,
+  buttonColor: colorPrimary,
+  title: colorBlack,
 };
 const pinkMode = {
   name: "pink mode",
   text: colorBlack,
   bg: "#ffccff",
   buttonText: "Black & blue",
-  buttonColor: colorBlack,
+  buttonColor: "#ffccff",
+  title: colorBlack,
 };
 const mixedMode = {
   name: "mixed mode",
@@ -34,6 +37,7 @@ const mixedMode = {
   bg: colorBlack,
   buttonText: "Back to norm",
   buttonColor: colorPrimary,
+  title: colorPrimary,
 };
 export default function DevPage() {
   const [mode, setMode] = useState(darkMode);

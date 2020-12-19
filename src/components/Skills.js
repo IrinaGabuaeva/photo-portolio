@@ -62,7 +62,7 @@ export default function Skills(props) {
         <Header color={textColor}>SKILLS</Header>
       </HeaderBox>
 
-      <RowDirection>
+      <SkillsRowDirection>
         {logos.map((logo) => {
           console.log("MAP LOGO", logo);
           return (
@@ -72,24 +72,36 @@ export default function Skills(props) {
             </LogoBox>
           );
         })}
-      </RowDirection>
+      </SkillsRowDirection>
     </ContentBox>
   );
 }
 
 ////// STYLES /////////
+
+const SkillsRowDirection = styled(RowDirection)`
+  align-items: flex-start;
+`;
 const LogoBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 60px;
-  flex-wrap: wrap;
+  margin: 40px;
+
   align-items: center;
+
+  @media (max-width: 900px) {
+    margin: 10px;
+  }
 `;
 
 const SkillName = styled.text`
+  display: flex;
+  text-align: center;
+  justify-content: center;
   font-size: 1rem;
   color: ${(props) => props.color};
-  align-self: center;
+
   margin-top: 4px;
   font-family: "Raleway", sans-serif;
+  width: 90px;
 `;
