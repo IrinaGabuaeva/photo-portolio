@@ -65,6 +65,25 @@ font-weight: 500;
     font-size: 1rem;
   }
 `;
+
+const smallPulse = keyframes`
+0% {
+ 
+  font-size: .5rem;
+}
+
+	40% {
+    
+    font-size: 1.1rem;
+	}
+60% {
+ 
+font-weight: 500;
+}
+	100% {
+    font-size: .5rem;
+  }
+`;
 ///////// STYLES ///////
 
 const LpBox = styled.div`
@@ -91,15 +110,20 @@ const TextBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 const LpHeader = styled.header`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   opacity: 0.8;
   letter-spacing: 0.8rem;
   animation-name: ${FadeIn};
   animation-duration: 4s;
   color: ${colorBlack};
+
   @media (max-width: 600px) {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.5rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 3.2rem;
+    letter-spacing: 1.1rem;
   }
 `;
 const LpLinkPulse = styled.div`
@@ -122,8 +146,16 @@ const LpLink = styled(Link)`
   &:hover {
     transform: scale(1.2);
   }
-  &:after {
-    transform: scale(1.2);
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    animation: ${smallPulse} 3s infinite;
+    animation-delay: 2.8s;
+  }
+  @media (min-width: 1800px) {
+    font-size: 3.5rem;
+    letter-spacing: 1.2rem;
   }
 `;
 

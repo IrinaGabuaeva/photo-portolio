@@ -65,7 +65,7 @@ export default function Contact(props) {
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>CONTACT</Header>
       </HeaderBox>
-      <FormTitle color={props.mode.buttonColor}>
+      <FormTitle color={props.mode.title}>
         Have a question or want to work together?
       </FormTitle>
       <Form onSubmit={sendEmail}>
@@ -120,19 +120,15 @@ export default function Contact(props) {
 
 //////// STYLES ////////
 
-const SkillName = styled.text`
-  font-size: 1rem;
-  color: ${(props) => props.color};
-  align-self: center;
-  margin-top: 4px;
-  font-family: "Raleway", sans-serif;
-`;
-
 const FormTitle = styled.text`
   color: ${(props) => props.color};
   font-family: "Tangerine", cursive;
   font-size: 1.8rem;
   margin-bottom: 20px;
+
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+  }
 `;
 const Form = styled.form`
   display: flex;
@@ -144,6 +140,10 @@ const FormContainer = styled.div`
   width: 500px;
   border: 3px solid ${(props) => props.color};
   background-color: #303030;
+
+  @media (max-width: 900px) {
+    width: 400px;
+  }
 `;
 const Input = styled.input`
   height: 40px;
@@ -177,8 +177,11 @@ const Textarea = styled.textarea`
 `;
 
 const SubmitButton = styled(Button)`
+  height: 35px;
   align-self: flex-end;
   margin-top: 8px;
+  background-color: ${colorWhite};
+  border: 3px solid #303030;
 `;
 const ContactBox = styled.div`
   display: flex;
