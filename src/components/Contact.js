@@ -120,12 +120,13 @@ export default function Contact(props) {
 
 //////// STYLES ////////
 
-const FormTitle = styled.text`
+const FormTitle = styled.div`
   color: ${(props) => props.color};
   font-family: "Tangerine", cursive;
   font-size: 1.8rem;
   margin-bottom: 20px;
 
+  text-align: center;
   @media (max-width: 900px) {
     font-size: 1.5rem;
   }
@@ -134,6 +135,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
+
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -143,6 +145,9 @@ const FormContainer = styled.div`
 
   @media (max-width: 900px) {
     width: 400px;
+  }
+  @media (max-width: 600px) {
+    width: 300px;
   }
 `;
 const Input = styled.input`
@@ -158,7 +163,6 @@ const Input = styled.input`
     color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
-  }
 `;
 const Textarea = styled.textarea`
   height: 100px;
@@ -173,7 +177,7 @@ const Textarea = styled.textarea`
     color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
-  }
+
 `;
 
 const SubmitButton = styled(Button)`

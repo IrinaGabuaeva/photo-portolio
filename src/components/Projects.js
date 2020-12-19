@@ -123,6 +123,9 @@ const ProjectPicture = styled(DevPicture)`
   @media (max-width: 900px) {
     margin: 0 20px 20px 20px;
   }
+  @media (max-width: 600px) {
+    width: 300px;
+  }
 `;
 const ProjectContent = styled.div`
   width: 50%;
@@ -131,7 +134,6 @@ const ProjectContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  //   border: 1px solid red;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -147,6 +149,7 @@ const ProjectTitle = styled(Header)`
 `;
 const ProjectDescription = styled(Description)`
   width: 80%;
+  text-align: center;
 `;
 const ProjectLink = styled.a`
   font-size: 25px;

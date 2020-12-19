@@ -15,6 +15,8 @@ function Navigation(props) {
 
 export default Navigation;
 
+////// STYLES //////
+
 const StyledLink = styled(Link)`
   margin-left: 4rem;
   margin-right: 4rem;
@@ -34,5 +36,3 @@ const StyledLink = styled(Link)`
     margin-right: 0.3rem;
   }
 `;
-
-////// STYLES //////

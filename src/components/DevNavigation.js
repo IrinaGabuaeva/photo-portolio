@@ -91,10 +91,14 @@ const DevLink = styled(Link)`
   &:hover {
     cursor: pointer;
   }
-
   @media (max-width: 900px) {
-      margin: 0 1rem 0 1rem;
+    margin: 0 1rem 0 1rem;
+    
   }
+      @media(max-width: 600px) {
+          font-size: .8rem;
+          margin: 0 .5rem 0 .5rem;
+      }
   @media (min-width: 1800px) {
       margin: 0 6rem 0 6rem;
   }

@@ -72,7 +72,7 @@ export const Picture = styled.img`
 
 export const Button = styled.button`
   width: 130px;
-  height: 40px;
+  // height: 40px;
 
   outline: none;
   font-weight: 700;
@@ -91,11 +91,16 @@ export const Button = styled.button`
     cursor: pointer;
   }
   @media (max-width: 900px) {
-    width: 100px;
-    height: 30px;
+    width: 80px;
+
     font-weight: 100;
     letter-spacing: 0;
+    font-size: 0.5rem;
   }
+  @media (max-width: 600px) {
+    width: 50px;
+  
+
 `;
 
 export const ContentBox = styled.div`
@@ -152,6 +157,10 @@ export const DevPicture = styled.div`
 
   @media (max-width: 900px) {
     margin: 0 40px 40px 40px;
+  }
+  @media (max-width: 600px) {
+    margin: 0 10px 10px 10px;
+    width: 250px;
   }
 `;
 
