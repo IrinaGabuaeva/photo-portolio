@@ -72,7 +72,7 @@ export default function Contact(props) {
         <FormContainer color={props.mode.text}>
           <label htmlFor="name" />
           <Input
-            type="name"
+            type="text"
             name="name"
             placeholder="Name"
             color={props.mode.text}
@@ -125,10 +125,13 @@ const FormTitle = styled.div`
   font-family: "Tangerine", cursive;
   font-size: 1.8rem;
   margin-bottom: 20px;
-
   text-align: center;
-  @media (max-width: 900px) {
+
+  @media (max-width: 600px) {
     font-size: 1.5rem;
+  }
+  @media (min-width: 1800px) {
+    font-size: 3rem;
   }
 `;
 const Form = styled.form`
@@ -139,19 +142,22 @@ const Form = styled.form`
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 600px;
   border: 3px solid ${(props) => props.color};
   background-color: #303030;
 
-  @media (max-width: 900px) {
-    width: 400px;
-  }
   @media (max-width: 600px) {
-    width: 300px;
+    width: 450px;
+  }
+  @media (max-width: 450px) {
+    width: 320px;
+  }
+  @media (min-width: 1800px) {
+    width: 1200px;
   }
 `;
 const Input = styled.input`
-  height: 40px;
+  height: 50px;
   margin: 8px 8px 0 8px;
   padding: 0 0 0 10px;
   background-color: ${colorWhite};
@@ -159,13 +165,20 @@ const Input = styled.input`
   border: none;
   color: ${colorBlack};
   font-size: 1rem;
+
   &::placeholder {
     color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
+  }
+  @media (min-width: 1800px) {
+    height: 100px;
+    font-size: 1.4rem;
+    margin: 16px 16px 0 16px;
+  }
 `;
 const Textarea = styled.textarea`
-  height: 100px;
+  height: 110px;
   margin: 8px 8px 8px 8px;
   padding: 10px 0 0 10px;
   background-color: ${colorWhite};
@@ -173,15 +186,21 @@ const Textarea = styled.textarea`
   border: none;
   font-size: 1rem;
   color: ${colorBlack};
+
   &::placeholder {
     color: ${colorBlack};
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.8px;
-
+  }
+  @media (min-width: 1800px) {
+    font-size: 1.4rem;
+    height: 200px;
+    margin: 16px 16px 16px 16px;
+    padding: 40px 0 0 10px;
+  }
 `;
 
 const SubmitButton = styled(Button)`
-  height: 35px;
   align-self: flex-end;
   margin-top: 8px;
   background-color: ${colorWhite};
@@ -189,13 +208,22 @@ const SubmitButton = styled(Button)`
 `;
 const ContactBox = styled.div`
   display: flex;
-  margin: 70px 0 -20px 0;
+
   align-items: center;
+  margin: 60px 0 0 0;
+  padding-top: 20px;
+  border-top: 5px solid black;
 `;
 const ContactLogo = styled(Logo)`
   width: 50px;
   height: 50px;
-  margin: 15px;
+  margin: 0 15px 0 15px;
+
+  @media (min-width: 1800px) {
+    width: 80px;
+    height: 80px;
+    margin: 30px;
+  }
 `;
 const ExternalLink = styled.a`
   display: flex;

@@ -4,10 +4,11 @@ import {
   Header,
   HeaderBox,
   RowDirection,
-  DevPicture,
+  Picture,
   Description,
   blueBg,
   colorBlack,
+  PictureWrapper,
 } from "../Styles";
 
 export default function About(props) {
@@ -27,10 +28,12 @@ export default function About(props) {
   return (
     <ContentBox id="about" bgColor={bgColor} color={textColor}>
       <HeaderBox color={textColor}>
-        <Header color={textColor}>About</Header>
+        <Header color={textColor}>ABOUT</Header>
       </HeaderBox>
       <RowDirection>
-        <DevPicture color={textColor} url={url} />
+        <PictureWrapper>
+          <Picture color={textColor} src={url} />
+        </PictureWrapper>
         <Description color={textColor}>
           After working in the restaurant industry for 16 years I found myself
           intrigued and fascinated by the software engineering field. It allows

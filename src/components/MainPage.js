@@ -69,23 +69,29 @@ const Arrow = styled.img`
   margin: 10px 10px 0 10px;
   opacity: 0.6;
   align-self: flex-start;
+
   &:hover {
     transform: scale(1.5, 1.5);
     cursor: pointer;
+  }
+
+  @media (min-width: 1800px) {
+    width: 60px;
   }
 `;
 
 const Heading = styled.div`
   display: flex;
   flex-direction: column;
-
   color: rgb(58, 58, 58);
   align-self: center;
+  margin-bottom: 1.5em;
 
-  margin: 0 0 1.5em 0;
-
+  @media (max-width: 600px) {
+    margin-bottom: 1em;
+  }
   @media (min-width: 1800px) {
-    margin: 4.5em 0 4em 0;
+    margin: 2em 0 3em 0;
   }
 `;
 
@@ -110,7 +116,6 @@ const Heading2 = styled.div`
 
 const Heading3 = styled.div`
   margin-top: 0.6em;
-  // display: block;
   align-self: center;
   font-family: "Raleway", serif;
   text-transform: uppercase;
@@ -139,6 +144,15 @@ const Logo = styled.img`
   width: 20px;
   margin: 0 1.5rem 1.5rem 1.5rem;
   opacity: 0.9;
+
+  @media (max-width: 600px) {
+    width: 15px;
+    margin: 0 1rem 1rem 1rem;
+  }
+  @media (min-width: 1800px) {
+    width: 35px;
+    margin: 0 3rem 3rem 3rem;
+  }
 `;
 
 const Content = styled.div`
