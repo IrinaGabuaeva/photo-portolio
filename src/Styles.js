@@ -72,8 +72,6 @@ export const Picture = styled.img`
 
 export const Button = styled.button`
   width: 130px;
-  // height: 40px;
-
   outline: none;
   font-weight: 700;
   background-color: ${(props) => props.color};
@@ -99,7 +97,7 @@ export const Button = styled.button`
   }
   @media (max-width: 600px) {
     width: 50px;
-  
+  margin-right: 5px;
 
 `;
 
@@ -112,21 +110,20 @@ export const ContentBox = styled.div`
   padding: 50px 0 50px 0;
 
   @media (max-width: 900px) {
-    // padding: 10px 0 10px 0;
+    padding: 30px 0 50px 0;
   }
 `;
 
 export const HeaderBox = styled.div`
   border-bottom: 1px ridge ${(props) => props.color};
-  margin: 0 0 30px 0;
+  margin: 10px 0 60px 0;
 
-  @media (max-width: 900px) {
-    margin: 0 0 10px 0;
+  @media (max-width: 600px) {
+    margin: 10px 0 40px 0;
   }
 `;
 export const Header = styled.header`
   font-size: 35px;
-
   margin: 0 0 10px 0;
   font-family: "Raleway", sans-serif;
   font-weight: 400;
@@ -138,12 +135,7 @@ export const RowDirection = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 40px;
   flex-wrap: wrap;
-
-  @media (max-width: 900px) {
-    padding: 20px;
-  }
 `;
 export const DevPicture = styled.div`
   background-image: url(${(props) => props.url});
@@ -156,11 +148,13 @@ export const DevPicture = styled.div`
   border-radius: 2px;
 
   @media (max-width: 900px) {
-    margin: 0 40px 40px 40px;
+    width: 450px;
+    height: 300px;
+    margin-bottom: 60px;
   }
-  @media (max-width: 600px) {
-    margin: 0 10px 10px 10px;
-    width: 250px;
+  @media (max-width: 450px) {
+    width: 100%;
+    margin: 10px;
   }
 `;
 
@@ -175,10 +169,11 @@ export const Description = styled.div`
   font-weight: 400;
   // margin: 0 0 0 40px;
   letter-spacing: 0.2rem;
-  line-height: 1.3rem;
+  line-height: 1.4rem;
+  text-align: center;
 
   @media (max-width: 900px) {
-    width: 70%;
+    width: 90%;
   }
 `;
 export const Logo = styled.img`

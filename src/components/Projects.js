@@ -26,6 +26,9 @@ export default function Projects(props) {
       <HeaderBox color={props.mode.text}>
         <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
+      <SecondaryTitle color={props.mode.buttonColor}>
+        Photo Portfolio
+      </SecondaryTitle>
       <SingleProject className="singleProject">
         <ProjectPicture
           className="projectPicture"
@@ -49,6 +52,7 @@ export default function Projects(props) {
         </ProjectContent>
       </SingleProject>
 
+      <SecondaryTitle color={props.mode.buttonColor}>Lift Log</SecondaryTitle>
       <SingleProject>
         <ProjectPicture url={urls[1]} color={props.mode.buttonColor} />
         <ProjectContent>
@@ -66,6 +70,7 @@ export default function Projects(props) {
         </ProjectContent>
       </SingleProject>
 
+      <SecondaryTitle color={props.mode.buttonColor}>Polish'd</SecondaryTitle>
       <SingleProject>
         <ProjectPicture url={urls[2]} color={props.mode.buttonColor} />
         <ProjectContent>
@@ -111,20 +116,21 @@ const SingleProject = styled.div`
 
   @media (max-width: 900px) {
     flex-direction: column;
+    padding: 30px 0 50px 0;
   }
 `;
 const ProjectPicture = styled(DevPicture)`
-  width: 460px;
-  height: 260px;
-  //   margin: 20px;
+  width: 450px;
+
   background-size: contain;
   background-repeat: no-repeat;
 
   @media (max-width: 900px) {
-    margin: 0 20px 20px 20px;
+    margin-bottom: 10px;
   }
-  @media (max-width: 600px) {
-    width: 300px;
+
+  @media (max-width: 450px) {
+    width: 100%;
   }
 `;
 const ProjectContent = styled.div`
@@ -137,8 +143,11 @@ const ProjectContent = styled.div`
 
   @media (max-width: 900px) {
     width: 100%;
+    height: 130px;
+    padding-bottom: 40px;
   }
 `;
+
 const ProjectTitle = styled(Header)`
   font-family: "Tangerine", cursive;
   color: ${(props) => props.color};
@@ -146,16 +155,28 @@ const ProjectTitle = styled(Header)`
   font-weight: 400;
 
   border-bottom: 1px solid ${(props) => props.color};
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+
+const SecondaryTitle = styled(ProjectTitle)`
+  display: none;
+  @media (max-width: 900px) {
+    display: inline;
+    margin-top: 20px;
+  }
 `;
 const ProjectDescription = styled(Description)`
   width: 80%;
   text-align: center;
+  font-size: 1rem;
 `;
 const ProjectLink = styled.a`
   font-size: 25px;
   font-family: "Raleway", sans-serif;
   text-decoration: underline;
   color: ${(props) => props.color};
-
   font-family: "Tangerine", cursive;
 `;

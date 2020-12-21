@@ -71,8 +71,8 @@ const DevNavbar = styled(Navbar)`
   overflow: hidden;
   align-items: center;
 
-  @media (max-width: 900px) {
-    padding: 10px 0 10px 0;
+  @media (max-width: 600px) {
+    padding: 15px 0 15px 0;
   }
 `;
 
@@ -91,14 +91,16 @@ const DevLink = styled(Link)`
   &:hover {
     cursor: pointer;
   }
+
   @media (max-width: 900px) {
     margin: 0 1rem 0 1rem;
     
   }
-      @media(max-width: 600px) {
-          font-size: .8rem;
-          margin: 0 .5rem 0 .5rem;
+
+  @media(max-width: 600px) {
+        margin: 0 .5rem 0 .5rem;
       }
+
   @media (min-width: 1800px) {
       margin: 0 6rem 0 6rem;
   }
