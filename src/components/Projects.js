@@ -5,9 +5,10 @@ import {
   HeaderBox,
   Description,
   ContentBox,
-  DevPicture,
+  Picture,
   colorPrimary,
   colorBlack,
+  PictureWrapper,
 } from "../Styles";
 
 export default function Projects(props) {
@@ -30,11 +31,13 @@ export default function Projects(props) {
         Photo Portfolio
       </SecondaryTitle>
       <SingleProject className="singleProject">
-        <ProjectPicture
-          className="projectPicture"
-          url={urls[0]}
-          color={props.mode.buttonColor}
-        />
+        <ProjectPicture>
+          <Picture
+            className="projectPicture"
+            src={urls[0]}
+            color={props.mode.buttonColor}
+          />
+        </ProjectPicture>
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>
             Photo Portfolio
@@ -54,7 +57,9 @@ export default function Projects(props) {
 
       <SecondaryTitle color={props.mode.buttonColor}>Lift Log</SecondaryTitle>
       <SingleProject>
-        <ProjectPicture url={urls[1]} color={props.mode.buttonColor} />
+        <ProjectPicture>
+          <Picture src={urls[1]} color={props.mode.buttonColor} />
+        </ProjectPicture>
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>Lift Log</ProjectTitle>
           <ProjectDescription color={props.mode.text}>
@@ -72,7 +77,9 @@ export default function Projects(props) {
 
       <SecondaryTitle color={props.mode.buttonColor}>Polish'd</SecondaryTitle>
       <SingleProject>
-        <ProjectPicture url={urls[2]} color={props.mode.buttonColor} />
+        <ProjectPicture>
+          <Picture src={urls[2]} color={props.mode.buttonColor} />
+        </ProjectPicture>
         <ProjectContent>
           <ProjectTitle color={props.mode.buttonColor}>Polish'd</ProjectTitle>
           <ProjectDescription color={props.mode.text}>
@@ -93,15 +100,6 @@ export default function Projects(props) {
 
 //////// STYLES ///////
 
-// const ProjectsBox = styled.div`
-//   display: flex;
-//   background-color: ${colorBlack};
-//   border-bottom: 1px ridge ${colorPrimary};
-//   width: 100%;
-//   flex-direction: column;
-//   align-items: center;
-//   height: 600px;
-// `;
 const SingleProject = styled.div`
   display: flex;
   flex-direction: row;
@@ -111,31 +109,29 @@ const SingleProject = styled.div`
   padding: 60px 0 40px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid ${(props) => props.color};
+    border-bottom: 5px solid ${(props) => props.color};
   }
 
   @media (max-width: 900px) {
     flex-direction: column;
     padding: 30px 0 50px 0;
   }
-`;
-const ProjectPicture = styled(DevPicture)`
-  width: 450px;
-
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  @media (max-width: 900px) {
-    margin-bottom: 10px;
+  @media (min-width: 1800px) {
+    padding: 100px 0 100px 0;
   }
+`;
+const ProjectPicture = styled.div`
+  width: 450px;
 
   @media (max-width: 450px) {
     width: 100%;
   }
+  @media (min-width: 1800px) {
+    width: 700px;
+  }
 `;
 const ProjectContent = styled.div`
   width: 50%;
-  height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -143,8 +139,7 @@ const ProjectContent = styled.div`
 
   @media (max-width: 900px) {
     width: 100%;
-    height: 130px;
-    padding-bottom: 40px;
+    padding: 40px 0 40px 0;
   }
 `;
 
@@ -159,19 +154,27 @@ const ProjectTitle = styled(Header)`
   @media (max-width: 900px) {
     display: none;
   }
+  @media (min-width: 1800px) {
+    font-size: 45px;
+  }
 `;
 
 const SecondaryTitle = styled(ProjectTitle)`
   display: none;
   @media (max-width: 900px) {
     display: inline;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 `;
 const ProjectDescription = styled(Description)`
   width: 80%;
   text-align: center;
   font-size: 1rem;
+  margin: 50px 0 50px 0;
+
+  @media (min-width: 1800px) {
+    font-size: 1.6rem;
+  }
 `;
 const ProjectLink = styled.a`
   font-size: 25px;
@@ -179,4 +182,8 @@ const ProjectLink = styled.a`
   text-decoration: underline;
   color: ${(props) => props.color};
   font-family: "Tangerine", cursive;
+
+  @media (min-width: 1800px) {
+    font-size: 40px;
+  }
 `;

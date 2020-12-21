@@ -86,11 +86,13 @@ const LogoBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 40px;
-
   align-items: center;
 
   @media (max-width: 900px) {
     margin: 10px;
+  }
+  @media (min-width: 1800px) {
+    margin: 80px;
   }
 `;
 
@@ -104,4 +106,9 @@ const SkillName = styled.text`
   margin-top: 4px;
   font-family: "Raleway", sans-serif;
   width: 90px;
+
+  @media (min-width: 1800px) {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
 `;

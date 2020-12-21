@@ -74,6 +74,10 @@ const DevNavbar = styled(Navbar)`
   @media (max-width: 600px) {
     padding: 15px 0 15px 0;
   }
+
+  @media (min-width: 1800px) {
+    padding: 40px 0 40px 0;
+  }
 `;
 
 const DevLink = styled(Link)`
@@ -102,6 +106,6 @@ const DevLink = styled(Link)`
       }
 
   @media (min-width: 1800px) {
-      margin: 0 6rem 0 6rem;
+      margin: 0 7rem 0 7rem;
   }
 `;
