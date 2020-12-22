@@ -87,7 +87,7 @@ font-weight: 500;
 ///////// STYLES ///////
 
 const LpBox = styled.div`
-  box-sizing: border-box;
+  // box-sizing: border-box;
   font-size: 62.5%;
   font-family: "Tangerine", cursive;
   font-weight: 100;
@@ -108,6 +108,10 @@ const TextBox = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 const LpHeader = styled.header`
   font-size: 1.3rem;
@@ -118,8 +122,9 @@ const LpHeader = styled.header`
   color: ${colorBlack};
 
   @media (max-width: 600px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.5rem;
+    padding: 100px 0 100px 0;
   }
   @media (min-width: 1800px) {
     font-size: 3.2rem;
@@ -148,7 +153,7 @@ const LpLink = styled(Link)`
   }
 
   @media (max-width: 600px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 0.3rem;
     animation: ${smallPulse} 3s infinite;
     animation-delay: 2.8s;

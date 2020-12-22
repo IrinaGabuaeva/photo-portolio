@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 // export const Body = styled.body`
 //   box-sizing: border-box;
 //   font-size: 62.5%;
@@ -38,6 +38,17 @@ export const Navbar = styled.div`
   }
 `;
 
+export const UpArrow = styled.img`
+  width: 35px;
+  background-color: ${(props) => props.color};
+  margin: 40px 0 -65px 0;
+  border-radius: 5px;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+  }
+`;
 //////// GRID ////////
 
 export const PaddingBox = styled.div`
@@ -72,14 +83,14 @@ export const Picture = styled.img`
 /////// DEV PAGE ///////////
 
 export const Button = styled.button`
-  width: 130px;
+  width: 150px;
   outline: none;
   font-weight: 700;
   background-color: ${(props) => props.color};
   color: ${(props) => props.bgColor};
   font-family: "Tangerine", cursive;
   letter-spacing: 0.1rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-shadow: 0.5px 2px 0.5px #696969, 0 0 1em #c0c0c0, 0 0 0.5em ${colorBlack};
 
   &:active {
@@ -90,14 +101,17 @@ export const Button = styled.button`
   }
 
   @media (max-width: 900px) {
-    width: 80px;
-    font-weight: 100;
+    width: 100px;
+    font-weight: 400;
     letter-spacing: 0;
-    font-size: 0.5rem;
+    font-size: 0.9rem;
   }
   @media (max-width: 600px) {
-    width: 50px;
+    width: 70px;
     margin-right: 5px;
+    font-size: 0.8rem;
+    line-height: 12px;
+    padding: 7px;
   }
   @media (min-width: 1800px) {
     width: 200px;
@@ -191,6 +205,7 @@ export const Description = styled.div`
     width: 60%;
   }
 `;
+
 export const Logo = styled.img`
   width: 100px;
   height: 100px;
