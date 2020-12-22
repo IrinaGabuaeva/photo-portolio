@@ -39,10 +39,10 @@ export const Navbar = styled.div`
 `;
 
 export const UpArrow = styled.img`
-  width: 35px;
+  width: 40px;
   background-color: ${(props) => props.color};
-  margin: 40px 0 -65px 0;
-  border-radius: 5px;
+  margin: 0 0 -40px 0;
+  border-radius: 2px;
 
   &:hover {
     transform: scale(1.5, 1.5);

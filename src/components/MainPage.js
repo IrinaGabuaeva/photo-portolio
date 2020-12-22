@@ -1,5 +1,5 @@
 import { React, useEffect } from "react";
-import { Link, Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Navigation from "./Navigation";
 import People from "./People";
@@ -10,6 +10,8 @@ import igLogo from "./Logos/logo-instagram.svg";
 import mailLogo from "./Logos/mail-outline.svg";
 import linkedinLogo from "./Logos/logo-linkedin.svg";
 import arrow from "./Logos/chevron-back-outline.svg";
+import upArrow from "./Logos/up-arrow.svg";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 function MainPaige(props) {
   const history = useHistory();
@@ -44,6 +46,16 @@ function MainPaige(props) {
           <Route path="/art*" component={People} />
         </Switch>
       </Content>
+      <Link
+        to="heading"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        <UpArrow src={upArrow} />
+      </Link>
     </Main>
   );
 }
@@ -65,7 +77,7 @@ const Main = styled.div`
 `;
 
 const Arrow = styled.img`
-  width: 30px;
+  width: 35px;
   margin: 10px 10px 0 10px;
   opacity: 0.6;
   align-self: flex-start;
@@ -155,6 +167,18 @@ const Logo = styled.img`
   }
 `;
 
+export const UpArrow = styled.img`
+  width: 40px;
+  border-radius: 2px;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+  }
+  @media (min-width: 1800px) {
+    width: 65px;
+  }
+`;
 const Content = styled.div`
   padding: 10px 10px;
   // @media (max-width: 510px) {

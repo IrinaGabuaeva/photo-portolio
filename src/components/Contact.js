@@ -8,7 +8,6 @@ import {
   Button,
   colorWhite,
   colorBlack,
-  UpArrow,
 } from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
@@ -106,16 +105,7 @@ export default function Contact(props) {
           Submit
         </SubmitButton>
       </Form>
-      <Link
-        to="about"
-        activeClass="active"
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-      >
-        <UpArrow src={upArrow} color={props.mode.buttonColor} />
-      </Link>
+
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
           <ContactLogo src={linkedinLogo} />
@@ -127,6 +117,16 @@ export default function Contact(props) {
           <ContactLogo src={facebookLogo} />
         </ExternalLink>
       </ContactBox>
+      <Link
+        to="about"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        <UpArrow src={upArrow} color={props.mode.buttonColor} />
+      </Link>
     </ContentBox>
   );
 }
@@ -222,11 +222,8 @@ const SubmitButton = styled(Button)`
 
 const ContactBox = styled.div`
   display: flex;
-
   align-items: center;
-  margin: 60px 0 0 0;
-  padding-top: 20px;
-  border-top: 5px solid black;
+  margin: 60px 0 40px 0;
 `;
 const ContactLogo = styled(Logo)`
   width: 50px;
@@ -242,4 +239,16 @@ const ContactLogo = styled(Logo)`
 const ExternalLink = styled.a`
   display: flex;
   align-self: center;
+`;
+
+const UpArrow = styled.img`
+  width: 40px;
+  background-color: ${(props) => props.color};
+  margin: 0 0 -40px 0;
+  border-radius: 2px;
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+  }
 `;
