@@ -97,13 +97,13 @@ const Heading = styled.div`
   flex-direction: column;
   color: rgb(58, 58, 58);
   align-self: center;
-  margin-bottom: 1.5em;
-
+  margin-bottom: 1.5rem;
+  border: 1px solid red;
   @media (max-width: 600px) {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
   }
   @media (min-width: 1800px) {
-    margin: 2em 0 3em 0;
+    margin: 2rem 0 3rem 0;
   }
 `;
 
@@ -127,7 +127,7 @@ const Heading2 = styled.div`
 `;
 
 const Heading3 = styled.div`
-  margin-top: 0.6em;
+  margin-top: 0.6rem;
   align-self: center;
   font-family: "Raleway", serif;
   text-transform: uppercase;
