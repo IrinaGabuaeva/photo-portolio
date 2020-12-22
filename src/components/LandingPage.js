@@ -17,11 +17,11 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLinkPulse direction="left">
+        <LpLinkPulse direction="left" verticalDirection="top">
           <LpLink to="/art/people">Art</LpLink>
         </LpLinkPulse>
         <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLinkPulse direction="right">
+        <LpLinkPulse direction="right" verticalDirection="bottom">
           <LpLink to="/dev">Dev</LpLink>
         </LpLinkPulse>
       </TextBox>
@@ -44,6 +44,12 @@ const FadeIn = keyframes`
 const slideIn = (direction) => keyframes`
 0% {
   margin-${direction}: -100%;
+}
+`;
+
+const slideInVertical = (verticalDirection) => keyframes`
+0% {
+  margin-${verticalDirection}: -100%;
 }
 `;
 
@@ -114,7 +120,7 @@ const TextBox = styled.div`
   }
 `;
 const LpHeader = styled.header`
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   opacity: 0.8;
   letter-spacing: 0.8rem;
   animation-name: ${FadeIn};
@@ -122,7 +128,6 @@ const LpHeader = styled.header`
   color: ${colorBlack};
 
   @media (max-width: 600px) {
-    font-size: 1rem;
     letter-spacing: 0.5rem;
     padding: 100px 0 100px 0;
   }
@@ -134,6 +139,10 @@ const LpHeader = styled.header`
 const LpLinkPulse = styled.div`
   animation-name: ${(props) => slideIn(props.direction)};
   animation-duration: 3s;
+  @media (max-width: 600px) {
+    animation-name: ${(props) => slideInVertical(props.verticalDirection)};
+    animation-duration: 3s;
+  }
 `;
 const LpLink = styled(Link)`
   font-family: "Raleway", sans-serif;

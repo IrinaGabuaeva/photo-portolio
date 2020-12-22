@@ -47,7 +47,7 @@ export default function Projects(props) {
             Components
           </ProjectDescription>
           <ProjectLink
-            href="http://www.localhost:3000/art/people"
+            href="https://www.irinagabuaeva.com/art/people"
             color={props.mode.buttonColor}
           >
             IrinaGabuaeva.art
