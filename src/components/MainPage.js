@@ -98,7 +98,7 @@ const Heading = styled.div`
   color: rgb(58, 58, 58);
   align-self: center;
   margin-bottom: 1.5rem;
-  border: 1px solid red;
+
   @media (max-width: 600px) {
     margin-bottom: 1rem;
   }
@@ -154,15 +154,16 @@ const ExternalLink = styled.a`
 `;
 const Logo = styled.img`
   width: 20px;
+  height: 20px;
   margin: 0 1.5rem 1.5rem 1.5rem;
   opacity: 0.9;
 
   @media (max-width: 600px) {
-    width: 15px;
     margin: 0 1rem 1rem 1rem;
   }
   @media (min-width: 1800px) {
     width: 35px;
+    height: 35px;
     margin: 0 3rem 3rem 3rem;
   }
 `;

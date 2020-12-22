@@ -38,17 +38,6 @@ export const Navbar = styled.div`
   }
 `;
 
-export const UpArrow = styled.img`
-  width: 40px;
-  background-color: ${(props) => props.color};
-  margin: 0 0 -40px 0;
-  border-radius: 2px;
-
-  &:hover {
-    transform: scale(1.5, 1.5);
-    cursor: pointer;
-  }
-`;
 //////// GRID ////////
 
 export const PaddingBox = styled.div`
