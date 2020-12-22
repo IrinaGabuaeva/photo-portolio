@@ -8,13 +8,16 @@ import {
   Button,
   colorWhite,
   colorBlack,
+  UpArrow,
 } from "../Styles";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import emailjs from "emailjs-com";
 
 import linkedinLogo from "./Logos/logo-linkedin.svg";
 import facebookLogo from "./Logos/logo-facebook.svg";
 import githubLogo from "./Logos/logo-github.svg";
+import upArrow from "./Logos/up-arrow.svg";
 
 export default function Contact(props) {
   const [nameValue, setNameValue] = useState("");
@@ -103,6 +106,16 @@ export default function Contact(props) {
           Submit
         </SubmitButton>
       </Form>
+      <Link
+        to="about"
+        activeClass="active"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        <UpArrow src={upArrow} color={props.mode.buttonColor} />
+      </Link>
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
           <ContactLogo src={linkedinLogo} />
@@ -206,6 +219,7 @@ const SubmitButton = styled(Button)`
   background-color: ${colorWhite};
   border: 3px solid #303030;
 `;
+
 const ContactBox = styled.div`
   display: flex;
 
