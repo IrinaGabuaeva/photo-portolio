@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Popup from "./Popup";
 import {
   ContentBox,
   HeaderBox,
@@ -8,6 +9,7 @@ import {
   Button,
   colorWhite,
   colorBlack,
+  colorPrimary,
 } from "../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
 
@@ -22,6 +24,12 @@ export default function Contact(props) {
   const [nameValue, setNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    console.log("ISOPEN", isOpen);
+    setIsOpen(!isOpen);
+  };
 
   const nameChange = (event) => {
     setNameValue(event.target.value);
@@ -101,11 +109,27 @@ export default function Contact(props) {
             value={messageValue}
           />
         </FormContainer>
-        <SubmitButton type="submit" color={props.mode.buttonColor}>
+        <SubmitButton
+          type="submit"
+          color={props.mode.buttonColor}
+          onClick={togglePopup}
+        >
           Submit
         </SubmitButton>
+        {isOpen && (
+          <Popup
+            content={
+              <>
+                <PopupMessage>
+                  Your message has been sent! Thank you for getting in touch!
+                </PopupMessage>
+              </>
+            }
+            handleClose={togglePopup}
+          />
+        )}
+        {/* {setInterval(togglePopup, 2000)} */}
       </Form>
-
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
           <ContactLogo src={linkedinLogo} />
@@ -223,7 +247,7 @@ const SubmitButton = styled(Button)`
 const ContactBox = styled.div`
   display: flex;
   align-items: center;
-  margin: 60px 0 40px 0;
+  margin: 50px 0 20px 0;
 `;
 const ContactLogo = styled(Logo)`
   width: 50px;
@@ -251,4 +275,10 @@ const UpArrow = styled.img`
     transform: scale(1.5, 1.5);
     cursor: pointer;
   }
+`;
+
+const PopupMessage = styled.p`
+  font-size: 1.5rem;
+  text-align: center;
+  color: ${colorPrimary};
 `;
