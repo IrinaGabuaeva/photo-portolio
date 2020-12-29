@@ -26,9 +26,8 @@ export default function Contact(props) {
   const [messageValue, setMessageValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  const togglePopup = () => {
-    console.log("ISOPEN", isOpen);
-    setIsOpen(!isOpen);
+  const closePopup = () => {
+    setTimeout(() => setIsOpen(false), 4000);
   };
 
   const nameChange = (event) => {
@@ -48,6 +47,20 @@ export default function Contact(props) {
     setMessageValue("");
   };
 
+  function validate(emailValue, nameValue, messageValue) {
+    if (!emailValue) {
+      return false;
+    } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
+      return false;
+    } else if (!nameValue) {
+      return false;
+    } else if (!messageValue) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -62,6 +75,7 @@ export default function Contact(props) {
       .then(
         (result) => {
           clear();
+          setIsOpen(true);
           console.log(result.text);
         },
         (error) => {
@@ -112,7 +126,8 @@ export default function Contact(props) {
         <SubmitButton
           type="submit"
           color={props.mode.buttonColor}
-          onClick={togglePopup}
+          // onClick={togglePopup}
+          disabled={validate}
         >
           Submit
         </SubmitButton>
@@ -125,10 +140,10 @@ export default function Contact(props) {
                 </PopupMessage>
               </>
             }
-            handleClose={togglePopup}
+            // handleClose={togglePopup}
           />
         )}
-        {/* {setInterval(togglePopup, 2000)} */}
+        {closePopup()}
       </Form>
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
@@ -174,6 +189,7 @@ const FormTitle = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 const FormContainer = styled.div`
@@ -281,4 +297,8 @@ const PopupMessage = styled.p`
   font-size: 1.5rem;
   text-align: center;
   color: ${colorPrimary};
+
+  @media (min-width: 1800px) {
+    font-size: 3rem;
+  }
 `;
