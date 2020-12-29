@@ -74,9 +74,3 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-///// ABOUT //////
-
-/// PROJECTS ////
-
-////////// SKILLS ///////
