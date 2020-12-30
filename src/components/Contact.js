@@ -27,7 +27,8 @@ export default function Contact(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const closePopup = () => {
-    setTimeout(() => setIsOpen(false), 4000);
+    setTimeout(() => setIsOpen(false), 8000);
+    console.log("IS OPEN IN SETTIMEOUT", isOpen);
   };
 
   const nameChange = (event) => {
@@ -48,16 +49,16 @@ export default function Contact(props) {
   };
 
   function validate(emailValue, nameValue, messageValue) {
-    if (!emailValue) {
-      return false;
-    } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
-      return false;
-    } else if (!nameValue) {
-      return false;
-    } else if (!messageValue) {
-      return false;
-    } else {
+    if (emailValue.length <= 0) {
       return true;
+    } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
+      return true;
+    } else if (nameValue.length <= 0) {
+      return true;
+    } else if (messageValue.length <= 0) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -102,6 +103,7 @@ export default function Contact(props) {
             color={props.mode.text}
             onChange={nameChange}
             value={nameValue}
+            required={true}
           />
 
           <label htmlFor="email" />
@@ -112,6 +114,7 @@ export default function Contact(props) {
             color={props.mode.text}
             onChange={emailChange}
             value={emailValue}
+            required={true}
           />
 
           <label htmlFor="message" />
@@ -121,13 +124,13 @@ export default function Contact(props) {
             color={props.mode.text}
             onChange={messageChange}
             value={messageValue}
+            required={true}
           />
         </FormContainer>
         <SubmitButton
           type="submit"
           color={props.mode.buttonColor}
-          // onClick={togglePopup}
-          disabled={validate}
+          onSubmit={closePopup()}
         >
           Submit
         </SubmitButton>
@@ -143,7 +146,6 @@ export default function Contact(props) {
             // handleClose={togglePopup}
           />
         )}
-        {closePopup()}
       </Form>
       <ContactBox>
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
