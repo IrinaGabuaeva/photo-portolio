@@ -28,86 +28,79 @@ export default function Projects(props) {
         <Header color={props.mode.text}>PROJECTS</Header>
       </HeaderBox>
 
-      <ProjectLink href="https://www.irinagabuaeva.com/art/people">
-        <SecondaryTitle>Photo Portfolio</SecondaryTitle>
-        <SingleProject className="singleProject">
-          <ProjectPicture>
-            <Picture
-              className="projectPicture"
-              src={urls[0]}
-              color={props.mode.buttonColor}
-            />
-          </ProjectPicture>
-          <ProjectContent>
-            <ProjectTitle color={props.mode.title}>
-              Photo Portfolio
-            </ProjectTitle>
-            <ProjectDescription color={props.mode.text}>
-              A photo portfolio website built with Create React App and Styled
-              Components
-            </ProjectDescription>
-            <ProjectUrl color={props.mode.title}>IrinaGabuaeva.art</ProjectUrl>
-          </ProjectContent>
-        </SingleProject>
-      </ProjectLink>
+      <SecondaryTitle color={props.mode.title}>Photo Portfolio</SecondaryTitle>
+      <SingleProject
+        className="singleProject"
+        href="https://www.irinagabuaeva.com/art/people"
+      >
+        <ProjectPicture>
+          <Picture
+            className="projectPicture"
+            src={urls[0]}
+            color={props.mode.buttonColor}
+          />
+        </ProjectPicture>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.title}>Photo Portfolio</ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            A photo portfolio website built with Create React App and Styled
+            Components
+          </ProjectDescription>
+          <ProjectUrl color={props.mode.title}>IrinaGabuaeva.art</ProjectUrl>
+        </ProjectContent>
+      </SingleProject>
 
-      <ProjectLink href="https://lift-log-pro.herokuapp.com/">
-        <SecondaryTitle>Lift Log</SecondaryTitle>
-        <SingleProject>
-          <ProjectPicture>
-            <Picture src={urls[1]} color={props.mode.buttonColor} />
-          </ProjectPicture>
-          <ProjectContent>
-            <ProjectTitle color={props.mode.title}>Lift Log</ProjectTitle>
-            <ProjectDescription color={props.mode.text}>
-              A web app that tracks your movement during weight training and
-              logs the details of your workout.
-            </ProjectDescription>
-            <ProjectUrl color={props.mode.title}>
-              lift-log-pro.herokuapp.com
-            </ProjectUrl>
-          </ProjectContent>
-        </SingleProject>
-      </ProjectLink>
+      <SecondaryTitle color={props.mode.title}>Lift Log</SecondaryTitle>
+      <SingleProject href="https://lift-log-pro.herokuapp.com/">
+        <ProjectPicture>
+          <Picture src={urls[1]} color={props.mode.buttonColor} />
+        </ProjectPicture>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.title}>Lift Log</ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            A web app that tracks your movement during weight training and logs
+            the details of your workout.
+          </ProjectDescription>
+          <ProjectUrl color={props.mode.title}>
+            lift-log-pro.herokuapp.com
+          </ProjectUrl>
+        </ProjectContent>
+      </SingleProject>
 
-      <ProjectLink href="http://polishd.herokuapp.com/">
-        <SecondaryTitle>Polish'd</SecondaryTitle>
-        <SingleProject>
-          <ProjectPicture>
-            <Picture src={urls[2]} color={props.mode.buttonColor} />
-          </ProjectPicture>
-          <ProjectContent>
-            <ProjectTitle color={props.mode.title}>Polish'd</ProjectTitle>
-            <ProjectDescription color={props.mode.text}>
-              An e-commerce web application featuring a product catalog, user
-              cart, checkout process, and admin dashboard.
-            </ProjectDescription>
-            <ProjectUrl color={props.mode.title}>
-              polishd.herokuapp.com
-            </ProjectUrl>
-          </ProjectContent>
-        </SingleProject>
-      </ProjectLink>
+      <SecondaryTitle color={props.mode.title}>Polish'd</SecondaryTitle>
+      <SingleProject href="http://polishd.herokuapp.com/">
+        <ProjectPicture>
+          <Picture src={urls[2]} color={props.mode.buttonColor} />
+        </ProjectPicture>
+        <ProjectContent>
+          <ProjectTitle color={props.mode.title}>Polish'd</ProjectTitle>
+          <ProjectDescription color={props.mode.text}>
+            An e-commerce web application featuring a product catalog, user
+            cart, checkout process, and admin dashboard.
+          </ProjectDescription>
+          <ProjectUrl color={props.mode.title}>
+            polishd.herokuapp.com
+          </ProjectUrl>
+        </ProjectContent>
+      </SingleProject>
     </ContentBox>
   );
 }
 
 //////// STYLES ///////
-const ProjectLink = styled.a`
-  text-decoration: none;
 
-  &:not(:last-child) {
-    border-bottom: 2px solid black;
-  }
-`;
-
-const SingleProject = styled.div`
+const SingleProject = styled.a`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   padding: 60px 0 40px 0;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    border-bottom: 2px solid black;
+  }
 
   @media (max-width: 900px) {
     flex-direction: column;
