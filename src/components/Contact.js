@@ -27,7 +27,7 @@ export default function Contact(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const closePopup = () => {
-    setTimeout(() => setIsOpen(false), 8000);
+    setTimeout(() => setIsOpen(false), 4000);
     console.log("IS OPEN IN SETTIMEOUT", isOpen);
   };
 
@@ -77,6 +77,7 @@ export default function Contact(props) {
         (result) => {
           clear();
           setIsOpen(true);
+          closePopup();
           console.log(result.text);
         },
         (error) => {
@@ -127,11 +128,7 @@ export default function Contact(props) {
             required={true}
           />
         </FormContainer>
-        <SubmitButton
-          type="submit"
-          color={props.mode.buttonColor}
-          onSubmit={closePopup()}
-        >
+        <SubmitButton type="submit" color={props.mode.buttonColor}>
           Submit
         </SubmitButton>
         {isOpen && (
