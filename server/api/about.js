@@ -1,53 +1,47 @@
 const router = require("express").Router();
 const s3 = require("../credentials");
 
-function shuffleVideos(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * i);
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
-
+const getPictures = (pics) => {
+  return pics;
+};
 router.get("/", async (req, res, next) => {
   try {
     const bucketParams = {
-      Bucket: "landingpagevideobucket",
+      Bucket: "aboutpicturesbucket",
     };
     await s3.listObjects(bucketParams, function (err, data) {
       if (err) {
         console.log("Error:", err);
       } else {
         const bucket = data.Contents;
-        const allVideos = [];
-        bucket.forEach((video, idx) => {
-          let videoObj = {};
+        const allPictures = [];
+        bucket.forEach((picture, idx) => {
+          let pictureObj = {};
           const params = {
-            Bucket: "landingpagevideobucket",
+            Bucket: "aboutpicturesbucket",
             Key: bucket[idx].Key,
           };
           s3.getObject(params, function (err, data) {
             try {
-              videoObj.name = data.Metadata.name;
-              videoObj.date = data.Metadata.date;
+              pictureObj.name = data.Metadata.name;
+              pictureObj.date = data.Metadata.date;
             } catch (error) {
               console.log(error);
             }
           });
 
-          videoObj.id = idx + 1;
+          pictureObj.id = idx + 1;
 
-          videoObj.url = s3.getSignedUrl("getObject", {
-            Bucket: "landingpagevideobucket",
+          pictureObj.url = s3.getSignedUrl("getObject", {
+            Bucket: "aboutpicturesbucket",
             Key: bucket[idx].Key,
             // Expires: 200,
           });
-          allVideos.push(videoObj);
+
+          allPictures.push(pictureObj);
         });
 
-        res.json(shuffleVideos(allVideos));
+        res.json(getPictures(allPictures));
       }
     });
   } catch (error) {
