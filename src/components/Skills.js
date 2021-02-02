@@ -24,6 +24,7 @@ import cssLogo from "./Logos/logo-css3.svg";
 import materialLogo from "./Logos/material-ui.svg";
 import scssLogo from "./Logos/sass-1.svg";
 import postgresqlLogo from "./Logos/postgresql.svg";
+import s3Logo from "./Logos/amazon-s3.svg";
 
 export default function Skills(props) {
   const [localMode, setLocalMode] = useState({
@@ -46,6 +47,7 @@ export default function Skills(props) {
     { img: materialLogo, name: "Material UI" },
     { img: scssLogo, name: "SCSS" },
     { img: postgresqlLogo, name: "PostgreSQL" },
+    { img: s3Logo, name: "S3" },
   ]);
 
   const bgColor =

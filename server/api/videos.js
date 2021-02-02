@@ -42,7 +42,7 @@ router.get("/", async (req, res, next) => {
           videoObj.url = s3.getSignedUrl("getObject", {
             Bucket: "landingpagevideobucket",
             Key: bucket[idx].Key,
-            // Expires: 200,
+            Expires: 200,
           });
           allVideos.push(videoObj);
         });
