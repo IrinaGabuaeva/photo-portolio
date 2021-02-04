@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "aws-sdk": "^2.835.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {},
@@ -14,7 +15,7 @@
     "dev:server": "nodemon server.js",
     "dev:app": "cd client && npm start",
     "build:app": "cd client && npm run build",
-    "start": "node index.js",
+    "start": "node -r dotenv/config index.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
