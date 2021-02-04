@@ -8,11 +8,11 @@ import axios from "axios";
 function LandingPage() {
   const [videoArray, setVideo] = useState([]);
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       console.log("IN useEFFECT");
       const { data } = await axios.get("/api/videos");
       setVideo(data);
-    }
+    };
     fetchData();
   }, []);
   console.log("VIDEO", videoArray);
