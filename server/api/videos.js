@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const s3 = require("../credentials");
+const s3 = require("../s3");
 
 function shuffleVideos(array) {
   for (let i = array.length - 1; i > 0; i--) {
