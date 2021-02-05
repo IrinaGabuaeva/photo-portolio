@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const s3 = require("../s3");
 
+const getVideos = (videos) => {
+  return videos;
+};
+
 function shuffleVideos(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
@@ -8,6 +12,7 @@ function shuffleVideos(array) {
     array[i] = array[j];
     array[j] = temp;
   }
+  console.log("ARRAY", array);
   return array;
 }
 

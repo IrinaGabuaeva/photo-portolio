@@ -1,8 +1,8 @@
 // import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import MainPage from "./components/MainPage";
-import LandingPage from "./components/LandingPage";
-import DevPage from "./components/DevPage";
+import MainPage from "./components/photoPage/MainPage";
+import LandingPage from "./components/photoPage/LandingPage";
+import DevPage from "./components/devPage/DevPage.js";
 
 function App() {
   return (
