@@ -5,7 +5,13 @@ const s3 = new AWS.S3({
   signatureVersion: "v4",
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_KEY,
-  Bucket: process.env.BUCKET,
+  Bucket: [
+    "landingpagevideobucket",
+    "aboutpicturesbucket",
+    "naturepicturesbucket",
+    "nycpicturesbucket",
+    "devpicturesbucket",
+  ],
   region: "us-east-2",
 });
 
