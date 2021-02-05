@@ -6,10 +6,7 @@ const port = process.env.PORT || 5000;
 console.log("PORT!!!", port);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, "build", "index.html")));
-app.get("/test", (req, res) => {
-  res.end("OK!!!!");
-});
+
 app.use("/api", require("./server/api"));
 
 if (process.env.NODE_ENV === "production") {

@@ -25,6 +25,8 @@ import materialLogo from "./Logos/material-ui.svg";
 import scssLogo from "./Logos/sass-1.svg";
 import postgresqlLogo from "./Logos/postgresql.svg";
 import S3Logo from "./Logos/amazon-s3.svg";
+import Heroku from "./Logos/heroku-4.svg";
+import Netlify from "./Logos/netlify.svg";
 
 export default function Skills(props) {
   const [localMode, setLocalMode] = useState({
@@ -47,7 +49,9 @@ export default function Skills(props) {
     { img: materialLogo, name: "Material UI" },
     { img: scssLogo, name: "SCSS" },
     { img: postgresqlLogo, name: "PostgreSQL" },
+    { img: Heroku, name: "Heroku" },
     { img: S3Logo, name: "S3" },
+    { img: Netlify, name: "Netlify" },
   ]);
 
   const bgColor =
