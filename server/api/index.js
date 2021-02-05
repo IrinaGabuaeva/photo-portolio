@@ -3,6 +3,7 @@ const router = require("express").Router();
 router.use("/videos", require("./videos"));
 router.use("/about", require("./about"));
 router.use("/nature", require("./nature"));
+router.use("/nyc", require("./nyc"));
 
 router.use((req, res, next) => {
   const error = new Error("Not Found");
