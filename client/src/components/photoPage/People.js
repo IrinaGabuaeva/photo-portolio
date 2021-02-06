@@ -46,6 +46,7 @@ export default function People() {
         "https://lh3.googleusercontent.com/fB4tFGsymGVXWxoJ7aA1AxpT3fxwElzR2ryNuO5hekhSBx9klupvJ08XfadgEiefHrZE_ASI3ZzZExDDOVfymJMQivASDdDneWXP5K8sbCwa4IFKikack3uiYuUZUP2aCON7-xy2e-E=w2400",
     },
   ]);
+
   return (
     <Container className="container">
       <ImageList images={images} />
