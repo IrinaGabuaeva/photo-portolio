@@ -3,9 +3,10 @@ import styled, { keyframes } from "styled-components";
 import { colorPrimary, colorBlack } from "../../Styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Video from "./Video/IMG_4678.mov";
 
 function LandingPage() {
-  const [videoArray, setVideo] = useState([]);
+  const [video, setVideo] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,17 +16,34 @@ function LandingPage() {
     };
     fetchData();
   }, []);
-  console.log("VIDEOArray", videoArray);
+  console.log("VIDEO", video);
+  const videoArray = Object.values(video);
+  console.log("VIDEO ARRAY", videoArray);
+  const key = videoArray[0];
+  const url = videoArray[1];
+  console.log("URLLL", url);
+  console.log("URLLL", typeof url);
   return (
     <LpBox className="LpBox">
-      {/* <BgVideo className="BgVideo"> */}
-      {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
-      {/* <source src={Video} type="video/mp4" /> */}
-      <VideoList videos={videoArray} />
-      {/* <source src="img/video.webm" type="video.webm" />
+      <BgVideo className="BgVideo">
+        {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
+        {/* <source src={Video} type="video/mp4" /> */}
+
+        <BgVideoContent
+          key={key}
+          className="BgVideoContent"
+          autoPlay
+          muted
+          loop
+        >
+          <source src={url} type="video/mp4" />
+          <source src="img/video.webm" type="video.webm" />
           Your browser is not supported!
-        </BgVideoContent> */}
-      {/* </BgVideo> */}
+        </BgVideoContent>
+        {/* <source src="img/video.webm" type="video.webm" />
+        Your browser is not supported!
+      </BgVideoContent> */}
+      </BgVideo>
       <div></div>
       <BlackBg />
       <TextBox>
@@ -41,40 +59,6 @@ function LandingPage() {
   );
 }
 export default LandingPage;
-
-const VideoList = (props) => {
-  console.log("VIDEOLISTPROPS", props);
-  const videos = props.videos.map((video) => {
-    return <SingleVideo key={video.id} video={video} />;
-  });
-  return (
-    <BgVideo className="BgVideo">
-      {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
-      {/* <source src={Video} type="video/mp4" />
-      <source src="img/video.webm" type="video.webm" />
-      Your browser is not supported! */}
-      {videos}
-      {/* </BgVideoContent> */}
-    </BgVideo>
-  );
-};
-
-const SingleVideo = (props) => {
-  console.log("SINGLE VIDEO PROPS", props);
-  const [videoUrl, setVideoUrl] = useState("");
-  const url = props.video.url;
-  console.log("URL", url);
-  console.log("videoUrl", videoUrl);
-  // const stringUrl = JSON.stringify(url);
-
-  return (
-    <BgVideoContent className="BgVideoContent" autoPlay muted loop>
-      <source src={url} type="video/mp4" />
-      <source src="img/video.webm" type="video.webm" />
-      Your browser is not supported!
-    </BgVideoContent>
-  );
-};
 
 ////// ANIMATION ////////
 
