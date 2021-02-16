@@ -12,6 +12,7 @@ import linkedinLogo from "../Logos/logo-linkedin.svg";
 import arrow from "../Logos/chevron-back-outline.svg";
 import upArrow from "../Logos/up-arrow.svg";
 import { Link, animateScroll as scroll } from "react-scroll";
+import Photo from "./Photo";
 
 function MainPaige(props) {
   const history = useHistory();
