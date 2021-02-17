@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import {
   Navbar,
   colorPrimary,
@@ -7,10 +8,22 @@ import {
   Button,
 } from "../../Styles";
 import { Link, animateScroll as scroll } from "react-scroll";
+import leftArrow from "../Logos/back.svg";
 
 export default function DevNavigation(props) {
+  const history = useHistory();
+
+  function handleClick() {
+    return history.push("/");
+  }
+
   return (
-    <DevNavbar>
+    <DevNavbar color={props.mode.title}>
+      <Arrow
+        src={leftArrow}
+        color={props.mode.buttonColor}
+        onClick={handleClick}
+      />
       <DevLink
         to="about"
         activeClass="active"
@@ -64,10 +77,11 @@ const DevNavbar = styled(Navbar)`
   display: flex;
   background-color: ${colorBlack};
   position: sticky;
+  min-height: 50px;
   top: 0;
   opacity: 2;
   padding: 20px 0 20px 0;
-  border-bottom: 1px solid ${colorPrimary};
+  border-bottom: 1px solid ${(props) => props.color};
   overflow: hidden;
   align-items: center;
 
@@ -85,7 +99,7 @@ const DevLink = styled(Link)`
   margin-right: 4rem;
   text-decoration: none;
   color: ${colorWhite};
-  outline none;
+  outline: none;
   font-family: "Raleway", sans-serif;
 
   &:active {
@@ -98,14 +112,32 @@ const DevLink = styled(Link)`
 
   @media (max-width: 900px) {
     margin: 0 1rem 0 1rem;
-    
   }
 
-  @media(max-width: 600px) {
-        margin: 0 .5rem 0 .5rem;
-      }
+  @media (max-width: 600px) {
+    margin: 0 0.5rem 0 0.5rem;
+  }
 
   @media (min-width: 1800px) {
-      margin: 0 7rem 0 7rem;
+    margin: 0 7rem 0 7rem;
+  }
+`;
+const Arrow = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 0 10px 0 10px;
+  opacity: 0.8;
+  padding: 3px;
+  border: 1px solid grey;
+  // position: fixed;
+  background-color: ${(props) => props.color};
+
+  &:hover {
+    transform: scale(1.5, 1.5);
+    cursor: pointer;
+  }
+
+  @media (min-width: 1800px) {
+    width: 60px;
   }
 `;

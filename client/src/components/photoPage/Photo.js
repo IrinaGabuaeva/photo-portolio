@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import leftArrow from "../Logos/chevron-back-outline.svg";
-import rightArrow from "../Logos/chevron-forward-outline.svg";
+import leftArrow from "../Logos/back.svg";
+import rightArrow from "../Logos/forward.svg";
 import { colorBlack } from "../../Styles";
 
 export default function Photo(props) {
-  const [stateIndex, setIndex] = useState();
+  // const [stateIndex, setIndex] = useState();
+  const stateIndex = props.stateIndex;
+  const setIndex = props.setIndex;
   console.log("stateINDEX", stateIndex);
   const url = props.url;
   const urlArray = props.images.map((image) => {
@@ -44,9 +46,13 @@ export default function Photo(props) {
   return (
     <PhotoBox>
       <ContentBox>
-        <Arrow src={leftArrow} onClick={goLeft} />
+        <LeftArrowBox>
+          <Arrow src={leftArrow} onClick={goLeft} />
+        </LeftArrowBox>
         <SinglePicture src={imageUrl} onClick={() => close()} />
-        <Arrow src={rightArrow} onClick={goRight} />
+        <RightArrowBox>
+          <Arrow src={rightArrow} onClick={goRight} />
+        </RightArrowBox>
       </ContentBox>
     </PhotoBox>
   );
@@ -65,27 +71,24 @@ const PhotoBox = styled.div`
   background-color: ${colorBlack};
 `;
 const ContentBox = styled.div`
-  margin: 50px;
+  // margin: 50px;
   width: 100%;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   border: 1px solid green;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `;
 const SinglePicture = styled.img`
   height: 80%;
   border: 1px solid red;
-  // top: 15%;
-  // left: 20%;
 `;
 const Arrow = styled.img`
   width: 35px;
-  margin: 10px 10px 0 10px;
+  height 35px;
   opacity: 0.6;
-
   background-color: white;
   border: 1px solid red;
   &:hover {
@@ -96,4 +99,24 @@ const Arrow = styled.img`
   @media (min-width: 1800px) {
     width: 60px;
   }
+`;
+
+const LeftArrowBox = styled.div`
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+`;
+
+const RightArrowBox = styled.div`
+  width: 100px;
+  position: fixed;
+  top: 50%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
 `;

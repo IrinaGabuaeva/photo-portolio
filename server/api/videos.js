@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const s3 = require("../s3");
+const s3 = require("../credentials");
 
 function shuffleVideos(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -8,8 +8,7 @@ function shuffleVideos(array) {
     array[i] = array[j];
     array[j] = temp;
   }
-  console.log("ARRAY", array);
-  return array.shift();
+  return array;
 }
 
 router.get("/", async (req, res, next) => {
