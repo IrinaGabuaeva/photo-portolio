@@ -7,6 +7,7 @@ import Photo from "./Photo";
 export default function Nyc() {
   const [images, setImages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [stateIndex, setIndex] = useState();
   const [url, setUrl] = useState("");
   useEffect(() => {
     async function fetchData() {
@@ -18,15 +19,24 @@ export default function Nyc() {
     fetchData();
   }, []);
   console.log("IMAGES ON STATE", images);
-  {
-    if (isOpen) {
-      return <Photo url={url} setIsOpen={setIsOpen} images={images} />;
-    } else {
-      return (
-        <Container className="container">
-          <ImageList images={images} setIsOpen={setIsOpen} setUrl={setUrl} />
-        </Container>
-      );
-    }
-  }
+  // {
+  //   if (isOpen) {
+  //     return <Photo url={url} setIsOpen={setIsOpen} images={images} />;
+  //   } else {
+  return (
+    <div>
+      <Container className="container">
+        <ImageList images={images} setIsOpen={setIsOpen} setUrl={setUrl} />
+      </Container>
+      {isOpen && (
+        <Photo
+          url={url}
+          setIsOpen={setIsOpen}
+          stateIndex={stateIndex}
+          setIndex={setIndex}
+          images={images}
+        />
+      )}
+    </div>
+  );
 }

@@ -5,6 +5,7 @@ import DevAbout from "./DevAbout";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import Contact from "./Contact";
+
 import { colorPrimary, blueBg, colorWhite, colorBlack } from "../../Styles";
 
 const darkMode = {
@@ -60,6 +61,7 @@ export default function DevPage() {
   return (
     <Body>
       <DevNavigation toggle={toggle} mode={mode} />
+
       <DevAbout mode={mode} />
       <Projects mode={mode} />
       <Skills mode={mode} />
