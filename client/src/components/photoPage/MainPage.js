@@ -12,7 +12,6 @@ import linkedinLogo from "../Logos/logo-linkedin.svg";
 import arrow from "../Logos/chevron-back-outline.svg";
 import upArrow from "../Logos/up-arrow.svg";
 import { Link, animateScroll as scroll } from "react-scroll";
-import Photo from "./Photo";
 
 function MainPaige(props) {
   const history = useHistory();
@@ -36,7 +35,9 @@ function MainPaige(props) {
         <ExternalLink href="https://www.linkedin.com/in/Irina-Gabuaeva">
           <Logo src={linkedinLogo} />
         </ExternalLink>
-        <Logo src={mailLogo} />
+        <ExternalLink href="/dev/#contact">
+          <Logo src={mailLogo} />
+        </ExternalLink>
       </LogoBox>
       <Navigation className="navigation" />
       <Content className="content">

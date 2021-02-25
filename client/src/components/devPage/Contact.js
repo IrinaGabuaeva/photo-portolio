@@ -140,7 +140,6 @@ export default function Contact(props) {
                 </PopupMessage>
               </>
             }
-            // handleClose={togglePopup}
           />
         )}
       </Form>

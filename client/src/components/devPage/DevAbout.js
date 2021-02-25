@@ -12,7 +12,6 @@ import {
 } from "../../Styles";
 
 export default function About(props) {
-  //   console.log("PROPS", props);
   const [url, setUrl] = useState("/images/me2.jpeg");
   console.log("URL", url);
   const [localMode, setLocalMode] = useState({
