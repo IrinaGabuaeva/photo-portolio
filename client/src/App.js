@@ -4,6 +4,7 @@ import MainPage from "./components/photoPage/MainPage";
 import LandingPage from "./components/photoPage/LandingPage";
 import DevPage from "./components/devPage/DevPage.js";
 import Photo from "./components/photoPage/Photo";
+import Contact from "./components/devPage/Contact";
 
 function App() {
   return (
