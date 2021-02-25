@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import { colorPrimary, colorBlack, Logo } from "../../Styles";
 import smileyLogo from "../Logos/smily_face.svg";
+import sunLogo from "../Logos/happy_sun.svg";
+
 export default function Popup(props) {
   return (
     <PopupBox>
       <Box>
         {/* <CloseIcon onClick={props.handleClose}>x</CloseIcon> */}
         {props.content}
-        <PopupLogo src={smileyLogo} />
+        <PopupLogo src={sunLogo} />
       </Box>
     </PopupBox>
   );
@@ -60,8 +62,8 @@ const Box = styled.div`
 // `;
 const PopupLogo = styled.img`
   background-color: ${colorBlack};
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   margin: -10px 0 10px 0;
 
   @media (min-width: 1800px) {

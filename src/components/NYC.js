@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyledImageList, Picture, Container } from "../Styles.js";
-import axios from "axios";
 
 const rowHeight = 5;
 
