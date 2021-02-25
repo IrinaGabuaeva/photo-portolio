@@ -60,63 +60,75 @@ export default function Photo(props) {
 
 const PhotoBox = styled.div`
   position: fixed;
-
   height: 100%;
   width: 100%;
-  border: 1px solid red;
   top: 0;
   left: 0;
   opacity: 1;
-
   background-color: ${colorBlack};
 `;
 const ContentBox = styled.div`
-  // margin: 50px;
   width: 100%;
   margin: 0;
   height: 100%;
   display: flex;
-  border: 1px solid green;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 `;
 const SinglePicture = styled.img`
-  height: 80%;
-  border: 1px solid red;
+  max-height: 70%;
+
+  @media (max-width: 900px) {
+    height: 60%;
+  }
+  @media (max-width: 600px) {
+    height: 50%;
+  }
+  @media (min-width: 1800px) {
+  }
 `;
 const Arrow = styled.img`
   width: 35px;
   height 35px;
   opacity: 0.6;
   background-color: white;
-  border: 1px solid red;
+
   &:hover {
     transform: scale(1.5, 1.5);
     cursor: pointer;
   }
 
+  @media (max-width: 900px) {
+    width: 25px;
+    height: 25px;
+  }
   @media (min-width: 1800px) {
-    width: 60px;
+    // width: 60px;
+    // height: 60px;
   }
 `;
-
-const LeftArrowBox = styled.div`
+const ArrowBox = styled.div`
   width: 100px;
   position: fixed;
   top: 50%;
-  left: 5%;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
+
+  @media (max-width: 900px) {
+    width: 50px;
+  }
+  @media (max-width: 600px) {
+    width: 40px;
+  }
+  @media (min-width: 1800px) {
+    // width: 400px;
+  }
+`;
+const LeftArrowBox = styled(ArrowBox)`
+  left: 5%;
 `;
 
-const RightArrowBox = styled.div`
-  width: 100px;
-  position: fixed;
-  top: 50%;
+const RightArrowBox = styled(ArrowBox)`
   right: 5%;
-  display: flex;
-  justify-content: center;
-  border: 1px solid red;
 `;

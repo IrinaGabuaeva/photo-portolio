@@ -79,7 +79,7 @@ export const Button = styled.button`
   color: ${(props) => props.bgColor};
   font-family: "Tangerine", cursive;
   letter-spacing: 0.1rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-shadow: 0.5px 2px 0.5px #696969, 0 0 1em #c0c0c0, 0 0 0.5em ${colorBlack};
 
   &:active {

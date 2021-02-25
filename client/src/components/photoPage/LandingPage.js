@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { colorPrimary, colorBlack } from "../../Styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Video from "./Video/IMG_4678.mov";
 
 function LandingPage() {
   const [video, setVideo] = useState("");

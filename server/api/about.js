@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const s3 = require("../credentials");
+const s3 = require("../s3");
 
 const getPictures = (pics) => {
   return pics;

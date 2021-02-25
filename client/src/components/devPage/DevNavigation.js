@@ -126,11 +126,11 @@ const Arrow = styled.img`
   width: 25px;
   height: 25px;
   margin: 0 10px 0 10px;
-  opacity: 0.8;
+  opacity: 0.6;
   padding: 3px;
   border: 1px solid grey;
   // position: fixed;
-  background-color: ${(props) => props.color};
+  background-color: ${colorWhite};
 
   &:hover {
     transform: scale(1.5, 1.5);
