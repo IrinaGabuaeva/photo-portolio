@@ -16,6 +16,8 @@ export const colorPrimary = "#90d8f0";
 export const blueBg = "rgba(144, 216, 240, .5)";
 export const colorWhite = "#fafeff";
 export const colorBlack = "#011017";
+export const lightGrey = "#f6f6f4";
+export const darkGrey = "#d3d3d3";
 
 export const Navbar = styled.div`
   align-self: stretch;

@@ -12,6 +12,7 @@ import linkedinLogo from "../Logos/logo-linkedin.svg";
 import arrow from "../Logos/chevron-back-outline.svg";
 import upArrow from "../Logos/up-arrow.svg";
 import { Link, animateScroll as scroll } from "react-scroll";
+import { PaddingBox } from "../../Styles";
 
 function MainPaige(props) {
   const history = useHistory();
@@ -41,12 +42,14 @@ function MainPaige(props) {
       </LogoBox>
       <Navigation className="navigation" />
       <Content className="content">
-        <Switch>
-          <Route path="/art/nyc" component={Nyc} />
-          <Route path="/art/nature" component={Nature} />
-          <Route path="/art/about" component={About} />
-          <Route path="/art*" component={People} />
-        </Switch>
+        <PaddingBox>
+          <Switch>
+            <Route path="/art/nyc" component={Nyc} />
+            <Route path="/art/nature" component={Nature} />
+            <Route path="/art/about" component={About} />
+            <Route path="/art*" component={People} />
+          </Switch>
+        </PaddingBox>
       </Content>
       <Link
         to="heading"
@@ -183,7 +186,9 @@ export const UpArrow = styled.img`
   }
 `;
 const Content = styled.div`
-  padding: 10px 10px;
+  // padding: 10px 10px;
+  width: 100%;
+
   // @media (max-width: 510px) {
   //   padding: 15px 0 10px 0;
   // }
