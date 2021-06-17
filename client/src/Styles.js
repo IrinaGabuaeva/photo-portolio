@@ -16,8 +16,14 @@ export const colorPrimary = "#90d8f0";
 export const blueBg = "rgba(144, 216, 240, .5)";
 export const colorWhite = "#fafeff";
 export const colorBlack = "#011017";
+export const colorGrey = "rgb(58, 58, 58)";
 export const lightGrey = "#f6f6f4";
 export const darkGrey = "#d3d3d3";
+
+////// SHADOWS ////////
+export const darkShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+export const lightShadow =
+  "rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px";
 
 export const Navbar = styled.div`
   align-self: stretch;
@@ -47,7 +53,6 @@ export const PaddingBox = styled.div`
 `;
 export const Container = styled.div`
   padding: 10px 10px;
-
   @media (max-width: 510px) {
     padding: 5px 5px;
   }
@@ -69,6 +74,11 @@ export const StyledImageList = styled.div`
 
 export const Picture = styled.img`
   width: 100%;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 /////// DEV PAGE ///////////
@@ -160,6 +170,7 @@ export const PictureWrapper = styled.div`
   width: 350px;
   overflow: hidden;
   margin-left: 100px;
+
   @media (max-width: 900px) {
     width: 450px;
     height: 300px;
@@ -179,7 +190,7 @@ export const Description = styled.div`
   color: ${(props) => props.color};
   width: 50%;
   hyphens: auto;
-  font-family: "Raleway", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: 0.2rem;

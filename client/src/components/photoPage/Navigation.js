@@ -31,6 +31,7 @@ const StyledLink = styled(Link)`
   &:focus {
     text-decoration: underline;
   }
+
   @media (max-width: 700px) {
     margin-left: 0.3rem;
     margin-right: 0.3rem;

@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import { colorPrimary, colorBlack } from "../../Styles";
+import {
+  colorPrimary,
+  colorBlack,
+  colorWhite,
+  colorGrey,
+  lightGrey,
+  darkGrey,
+  darkShadow,
+  lightShadow,
+} from "../../Styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,6 +20,7 @@ function LandingPage() {
     const fetchData = async () => {
       console.log("IN useEFFECT");
       const { data } = await axios.get("/api/videos");
+      console.log("DATA:", data);
       setVideo(data);
     };
     fetchData();
@@ -21,7 +31,7 @@ function LandingPage() {
   const key = videoArray[0];
   const url = videoArray[1];
   console.log("URLLL", url);
-  console.log("URLLL", typeof url);
+
   return (
     <LpBox className="LpBox">
       <BgVideo className="BgVideo">
@@ -46,13 +56,29 @@ function LandingPage() {
       <div></div>
       <BlackBg />
       <TextBox>
-        <LpLinkPulse direction="left" verticalDirection="top">
-          <LpLink to="/art/people">Art</LpLink>
-        </LpLinkPulse>
-        <LpHeader>Irina Gabuaeva</LpHeader>
-        <LpLinkPulse direction="right" verticalDirection="bottom">
-          <LpLink to="/dev">Dev</LpLink>
-        </LpLinkPulse>
+        <LpLinkBox direction="left" verticalDirection="top">
+          <LinkTextBox>
+            <LpLink
+              to="/art/people"
+              color={key === 4 || key === 5 ? colorWhite : colorGrey}
+            >
+              Art
+            </LpLink>
+          </LinkTextBox>
+        </LpLinkBox>
+        <LpHeader color={key === 4 || key === 5 ? colorWhite : colorBlack}>
+          Irina Gabuaeva
+        </LpHeader>
+        <LpLinkBox direction="right" verticalDirection="bottom">
+          <LinkTextBox>
+            <LpLink
+              to="/dev"
+              color={key === 4 || key === 5 ? colorWhite : colorGrey}
+            >
+              Dev
+            </LpLink>
+          </LinkTextBox>
+        </LpLinkBox>
       </TextBox>
     </LpBox>
   );
@@ -61,14 +87,32 @@ export default LandingPage;
 
 ////// ANIMATION ////////
 
-const FadeIn = keyframes`
+const fadeIn = keyframes`
   0% {
     opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: .3;
+  }
+  95% {
+    opacity: .5;
   }
   100% {
     opacity: 1;
   }
 `;
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  } 
+`;
+
 const slideIn = (direction) => keyframes`
 0% {
   margin-${direction}: -100%;
@@ -81,6 +125,51 @@ const slideInVertical = (verticalDirection) => keyframes`
 }
 `;
 
+const zoomIn = keyframes`
+
+  0%{
+   transform: scale(.1) rotate(45deg);
+  }
+    100%{
+     transform: scale(1) rotate(45deg);
+  }
+  `;
+// const scaleDown = keyframes`
+
+// 0%{
+//   transform: scale(1);
+//  }
+//  15% {
+//   transform: scale(.9)
+//  }
+//  30%{
+//   transform: scale(.8)
+//  }
+//  45% {
+//   transform: scale(.7)
+//  }
+//  60%{
+//   transform: scale(.6)
+//  }
+//  85% {
+//   transform: scale(.5)
+//  }
+//    100%{
+//  transform: scale(.3);
+//  }
+// `;
+const open = keyframes`
+    0% {
+      background-position: 100% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  
+`;
 const pulse = keyframes`
 0% {
  
@@ -92,8 +181,8 @@ const pulse = keyframes`
     font-size: 2rem;
 	}
 60% {
- 
-font-weight: 500;
+ font-size: 2rem;
+
 }
 	100% {
     font-size: 1rem;
@@ -118,6 +207,7 @@ font-weight: 500;
     font-size: .5rem;
   }
 `;
+
 ///////// STYLES ///////
 
 const LpBox = styled.div`
@@ -148,12 +238,12 @@ const TextBox = styled.div`
   }
 `;
 const LpHeader = styled.header`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   opacity: 0.8;
-  letter-spacing: 0.8rem;
-  animation-name: ${FadeIn};
-  animation-duration: 4s;
-  color: ${colorBlack};
+  letter-spacing: 0.5rem;
+  animation-name: ${fadeIn};
+  animation-duration: 6s;
+  color: ${(props) => props.color};
 
   @media (max-width: 600px) {
     letter-spacing: 0.5rem;
@@ -164,36 +254,82 @@ const LpHeader = styled.header`
     letter-spacing: 1.1rem;
   }
 `;
-const LpLinkPulse = styled.div`
-  animation-name: ${(props) => slideIn(props.direction)};
-  animation-duration: 3s;
+const LpLinkBox = styled.div`
+  height: 90px;
+  width: 90px;
+  animation-name: ${zoomIn};
+  animation-duration: 7s;
+  border-bottom: 1px solid ${colorBlack};
+  border-radius: 85px 0 85px 0;
+  position: relative;
+  box-shadow: ${darkShadow};
+  transform: rotate(45deg);
+  // background-color: 	rgb(236, 188, 180);
+	// background-size: 400% 400%;
+	// animation: ${open} 15s ease;
+}
+
+
+
+
+  &:hover {
+                                                    //  delete this darkGrey to compare
+   background:                                          
+    radial-gradient(circle at 50%,transparent,${colorBlack}, ${darkGrey},transparent,${colorGrey},transparent,transparent, transparent);
+    
+  }
+
   @media (max-width: 600px) {
     animation-name: ${(props) => slideInVertical(props.verticalDirection)};
     animation-duration: 3s;
   }
+
+  @media (min-width: 1800px) {
+    height: 170px;
+    width: 170px;
+    border-radius: 140px 0 140px 0;
+  }
 `;
+
+const LinkTextBox = styled.div`
+  height: 90px;
+  width: 90px;
+  // animation-name: ${zoomIn};
+  animation-duration: 7s;
+  display: flex;
+  transform: rotate(-45deg);
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 1800px) {
+    height: 170px;
+    width: 170px;
+  }
+`;
+
+//change font!
 const LpLink = styled(Link)`
-  font-family: "Raleway", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 200;
+  font-family: "Arial", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
   text-decoration: none;
+  // transform: rotate(-45deg), scaleY(0.9);
+  animation: ${fadeIn};
+  animation-duration: 7s;
 
-  color: rgb(58, 58, 58);
-
-  animation: ${pulse} 3s infinite;
-  animation-delay: 2.8s;
+  color: ${(props) => props.color};
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(0.3);
+    color: ${colorWhite};
   }
 
   @media (max-width: 600px) {
     font-size: 1.1rem;
     letter-spacing: 0.3rem;
-    animation: ${smallPulse} 3s infinite;
-    animation-delay: 2.8s;
   }
   @media (min-width: 1800px) {
     font-size: 3.5rem;

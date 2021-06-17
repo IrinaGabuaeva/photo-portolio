@@ -161,6 +161,7 @@ const ProjectDescription = styled(Description)`
   text-align: center;
   font-size: 1rem;
   margin: 50px 0 50px 0;
+  font-family: "Arial", sans-serif;
 
   @media (min-width: 1800px) {
     font-size: 1.6rem;
