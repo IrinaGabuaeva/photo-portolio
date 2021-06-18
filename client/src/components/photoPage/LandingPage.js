@@ -64,6 +64,7 @@ function LandingPage() {
             >
               Art
             </LpLink>
+            <OpenEye></OpenEye>
           </LinkTextBox>
         </LpLinkBox>
         <LpHeader color={key === 4 || key === 5 ? colorWhite : colorBlack}>
@@ -104,6 +105,18 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
+
+//fix this(so the element doesn't flow away from page)
+const open = keyframes`
+0% {
+  top: 0;
+  left:0;
+}
+100% {
+  transform: translate(-100px, -500px);
+
+}`;
+
 const fadeOut = keyframes`
   0% {
     opacity: 1;
@@ -158,18 +171,7 @@ const zoomIn = keyframes`
 //  transform: scale(.3);
 //  }
 // `;
-const open = keyframes`
-    0% {
-      background-position: 100% 100%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  
-`;
+
 const pulse = keyframes`
 0% {
  
@@ -242,7 +244,7 @@ const LpHeader = styled.header`
   opacity: 0.8;
   letter-spacing: 0.5rem;
   animation-name: ${fadeIn};
-  animation-duration: 6s;
+  animation-duration: 4s;
   color: ${(props) => props.color};
 
   @media (max-width: 600px) {
@@ -264,7 +266,7 @@ const LpLinkBox = styled.div`
   position: relative;
   box-shadow: ${darkShadow};
   transform: rotate(45deg);
-  // background-color: 	rgb(236, 188, 180);
+  overflow: hidden;
 	// background-size: 400% 400%;
 	// animation: ${open} 15s ease;
 }
@@ -273,10 +275,9 @@ const LpLinkBox = styled.div`
 
 
   &:hover {
-                                                    //  delete this darkGrey to compare
    background:                                          
-    radial-gradient(circle at 50%,transparent,${colorBlack}, ${darkGrey},transparent,${colorGrey},transparent,transparent, transparent);
-    
+    radial-gradient(closest-side, transparent, ${colorBlack}, ${darkGrey},transparent,${colorGrey},transparent,transparent, transparent);
+    color: ${colorWhite};
   }
 
   @media (max-width: 600px) {
@@ -307,6 +308,37 @@ const LinkTextBox = styled.div`
   }
 `;
 
+const OpenEye = styled.div`
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border-radius: 85px 0 85px 0;
+  transform: rotate(45deg);
+  background: linear-gradient(
+    to bottom right,
+    ${colorGrey},
+    #ffcd94,
+    #ffe0bd,
+    #eac086,
+    #ffe0bd,
+    ${colorGrey}
+  );
+  opacity: 0.3;
+  // (255, 205, 148),
+  // (255, 224, 189),
+  // (234, 192, 134),
+  // (255, 224, 189),
+
+  animation-name: ${open};
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+  // transform: translate(-40px, -40px);
+  // -webkit-transform: translate(0, -500px);
+  // -o-transform: translate(0, -500px);
+  // -moz-transform: translate(0, -500px);
+`;
+
 //change font!
 const LpLink = styled(Link)`
   font-family: "Arial", sans-serif;
@@ -318,12 +350,11 @@ const LpLink = styled(Link)`
   text-decoration: none;
   // transform: rotate(-45deg), scaleY(0.9);
   animation: ${fadeIn};
-  animation-duration: 7s;
+  animation-duration: 5s;
 
   color: ${(props) => props.color};
 
   &:hover {
-    transform: scale(0.3);
     color: ${colorWhite};
   }
 
