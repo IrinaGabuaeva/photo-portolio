@@ -12,16 +12,13 @@ import {
 } from "../Styles";
 
 export default function About(props) {
-  //   console.log("PROPS", props);
   const [url, setUrl] = useState("/images/me2.jpeg");
-  console.log("URL", url);
   const [localMode, setLocalMode] = useState({
     bg: blueBg,
     text: colorBlack,
   });
   const bgColor =
     props.mode.name === "mixed mode" ? localMode.bg : props.mode.bg;
-  console.log("LOCAL MODE", localMode);
 
   const textColor =
     props.mode.name === "mixed mode" ? localMode.text : props.mode.text;

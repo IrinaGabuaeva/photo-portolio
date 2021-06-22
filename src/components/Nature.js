@@ -56,7 +56,7 @@ const ImageList = (props) => {
   const images = props.images.map((image) => {
     return <ImageCard classname="ImageCard" key={image.id} image={image} />;
   });
-  console.log("IMAGES", images);
+
   return (
     <StyledImageList
       className="StyledImageList"
@@ -69,13 +69,10 @@ const ImageList = (props) => {
 
 function ImageCard(props) {
   const [spans, setSpan] = useState(0);
-  console.log("IMAGECARD PROPS", props);
-  console.log("spans", spans);
   const { description, url } = props.image;
   const box = useRef();
 
   useEffect(() => {
-    console.log("BOX>CURRENT", box.current);
     box.current.addEventListener("load", setSpans);
     setSpans();
     window.addEventListener("resize", setSpans);

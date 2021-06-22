@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import {
-  colorPrimary,
   colorBlack,
   colorWhite,
   colorGrey,
-  lightGrey,
   darkGrey,
   darkShadow,
-  lightShadow,
 } from "../../Styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -18,26 +15,18 @@ function LandingPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/videos");
-      console.log("DATA:", data);
       setVideo(data);
     };
     fetchData();
   }, []);
-  console.log("VIDEO", video);
   const videoArray = Object.values(video);
-  console.log("VIDEO ARRAY", videoArray);
   const key = videoArray[0];
   const url = videoArray[1];
-  console.log("URLLL", url);
 
   return (
     <LpBox className="LpBox">
       <BgVideo className="BgVideo">
-        {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
-        {/* <source src={Video} type="video/mp4" /> */}
-
         <BgVideoContent
           key={key}
           className="BgVideoContent"
@@ -49,9 +38,6 @@ function LandingPage() {
           <source src="img/video.webm" type="video.webm" />
           Your browser is not supported!
         </BgVideoContent>
-        {/* <source src="img/video.webm" type="video.webm" />
-        Your browser is not supported!
-      </BgVideoContent> */}
       </BgVideo>
       <div></div>
       <BlackBg />
@@ -147,30 +133,6 @@ const zoomIn = keyframes`
      transform: scale(1) rotate(45deg);
   }
   `;
-// const scaleDown = keyframes`
-
-// 0%{
-//   transform: scale(1);
-//  }
-//  15% {
-//   transform: scale(.9)
-//  }
-//  30%{
-//   transform: scale(.8)
-//  }
-//  45% {
-//   transform: scale(.7)
-//  }
-//  60%{
-//   transform: scale(.6)
-//  }
-//  85% {
-//   transform: scale(.5)
-//  }
-//    100%{
-//  transform: scale(.3);
-//  }
-// `;
 
 const pulse = keyframes`
 0% {
@@ -348,7 +310,6 @@ const LpLink = styled(Link)`
   letter-spacing: 0.2rem;
   text-align: center;
   text-decoration: none;
-  // transform: rotate(-45deg), scaleY(0.9);
   animation: ${fadeIn};
   animation-duration: 5s;
 
@@ -378,21 +339,15 @@ const BlackBg = styled.div`
 
   top: 0;
   left: 0;
-  // border: 3px solid red;
 `;
 
 const BgVideo = styled.div`
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   z-index: -1;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  //   border: 1px solid green;
 `;
 
 const BgVideoContent = styled.video`
@@ -404,5 +359,4 @@ const BgVideoContent = styled.video`
   object-fit: cover;
   pointer-events: none;
   overflow: hidden;
-  // border: 1px solid pink;
 `;

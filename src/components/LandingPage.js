@@ -9,23 +9,15 @@ function LandingPage() {
   const [videoArray, setVideo] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/videos");
       setVideo(data);
     }
     fetchData();
   }, []);
-  console.log("VIDEO", videoArray);
+
   return (
     <LpBox className="LpBox">
-      {/* <BgVideo className="BgVideo"> */}
-      {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
-      {/* <source src={Video} type="video/mp4" /> */}
       <VideoList videos={videoArray} />
-      {/* <source src="img/video.webm" type="video.webm" />
-          Your browser is not supported!
-        </BgVideoContent> */}
-      {/* </BgVideo> */}
       <div></div>
       <BlackBg />
       <TextBox>
@@ -43,29 +35,15 @@ function LandingPage() {
 export default LandingPage;
 
 const VideoList = (props) => {
-  console.log("VIDEOLISTPROPS", props);
   const videos = props.videos.map((video) => {
     return <SingleVideo key={video.id} video={video} />;
   });
-  return (
-    <BgVideo className="BgVideo">
-      {/* <BgVideoContent className="BgVideoContent" autoPlay muted loop> */}
-      {/* <source src={Video} type="video/mp4" />
-      <source src="img/video.webm" type="video.webm" />
-      Your browser is not supported! */}
-      {videos}
-      {/* </BgVideoContent> */}
-    </BgVideo>
-  );
+  return <BgVideo className="BgVideo">{videos}</BgVideo>;
 };
 
 const SingleVideo = (props) => {
-  console.log("SINGLE VIDEO PROPS", props);
   const [videoUrl, setVideoUrl] = useState("");
   const url = props.video.url;
-  console.log("URL", url);
-  console.log("videoUrl", videoUrl);
-  // const stringUrl = JSON.stringify(url);
 
   return (
     <BgVideoContent className="BgVideoContent" autoPlay muted loop>

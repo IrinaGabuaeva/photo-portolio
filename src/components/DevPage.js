@@ -56,7 +56,6 @@ export default function DevPage() {
     setMode(newMode);
   };
 
-  console.log("MODE", mode);
   return (
     <Body>
       <DevNavigation toggle={toggle} mode={mode} />

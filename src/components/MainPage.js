@@ -20,7 +20,6 @@ function MainPaige(props) {
     return history.push("/");
   }
 
-  console.log("PROPS", props);
   return (
     <Main className="main">
       <Arrow src={arrow} onClick={handleClick} />

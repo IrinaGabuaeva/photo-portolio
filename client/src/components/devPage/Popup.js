@@ -7,13 +7,15 @@ export default function Popup(props) {
   return (
     <PopupBox>
       <Box>
-        {/* <CloseIcon onClick={props.handleClose}>x</CloseIcon> */}
         {props.content}
         <PopupLogo src={sunLogo} />
       </Box>
     </PopupBox>
   );
-} /* Popup style */
+}
+
+/// Popup style /////
+
 const PopupBox = styled.div`
   position: fixed;
   background: ${colorBlack};
@@ -43,23 +45,6 @@ const Box = styled.div`
   border-radius: 5px;
 `;
 
-// const CloseIcon = styled.span`
-//   content: "x";
-//   color: ${colorPrimary};
-//   cursor: pointer;
-//   position: fixed;
-//   right: calc(15% + 60px);
-//   top: calc(100vh - 60vh - 30px);
-//   background: ${colorBlack};
-//   opacity: 0.9;
-//   width: 20px;
-//   height: 20px;
-//   border-radius: 50%;
-//   line-height: 15px;
-//   text-align: center;
-//   border: 1px solid #999;
-//   font-size: 30px;
-// `;
 const PopupLogo = styled.img`
   background-color: ${colorBlack};
   width: 35px;

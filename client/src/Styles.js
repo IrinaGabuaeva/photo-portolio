@@ -1,16 +1,5 @@
 import styled from "styled-components";
 
-// export const Body = styled.body`
-//   box-sizing: border-box;
-//   font-size: 62.5%;
-//   font-family: "Tangerine", cursive;
-//   font-weight: 100;
-//   line-height: 1.7;
-//   padding: 10rem;
-//   margin: 0;
-//   border: 1px solid greenyellow;
-// `;
-
 /////// COLORS /////////
 export const colorPrimary = "#90d8f0";
 export const blueBg = "rgba(144, 216, 240, .5)";
@@ -25,6 +14,7 @@ export const darkShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
 export const lightShadow =
   "rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px";
 
+///// COMPONENTS /////
 export const Navbar = styled.div`
   align-self: stretch;
   display: flex;
@@ -74,7 +64,6 @@ export const StyledImageList = styled.div`
 
 export const Picture = styled.img`
   width: 100%;
-  position: relative;
 
   &:hover {
     cursor: pointer;

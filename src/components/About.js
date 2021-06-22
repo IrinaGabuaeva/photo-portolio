@@ -8,14 +8,11 @@ export default function About() {
   const [images, setImages] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/about");
-      console.log("DATA", data);
       setImages(data);
     }
     fetchData();
   }, []);
-  console.log("IMAGES ON STATE", images);
   return (
     <Container className="container">
       <ImageList images={images} />
@@ -26,7 +23,7 @@ const ImageList = (props) => {
   const images = props.images.map((image) => {
     return <ImageCard classname="ImageCard" key={image.id} image={image} />;
   });
-  console.log("IMAGES", images);
+
   return (
     <StyledImageList
       className="StyledImageList"
@@ -39,13 +36,10 @@ const ImageList = (props) => {
 
 function ImageCard(props) {
   const [spans, setSpan] = useState(0);
-  console.log("IMAGECARD PROPS", props);
-  console.log("spans", spans);
   const { description, url } = props.image;
   const box = useRef();
 
   useEffect(() => {
-    console.log("BOX>CURRENT", box.current);
     box.current.addEventListener("load", setSpans);
     setSpans();
     window.addEventListener("resize", setSpans);

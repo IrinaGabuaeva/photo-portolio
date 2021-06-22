@@ -11,9 +11,7 @@ export default function Nature() {
   const [url, setUrl] = useState("");
   useEffect(() => {
     async function fetchData() {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/nature");
-      console.log("DATA", data);
       setImages(data);
     }
     fetchData();

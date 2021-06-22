@@ -11,18 +11,12 @@ export default function Nyc() {
   const [url, setUrl] = useState("");
   useEffect(() => {
     async function fetchData() {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/nyc");
-      console.log("DATA", data);
       setImages(data);
     }
     fetchData();
   }, []);
-  console.log("IMAGES ON STATE", images);
-  // {
-  //   if (isOpen) {
-  //     return <Photo url={url} setIsOpen={setIsOpen} images={images} />;
-  //   } else {
+
   return (
     <div>
       <Container className="container">

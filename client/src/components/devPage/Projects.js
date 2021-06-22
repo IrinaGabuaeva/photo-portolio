@@ -12,14 +12,12 @@ import {
 } from "../../Styles";
 
 export default function Projects(props) {
-  console.log("PROJECT PROPS", props);
   const [urls, setUrls] = useState([
     "/images/portfolio.png",
     "/images/liftLog.png",
     "/images/polishd.png",
   ]);
   const [borderColor, setColor] = useState(colorBlack);
-  console.log("BORDER COLOR", borderColor);
   const color =
     props.mode.name === "mixed mode" ? borderColor : props.mode.text;
   return (

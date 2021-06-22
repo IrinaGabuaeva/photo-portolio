@@ -6,10 +6,8 @@ import close from "../Logos/close.svg";
 import { colorBlack } from "../../Styles";
 
 export default function Photo(props) {
-  // const [stateIndex, setIndex] = useState();
   const stateIndex = props.stateIndex;
   const setIndex = props.setIndex;
-  console.log("stateINDEX", stateIndex);
   const url = props.url;
   const urlArray = props.images.map((image) => {
     return image.url;
@@ -20,10 +18,6 @@ export default function Photo(props) {
   useEffect(() => {
     setIndex(index);
   }, []);
-
-  console.log("urlArray", urlArray);
-
-  console.log("Photo PROPS", props);
 
   function close() {
     props.setIsOpen(false);
@@ -43,7 +37,7 @@ export default function Photo(props) {
       setIndex(stateIndex + 1);
     }
   }
-  console.log(props.images);
+
   return (
     <PhotoBox>
       <ContentBox>
@@ -51,7 +45,6 @@ export default function Photo(props) {
           <Arrow src={leftArrow} onClick={goLeft} />
         </LeftArrowBox>
         <SinglePicture src={imageUrl} onClick={() => close()} />
-        {/* <ArrowBox src={close} /> */}
         <RightArrowBox>
           <Arrow src={rightArrow} onClick={goRight} />
         </RightArrowBox>
@@ -106,8 +99,8 @@ const Arrow = styled.img`
     height: 25px;
   }
   @media (min-width: 1800px) {
-    // width: 60px;
-    // height: 60px;
+    width: 60px;
+    height: 60px;
   }
 `;
 const ArrowBox = styled.div`

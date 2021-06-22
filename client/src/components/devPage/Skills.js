@@ -56,12 +56,10 @@ export default function Skills(props) {
 
   const bgColor =
     props.mode.name === "mixed mode" ? localMode.bg : props.mode.bg;
-  console.log("LOCAL MODE", localMode);
 
   const textColor =
     props.mode.name === "mixed mode" ? localMode.text : props.mode.text;
 
-  console.log("LOGOS", logos);
   return (
     <ContentBox id="skills" bgColor={bgColor} color={textColor}>
       <HeaderBox color={textColor}>
@@ -70,7 +68,6 @@ export default function Skills(props) {
 
       <SkillsRowDirection>
         {logos.map((logo) => {
-          console.log("MAP LOGO", logo);
           return (
             <LogoBox>
               <Logo src={logo.img} />

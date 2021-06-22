@@ -21,7 +21,6 @@ function MainPaige(props) {
     return history.push("/");
   }
 
-  console.log("PROPS", props);
   return (
     <Main className="main">
       <Arrow src={arrow} onClick={handleClick} />
@@ -186,10 +185,5 @@ export const UpArrow = styled.img`
   }
 `;
 const Content = styled.div`
-  // padding: 10px 10px;
   width: 100%;
-
-  // @media (max-width: 510px) {
-  //   padding: 15px 0 10px 0;
-  // }
 `;

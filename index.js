@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 
 const port = process.env.PORT || 5000;
-console.log("PORT!!!", port);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

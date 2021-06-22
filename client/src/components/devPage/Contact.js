@@ -28,7 +28,6 @@ export default function Contact(props) {
 
   const closePopup = () => {
     setTimeout(() => setIsOpen(false), 4000);
-    console.log("IS OPEN IN SETTIMEOUT", isOpen);
   };
 
   const nameChange = (event) => {

@@ -8,9 +8,7 @@ export default function About() {
   const [images, setImages] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      console.log("IN useEFFECT");
       const { data } = await axios.get("/api/about");
-      console.log("DATA", data);
       setImages(data);
     }
     fetchData();
@@ -18,8 +16,7 @@ export default function About() {
   const urlArray = images.map((image) => {
     return image["url"];
   });
-  console.log("URL ARRAY", urlArray);
-  console.log("IMAGES ON STATE", images);
+
   return (
     <Content>
       <SectionBox>
@@ -53,13 +50,13 @@ export default function About() {
           was a photography enthusiast. He had a Kiev camera, which he used to
           document his kids(my mother and my aunt) childhood, and then, later
           on, my cousins', my sister's and mine. I remember the fascination I
-          felt sitting in his darkroom in the attic, where he was no longer my grandfather,
-          but a mystical magician- dipping blank paper into potions, hanging it
-          and making images appear out of thin air. I grew up, but my
-          enchantment with photography never went away. Even when using digital
-          camera, I still experience the magic of stopping time for just an
-          instant, capturing a unique moment that will never ever be repeated!
-          What is that, if not magic? :){" "}
+          felt sitting in his darkroom in the attic, where he was no longer my
+          grandfather, but a mystical magician- dipping blank paper into
+          potions, hanging it and making images appear out of thin air. I grew
+          up, but my enchantment with photography never went away. Even when
+          using digital camera, I still experience the magic of stopping time
+          for just an instant, capturing a unique moment that will never ever be
+          repeated! What is that, if not magic? :){" "}
         </StoryText>
       </StoryBox>
     </Content>

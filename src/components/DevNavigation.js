@@ -70,7 +70,6 @@ const DevNavbar = styled(Navbar)`
   border-bottom: 1px solid ${colorPrimary};
   overflow: hidden;
   align-items: center;
-
   @media (max-width: 600px) {
     padding: 15px 0 15px 0;
   }
