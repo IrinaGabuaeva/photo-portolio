@@ -11,6 +11,7 @@ const s3 = new AWS.S3({
     "naturepicturesbucket",
     "nycpicturesbucket",
     "devpicturesbucket",
+    "peoplepicturesbucket",
   ],
   region: "us-east-2",
 });
