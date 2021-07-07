@@ -64,6 +64,7 @@ function LandingPage() {
             >
               Dev
             </LpLink>
+            <OpenEye></OpenEye>
           </LinkTextBox>
         </LpLinkBox>
       </TextBox>
