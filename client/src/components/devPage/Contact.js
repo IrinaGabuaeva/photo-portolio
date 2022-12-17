@@ -47,20 +47,6 @@ export default function Contact(props) {
     setMessageValue("");
   };
 
-  function validate(emailValue, nameValue, messageValue) {
-    if (emailValue.length <= 0) {
-      return true;
-    } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
-      return true;
-    } else if (nameValue.length <= 0) {
-      return true;
-    } else if (messageValue.length <= 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   function sendEmail(e) {
     e.preventDefault();
 

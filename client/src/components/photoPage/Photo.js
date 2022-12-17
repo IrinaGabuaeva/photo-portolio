@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import leftArrow from "../Logos/back.svg";
 import rightArrow from "../Logos/forward.svg";
-import close from "../Logos/close.svg";
 import { colorBlack } from "../../Styles";
 
 export default function Photo(props) {

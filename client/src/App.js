@@ -1,4 +1,3 @@
-// import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import MainPage from "./components/photoPage/MainPage";
 import LandingPage from "./components/photoPage/LandingPage";

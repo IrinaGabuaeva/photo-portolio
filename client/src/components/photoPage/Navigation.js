@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Navbar, colorPrimary } from "../../Styles";
 
-function Navigation(props) {
+function Navigation() {
   return (
     <Navbar classname="navbar">
       <StyledLink to="/art/people">People</StyledLink>

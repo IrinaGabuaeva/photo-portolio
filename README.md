@@ -8,6 +8,10 @@ In the project directory, you can run:
 
 ### `node server.js`
 
+to start client
+
+### `cd client` `npm start`
+
 to start server
 
 ### `npm start`

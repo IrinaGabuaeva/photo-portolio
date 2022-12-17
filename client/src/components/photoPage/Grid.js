@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyledImageList, Picture } from "../../Styles.js";
-import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
-import Photo from "./Photo";
 const rowHeight = 5;
 
 export const ImageList = (props) => {

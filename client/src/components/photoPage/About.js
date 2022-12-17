@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Header, lightGrey, darkGrey, colorWhite } from "../../Styles.js";
 import axios from "axios";
-import { ImageList } from "./Grid";
 import styled from "styled-components";
 
 export default function About() {

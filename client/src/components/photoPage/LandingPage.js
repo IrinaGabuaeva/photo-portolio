@@ -1,14 +1,14 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import {
   colorBlack,
-  colorWhite,
   colorGrey,
+  colorWhite,
   darkGrey,
   darkShadow,
 } from "../../Styles";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function LandingPage() {
   const [video, setVideo] = useState("");
@@ -92,7 +92,6 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
-
 //fix this(so the element doesn't flow away from page)
 const open = keyframes`
 0% {
@@ -111,12 +110,6 @@ const fadeOut = keyframes`
   100% {
     opacity: 0;
   } 
-`;
-
-const slideIn = (direction) => keyframes`
-0% {
-  margin-${direction}: -100%;
-}
 `;
 
 const slideInVertical = (verticalDirection) => keyframes`
@@ -188,6 +181,7 @@ const LpBox = styled.div`
   left: 7px;
   position: absolute;
 `;
+
 const TextBox = styled.div`
   width: 100%;
   display: flex;
@@ -287,10 +281,6 @@ const OpenEye = styled.div`
     ${colorGrey}
   );
   opacity: 0.3;
-  // (255, 205, 148),
-  // (255, 224, 189),
-  // (234, 192, 134),
-  // (255, 224, 189),
 
   animation-name: ${open};
   animation-duration: 1s;

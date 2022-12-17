@@ -1,7 +1,6 @@
-import Video from "./video/IMG_3764 copy.mp4";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import { colorPrimary, colorBlack } from "../Styles";
+import { colorBlack } from "../Styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -42,7 +41,6 @@ const VideoList = (props) => {
 };
 
 const SingleVideo = (props) => {
-  const [videoUrl, setVideoUrl] = useState("");
   const url = props.video.url;
 
   return (
@@ -203,24 +201,17 @@ const BlackBg = styled.div`
   width: 100%;
   opacity: 0;
   transition: opacity 7s ease-in;
-
   top: 0;
   left: 0;
-  // border: 3px solid red;
 `;
 
 const BgVideo = styled.div`
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   z-index: -1;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  //   border: 1px solid green;
 `;
 
 const BgVideoContent = styled.video`
@@ -232,5 +223,4 @@ const BgVideoContent = styled.video`
   object-fit: cover;
   pointer-events: none;
   overflow: hidden;
-  // border: 1px solid pink;
 `;
